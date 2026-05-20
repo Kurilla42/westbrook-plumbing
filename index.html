@@ -214,8 +214,9 @@
     ═══════════════════════════════════════ */
     .props-section { background:#F7F4ED; padding:96px 0; }
     .props-container { max-width:1240px; margin:0 auto; padding:0 24px; }
-    .props-header { text-align:center; margin-bottom:48px; }
+    .props-header { text-align:left; margin-bottom:48px; }
     .props-header .pill { margin-bottom:16px; }
+    @media (max-width:1023px) { .about-pics { display:none !important; } }
     .props-grid { display:grid; grid-template-columns:repeat(5,1fr); }
     .prop-card { padding:0 24px; position:relative; }
     .prop-card:first-child { padding-left:0; }
@@ -836,30 +837,47 @@
 ════════════════════════════════════════════════ -->
 <section id="about" style="padding:96px 0;background:#F7F4ED;">
   <div class="mx-auto px-6" style="max-width:1240px;">
-    <div class="grid grid-cols-1 lg:grid-cols-12" style="gap:48px;align-items:center;">
+    <div class="grid grid-cols-1 lg:grid-cols-12" style="gap:48px;align-items:stretch;">
 
-      <!-- Left: eyebrow + headline + description -->
+      <!-- Left: eyebrow + headline + description + trust markers + photos -->
       <div class="lg:col-span-5" style="display:flex;flex-direction:column;">
-        <span class="pill" style="align-self:flex-start;color:#B8873B;border-color:#B8873B;">How We Work</span>
-        <div style="height:16px;"></div>
-        <h2 class="font-display font-semibold t-h2" style="color:#0F1B26;">Built for Pre-1980 <em class="ig">A</em>ustin Homes</h2>
-        <div style="height:24px;"></div>
-        <p class="font-body" style="font-size:16px;line-height:1.65;max-width:400px;color:rgba(15,27,38,.70);">We handle plumbing as one connected system &mdash; water main, supply lines, drainage, fixtures, and venting. Most leaks are symptoms; we find the cause so the same pipe doesn&rsquo;t fail twice. Honest pricing, written before any work begins.</p>
-        <!-- Trust markers -->
-        <div style="margin-top:32px;display:flex;flex-direction:column;">
-          <div style="display:flex;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid rgba(15,27,38,.10);">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true" style="flex-shrink:0;"><path d="M2 7l3.5 3.5L12 3" stroke="#B8873B" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span class="font-mono" style="font-size:11.5px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(15,27,38,.65);">Licensed Master Plumber &middot; TX RMP-43521</span>
+
+        <!-- TOP GROUP: pill / h2 / desc — anchored to top -->
+        <div>
+          <span class="pill" style="align-self:flex-start;color:#B8873B;border-color:#B8873B;">How We Work</span>
+          <div style="height:16px;"></div>
+          <h2 class="font-display font-semibold t-h2" style="color:#0F1B26;">Built for Pre-1980 <em class="ig">A</em>ustin Homes</h2>
+          <div style="height:24px;"></div>
+          <p class="font-body" style="font-size:16px;line-height:1.65;max-width:400px;color:rgba(15,27,38,.70);">We handle plumbing as one connected system &mdash; water main, supply lines, drainage, fixtures, and venting. Most leaks are symptoms; we find the cause so the same pipe doesn&rsquo;t fail twice. Honest pricing, written before any work begins.</p>
+        </div>
+
+        <!-- SPACER: pushes trust markers + photos to bottom -->
+        <div style="flex:1;min-height:24px;"></div>
+
+        <!-- BOTTOM GROUP: trust markers + photos — anchored to bottom of card 3 -->
+        <div>
+          <!-- Trust markers -->
+          <div style="display:flex;flex-direction:column;">
+            <div style="display:flex;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid rgba(15,27,38,.10);">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true" style="flex-shrink:0;"><path d="M2 7l3.5 3.5L12 3" stroke="#B8873B" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span class="font-mono" style="font-size:11.5px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(15,27,38,.65);">Licensed Master Plumber &middot; TX RMP-43521</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid rgba(15,27,38,.10);">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true" style="flex-shrink:0;"><path d="M2 7l3.5 3.5L12 3" stroke="#B8873B" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span class="font-mono" style="font-size:11.5px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(15,27,38,.65);">Same-day written quotes &middot; no surprises</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;padding:12px 0;">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true" style="flex-shrink:0;"><path d="M2 7l3.5 3.5L12 3" stroke="#B8873B" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span class="font-mono" style="font-size:11.5px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(15,27,38,.65);">Manufacturer-backed warranties &middot; up to 10 years</span>
+            </div>
           </div>
-          <div style="display:flex;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid rgba(15,27,38,.10);">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true" style="flex-shrink:0;"><path d="M2 7l3.5 3.5L12 3" stroke="#B8873B" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span class="font-mono" style="font-size:11.5px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(15,27,38,.65);">Same-day written quotes &middot; no surprises</span>
-          </div>
-          <div style="display:flex;align-items:center;gap:10px;padding:12px 0;">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true" style="flex-shrink:0;"><path d="M2 7l3.5 3.5L12 3" stroke="#B8873B" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span class="font-mono" style="font-size:11.5px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(15,27,38,.65);">Manufacturer-backed warranties &middot; up to 10 years</span>
+          <!-- Photos row — desktop only -->
+          <div class="about-pics" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px;">
+            <img src="assets/cinematic-deep.jpeg" alt="Austin home plumbing — cinematic" style="width:100%;aspect-ratio:4/3;border-radius:12px;object-fit:cover;display:block;">
+            <img src="assets/bathroom-tub.jpeg" alt="Finished bathroom — tub and tile" style="width:100%;aspect-ratio:4/3;border-radius:12px;object-fit:cover;display:block;">
           </div>
         </div>
+
       </div>
 
       <!-- Right: 3 service cards -->
@@ -1209,9 +1227,11 @@
 ════════════════════════════════════════════════ -->
 <section class="ba-section" id="home-types" aria-labelledby="ba-h2">
   <div class="ba-container">
-    <span class="pill">Our Work</span>
-    <div style="height:16px;"></div>
-    <h2 id="ba-h2" class="ba-h2">What we walked <em class="ig">i</em>nto.<br>What we left.</h2>
+    <div style="text-align:center;">
+      <span class="pill">Our Work</span>
+      <div style="height:16px;"></div>
+      <h2 id="ba-h2" class="ba-h2">What we walked <em class="ig">i</em>nto. What we left.</h2>
+    </div>
     <div style="height:64px;"></div>
     <div class="ba-grid">
 
