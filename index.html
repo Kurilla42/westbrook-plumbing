@@ -125,7 +125,7 @@
     ═══════════════════════════════════════ */
     .hero-section { padding:24px; }
     @media (max-width:767px) { .hero-section { padding:12px; } }
-    .hero-container { position:relative; border-radius:24px; overflow:hidden; height:clamp(640px,100svh,720px); background-color:#082030; background-size:cover; background-position:center; }
+    .hero-container { position:relative; border-radius:24px; overflow:hidden; height:clamp(640px,100svh,720px); background-color:#0E2A3F; background-size:cover; background-position:center; }
     @media (min-width:768px) { .hero-container { height:clamp(640px,100svh,820px); } }
     .hero-vid { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center right; opacity:0; will-change:opacity; transition:opacity 700ms ease-in-out; z-index:0; }
     .hero-vid.vid-active { opacity:1; }
@@ -437,8 +437,11 @@
     /* Fix 6 — Hero: скрыть "Tap to call" строку на десктопе */
     @media (min-width:768px) { .hero-divider-group { display:none !important; } }
 
-    /* Fix 10 — The Approach: скрыть фото на мобильном */
+    /* The Approach: скрыть фото на мобильном */
     @media (max-width:767px) { .approach-photo { display:none !important; } }
+    /* The Approach: инсет + скругление только на десктопе */
+    .approach-wrap { position:relative; overflow:hidden; background:url('assets/cinematic-deep-2.jpeg') center/cover no-repeat; }
+    @media (min-width:768px) { .approach-wrap { margin:0 24px; border-radius:24px; } }
 
     /* Hero mobile: license pills visible but 20% smaller so they don't overlap the button */
     @media (max-width:767px) {
@@ -846,9 +849,10 @@
 <!-- ════════════════════════════════════════════════
      07 · HANDLE AS ONE SYSTEM  (source: Westbrook Plumbing Co.html §5)
 ════════════════════════════════════════════════ -->
-<section id="system" style="padding:96px 0; position:relative; background:url('assets/cinematic-deep-2.jpeg') center/cover no-repeat;">
+<section id="system" style="padding:96px 0;">
+  <div class="approach-wrap">
   <div style="position:absolute;inset:0;background:rgba(8,32,48,0.10);pointer-events:none;" aria-hidden="true"></div>
-  <div class="mx-auto px-6" style="max-width:1240px; position:relative; z-index:1;">
+  <div class="mx-auto px-6" style="max-width:1240px; position:relative; z-index:1; padding-top:64px; padding-bottom:64px;">
     <div class="grid grid-cols-1 md:grid-cols-12" style="gap:48px;align-items:stretch;">
 
       <div class="md:col-span-5">
@@ -890,6 +894,7 @@
 
     </div>
   </div>
+  </div><!-- /.approach-wrap -->
 </section>
 
 
