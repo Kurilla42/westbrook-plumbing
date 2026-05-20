@@ -1,0 +1,1661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Westbrook Plumbing Co. — Licensed family plumbers serving Austin, TX and surrounding cities since 2000. 24/7 emergency service, flat-rate pricing, same-day dispatch.">
+  <title>Westbrook Plumbing Co. — Austin, TX</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,300&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,500&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CDN — required for earlier-render sections -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bone: '#F7F4ED', paper: '#EDE8DE',
+            ink: '#0F1B26', 'ink-soft': '#3B4A5C',
+            graphite: '#6B7280', midnight: '#0E2A3F',
+            'mid-deep': '#082030', brass: '#B8873B', signal: '#C23B2A',
+          },
+          fontFamily: {
+            display: ['Fraunces', 'Georgia', 'serif'],
+            body:    ['Instrument Sans', 'sans-serif'],
+            mono:    ['JetBrains Mono', 'monospace'],
+          },
+          maxWidth: { container: '1240px' },
+          boxShadow: {
+            card:  '0 1px 3px rgba(15,27,38,0.06)',
+            hover: '0 8px 24px rgba(15,27,38,0.08)',
+          },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* ═══════════════════════════════════════
+       RESET & BASE
+    ═══════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 120px; }
+    body { background: #F7F4ED; font-family: 'Instrument Sans', sans-serif; color: #0F1B26; -webkit-font-smoothing: antialiased; }
+    img, svg { display: block; }
+    *:focus-visible { outline: 2px solid #B8873B; outline-offset: 2px; }
+    :root { --bone:#F7F4ED; --paper:#EDE8DE; --ink:#0F1B26; --midnight:#0E2A3F; --brass:#B8873B; --signal:#C23B2A; --graphite:#6B7280; }
+
+    /* ═══════════════════════════════════════
+       SHARED ATOMS
+    ═══════════════════════════════════════ */
+    .ig { font-style:italic; font-weight:300; font-variation-settings:'opsz' 9; }
+
+    .pill {
+      display:inline-flex; align-items:center;
+      border:1px solid currentColor; border-radius:999px;
+      padding:4px 12px;
+      font-family:'Instrument Sans',sans-serif;
+      font-size:0.6875rem; font-weight:600;
+      text-transform:uppercase; letter-spacing:0.12em; color:#0F1B26;
+    }
+    .pill-b  { color:#F7F4ED; }
+    .pill-br { color:#B8873B; }
+
+    .sec-h2 {
+      font-family:'Fraunces',Georgia,serif; font-weight:600;
+      font-size:clamp(2rem,4vw,3.25rem); line-height:1.0;
+      letter-spacing:-0.02em; color:#0F1B26;
+    }
+
+    /* Photo placeholders */
+    .ph {
+      background-color:#EDE8DE;
+      background-image:repeating-linear-gradient(-45deg,transparent,transparent 5px,rgba(15,27,38,.04) 5px,rgba(15,27,38,.04) 6px);
+      display:flex; align-items:center; justify-content:center; padding:20px;
+      font-family:'JetBrains Mono',monospace; font-size:10px; line-height:1.5; text-align:center;
+    }
+    .ph-label { font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:500; color:#6B7280; text-align:center; line-height:1.7; }
+    .ph-l    { background-image:none; background-color:#EDE8DE; color:#6B7280; }
+    .ph-d    { background-image:none; background-color:#082030; color:rgba(247,244,237,.25); }
+    .ph-hero { background-image:none; background:linear-gradient(155deg,#0C2336 0%,#082030 55%,#040e17 100%); color:rgba(247,244,237,.28); font-size:11px; }
+    .ph-warm { background-image:none; background:linear-gradient(135deg,#A0845A 0%,#7A6040 100%); color:rgba(15,27,38,.35); }
+
+    /* Fluid type (earlier-render sections) */
+    .t-hero   { font-size:clamp(2.75rem,8vw,6.5rem);  line-height:1.0; letter-spacing:-0.02em; }
+    .t-h2     { font-size:clamp(2rem,4vw,3.5rem);     line-height:1.0; letter-spacing:-0.02em; }
+    .t-h3     { font-size:1.375rem; line-height:1.2; }
+    .t-rating { font-size:clamp(5rem,12vw,9rem);       line-height:0.9; }
+    .t-price  { font-size:clamp(2.5rem,5vw,3.5rem);   line-height:1.0; letter-spacing:-0.02em; }
+    .t-cta    { font-size:clamp(2.5rem,6vw,5rem);     line-height:1.0; letter-spacing:-0.02em; }
+
+    /* Earlier-render utilities */
+    .nav-a { font-size:14px; font-weight:500; text-decoration:none; color:#0F1B26; transition:opacity .15s ease-out; }
+    .nav-a:hover { opacity:.5; }
+    .btn { display:inline-flex; align-items:center; gap:12px; border-radius:12px; padding:14px 24px; font-family:'Instrument Sans',sans-serif; font-weight:600; font-size:15px; text-decoration:none; border:none; cursor:pointer; transition:opacity .15s ease-out; }
+    .btn:hover { opacity:.88; }
+    .btn:hover .bi { transform:translateX(2px); }
+    .btn-d { background:#0F1B26; color:#F7F4ED; }
+    .btn-l { background:#F7F4ED; color:#0F1B26; }
+    .bi { width:24px; height:24px; border-radius:3px; display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:transform .15s ease-out; }
+    .btn-d .bi { background:#0E2A3F; }
+    .btn-l .bi { background:#0F1B26; }
+    .btn-sm { display:inline-block; background:#F7F4ED; color:#0F1B26; border-radius:8px; padding:8px 14px; font-size:13px; font-weight:500; font-family:'Instrument Sans',sans-serif; text-decoration:none; transition:opacity .15s ease-out; }
+    .btn-sm:hover { opacity:.7; }
+    .card { transition:transform .15s ease-out, box-shadow .15s ease-out; }
+    .card:hover { transform:translateY(-2px); box-shadow:0 8px 24px rgba(15,27,38,.08); }
+    .icon-sq { width:32px; height:32px; background:#EDE8DE; border-radius:8px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .hr  { border:none; border-top:1px solid rgba(15,27,38,.1); }
+    .star { color:#B8873B; }
+
+    .hero-wrap { height:calc(100svh - 112px); min-height:480px; }
+    .cine-wrap { height:280px; }
+    .cta-wrap  { height:420px; }
+    @media (min-width:768px) { .hero-wrap { height:640px; } .cine-wrap { height:480px; } .cta-wrap { height:560px; } }
+
+    .subcard-grid { display:grid; grid-template-columns:1fr; gap:16px; align-items:start; }
+    @media (min-width:640px) { .subcard-grid { grid-template-columns:65fr 35fr; } }
+
+    @media (prefers-reduced-motion:reduce) { *, *::before, *::after { transition-duration:.01ms !important; animation-duration:.01ms !important; } }
+
+    /* ═══════════════════════════════════════
+       HERO SECTION
+    ═══════════════════════════════════════ */
+    .hero-section { padding:24px; }
+    .hero-container { position:relative; border-radius:24px; overflow:hidden; height:clamp(640px,100svh,720px); background-color:#082030; background-size:cover; background-position:center; }
+    @media (min-width:768px) { .hero-container { height:clamp(640px,100svh,820px); } }
+    #hero-video { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center right; opacity:0; will-change:opacity; transition:opacity 400ms ease-out; z-index:0; }
+    #hero-video.loaded { opacity:1; }
+    @media (max-width:767px) { #hero-video { display:none !important; } }
+    @media (prefers-reduced-motion:reduce) { #hero-video { display:none !important; } }
+    .hero-overlay { position:absolute; inset:0; z-index:1; pointer-events:none; background:linear-gradient(135deg,rgba(15,27,38,.55) 0%,rgba(15,27,38,.40) 35%,rgba(14,42,63,.60) 70%,rgba(15,27,38,.82) 100%); }
+    .hero-content { position:absolute; inset:0; z-index:2; padding:48px; display:flex; align-items:center; }
+    @media (max-width:767px) { .hero-content { padding:24px; align-items:flex-start; padding-top:36px; } }
+    .hero-left { width:100%; max-width:720px; display:flex; flex-direction:column; gap:20px; }
+    @media (min-width:1024px) { .hero-left { width:58.33%; } }
+    @media (min-width:768px) and (max-width:1023px) { .hero-left { width:70%; } }
+    .hero-pill { display:inline-flex; align-items:center; gap:6px; border:1px solid rgba(247,244,237,.6); border-radius:999px; padding:6px 12px; background:rgba(14,42,63,.4); font-family:'Instrument Sans',sans-serif; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.12em; color:#F7F4ED; width:fit-content; }
+    .hero-h1 { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:clamp(2.75rem,7vw,5.5rem); line-height:0.98; letter-spacing:-0.02em; color:#F7F4ED; margin:0; }
+    @media (max-width:767px) { .hero-h1 { font-size:clamp(2.25rem,9vw,3rem); } }
+    .hero-h1 em { font-style:italic; font-weight:300; font-variation-settings:'opsz' 9; }
+    .hero-divider-group { display:flex; flex-direction:column; gap:0; }
+    .hero-brass-rule { width:80px; height:1px; background:#B8873B; margin:8px 0; }
+    .hero-mini-stamp { font-family:'Instrument Sans',sans-serif; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.14em; color:#B8873B; }
+    .hero-phone { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:clamp(3rem,8.5vw,6.5rem); line-height:1.0; letter-spacing:-0.025em; color:#F7F4ED; text-decoration:none; display:inline-block; transition:color 150ms ease-out; }
+    .hero-phone:hover { color:#B8873B; }
+    @media (max-width:767px) { .hero-phone { font-size:clamp(2.5rem,11vw,3.5rem); } }
+    .hero-subhead { font-size:15px; font-weight:500; line-height:1.5; color:rgba(247,244,237,.80); max-width:460px; }
+    .hero-phone-group { display:flex; flex-direction:column; gap:12px; }
+    .hero-cta-row { display:flex; flex-direction:row; gap:12px; flex-wrap:wrap; }
+    .btn-primary { display:inline-flex; align-items:center; gap:8px; background:#F7F4ED; color:#0F1B26; border:none; border-radius:12px; padding:16px 24px; font-family:'Instrument Sans',sans-serif; font-size:15px; font-weight:600; text-decoration:none; cursor:pointer; transition:opacity 150ms ease-out; min-height:44px; white-space:nowrap; }
+    .btn-primary:hover { opacity:.88; }
+    .btn-primary:hover .btn-arrow-box { transform:translateX(2px); }
+    .btn-arrow-box { width:24px; height:24px; background:#0F1B26; border-radius:5px; display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:transform 150ms ease-out; }
+    .btn-ghost { display:inline-flex; align-items:center; background:transparent; color:#F7F4ED; border:1px solid rgba(247,244,237,.5); border-radius:12px; padding:16px 24px; font-family:'Instrument Sans',sans-serif; font-size:15px; font-weight:600; text-decoration:none; cursor:pointer; transition:border-color 150ms ease-out, background 150ms ease-out; min-height:44px; white-space:nowrap; }
+    .btn-ghost:hover { border-color:rgba(247,244,237,1); background:rgba(247,244,237,.05); }
+    .trust-cluster { position:absolute; z-index:3; bottom:24px; left:24px; right:24px; display:flex; flex-wrap:wrap; gap:6px; }
+    @media (min-width:768px) and (max-width:1023px) { .trust-cluster { bottom:36px; right:36px; left:auto; display:grid; grid-template-columns:1fr 1fr; gap:7px; } }
+    @media (min-width:1024px) { .trust-cluster { bottom:48px; right:48px; left:auto; display:grid; grid-template-columns:1fr 1fr; gap:8px; } }
+    .trust-badge { display:flex; align-items:center; gap:6px; background:rgba(247,244,237,.10); border:1px solid rgba(247,244,237,.25); border-radius:6px; padding:8px 12px; }
+    .trust-badge span { font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:500; color:#F7F4ED; white-space:nowrap; }
+
+    /* ═══════════════════════════════════════
+       TRUST STRIP
+    ═══════════════════════════════════════ */
+    .trust-strip { background:#0E2A3F; width:100%; }
+    .trust-strip-inner { max-width:1240px; margin:0 auto; padding:0 24px; height:96px; display:flex; align-items:center; justify-content:space-evenly; }
+    .trust-item { display:flex; align-items:center; gap:9px; flex-shrink:0; }
+    .trust-stars { color:#B8873B; font-size:11px; letter-spacing:1.5px; line-height:1; flex-shrink:0; }
+    .trust-icon { flex-shrink:0; display:flex; align-items:center; }
+    .trust-text { display:flex; flex-direction:column; gap:3px; }
+    .trust-main { font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:500; color:#F7F4ED; letter-spacing:0.08em; line-height:1; }
+    .trust-sub { font-family:'Instrument Sans',sans-serif; font-size:12px; font-weight:400; color:rgba(247,244,237,.70); line-height:1; }
+    .trust-div { width:1px; height:32px; background:rgba(184,135,59,.30); flex-shrink:0; }
+    @media (max-width:767px) {
+      .trust-strip-inner { height:auto; padding:24px; display:grid; grid-template-columns:1fr 1fr 1fr; gap:20px 12px; align-items:start; }
+      .trust-div { display:none; }
+      .trust-item:nth-child(-n+5) { padding-bottom:20px; border-bottom:1px solid rgba(184,135,59,.20); }
+    }
+
+    /* ═══════════════════════════════════════
+       ZIP / SERVICE AREA
+    ═══════════════════════════════════════ */
+    .zip-section { background:#F7F4ED; padding:80px 0; }
+    .zip-container { max-width:1240px; margin:0 auto; padding:0 24px; }
+    .zip-grid { display:grid; grid-template-columns:5fr 7fr; gap:48px; align-items:center; }
+    .zip-body { font-size:16px; font-weight:400; line-height:1.55; color:#3B4A5C; max-width:440px; }
+    .zip-form-card { background:#EDE8DE; border-radius:16px; padding:24px; }
+    .zip-form-row { display:flex; flex-direction:row; gap:12px; align-items:stretch; }
+    #zip-input { flex:1; height:56px; background:#F7F4ED; border-radius:12px; border:2px solid transparent; box-shadow:inset 0 0 0 1px rgba(15,27,38,.15); padding:0 20px; font-family:'Instrument Sans',sans-serif; font-size:16px; font-weight:500; color:#0F1B26; outline:none; -webkit-appearance:none; transition:border-color 150ms ease-out, box-shadow 150ms ease-out; }
+    #zip-input::placeholder { color:#6B7280; font-weight:400; }
+    #zip-input:focus { border-color:#B8873B; box-shadow:none; }
+    .zip-btn { height:56px; background:#0F1B26; color:#F7F4ED; border:none; border-radius:12px; padding:0 24px; font-family:'Instrument Sans',sans-serif; font-size:15px; font-weight:600; cursor:pointer; white-space:nowrap; transition:background 150ms ease-out; display:inline-flex; align-items:center; gap:5px; }
+    .zip-btn:hover { background:#082030; }
+    .zip-btn .zig-arrow { transition:transform 150ms ease-out; display:inline-block; }
+    .zip-btn:hover .zig-arrow { transform:translateX(2px); }
+    #zip-result { display:none; opacity:0; margin-top:16px; }
+    .zip-browse { display:inline-block; margin-top:16px; font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:500; color:#6B7280; text-decoration:none; transition:color 150ms ease-out; }
+    .zip-browse:hover { color:#B8873B; }
+    @media (max-width:767px) { .zip-grid { grid-template-columns:1fr; gap:32px; } .zip-form-row { flex-direction:column; align-items:stretch; } .zip-btn { height:52px; justify-content:center; } #zip-input { height:52px; } }
+
+    /* ═══════════════════════════════════════
+       VALUE PROPS
+    ═══════════════════════════════════════ */
+    .props-section { background:#F7F4ED; padding:96px 0; }
+    .props-container { max-width:1240px; margin:0 auto; padding:0 24px; }
+    .props-header { text-align:center; margin-bottom:48px; }
+    .props-header .pill { margin-bottom:16px; }
+    .props-grid { display:grid; grid-template-columns:repeat(5,1fr); }
+    .prop-card { padding:0 24px; position:relative; }
+    .prop-card:first-child { padding-left:0; }
+    .prop-card:last-child  { padding-right:0; }
+    .prop-card + .prop-card::before { content:''; position:absolute; left:0; top:10%; height:80%; width:1px; background:rgba(184,135,59,.25); }
+    .prop-num { font-family:'JetBrains Mono',monospace; font-size:14px; font-weight:500; color:#B8873B; letter-spacing:0.05em; line-height:1; }
+    .prop-rule { width:32px; height:1px; background:#B8873B; margin:16px 0; }
+    .prop-title { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:20px; line-height:1.15; color:#0F1B26; margin-bottom:12px; }
+    .prop-desc { font-size:14px; font-weight:400; line-height:1.5; color:#3B4A5C; }
+    @media (min-width:768px) and (max-width:1023px) { .prop-card { padding:0 16px; } .prop-card:first-child { padding-left:0; } .prop-card:last-child { padding-right:0; } .prop-title { font-size:17px; } .prop-desc { font-size:13px; } }
+    @media (max-width:767px) { .props-grid { grid-template-columns:1fr; } .prop-card { padding:0 0 32px 0; } .prop-card:last-child { padding-bottom:0; } .prop-card + .prop-card::before { display:none; } .prop-card + .prop-card { border-top:1px solid rgba(184,135,59,.25); padding-top:32px; } }
+
+    /* ═══════════════════════════════════════
+       PRICING
+    ═══════════════════════════════════════ */
+    .pricing-section { background:#F7F4ED; padding:96px 0; }
+    .pricing-container { max-width:1080px; margin:0 auto; padding:0 24px; }
+    .pricing-header { text-align:center; }
+    .pricing-h2 { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:clamp(2.25rem,4.5vw,3.75rem); line-height:1.0; letter-spacing:-0.02em; color:#0F1B26; }
+    .pricing-sub { font-family:'Instrument Sans',sans-serif; font-size:17px; font-weight:400; line-height:1.55; color:#3B4A5C; max-width:560px; margin:0 auto; }
+    .price-grid { display:grid; grid-template-columns:1fr 1fr 1fr; }
+    .price-col { position:relative; padding:0 36px; text-align:center; }
+    .price-col:first-child { padding-left:0; }
+    .price-col:last-child  { padding-right:0; }
+    .price-col + .price-col::before { content:''; position:absolute; left:0; top:10%; height:80%; width:1px; background:rgba(184,135,59,.25); }
+    .price-eyebrow { font-family:'Instrument Sans',sans-serif; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.12em; color:#B8873B; }
+    .price-starts-at { font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:500; color:#6B7280; }
+    .price-amount { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:clamp(3rem,6vw,4.5rem); line-height:0.95; color:#0F1B26; letter-spacing:-0.02em; }
+    .price-hr { width:40px; height:1px; background:#B8873B; margin:0 auto; }
+    .price-desc { font-family:'Instrument Sans',sans-serif; font-size:14px; font-weight:400; line-height:1.55; color:#3B4A5C; max-width:260px; margin:0 auto; }
+    .owners-promise { text-align:center; max-width:680px; margin:0 auto; }
+    .owners-hr { width:60px; height:1px; background:#B8873B; margin:0 auto; }
+    .owners-quote { font-family:'Fraunces',Georgia,serif; font-style:italic; font-weight:400; font-size:clamp(1.25rem,1.6vw + 0.4rem,1.5rem); line-height:1.4; color:#0F1B26; }
+    .owners-attribution { font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:500; text-transform:uppercase; letter-spacing:0.14em; color:#B8873B; }
+    @media (max-width:767px) { .pricing-section { padding:64px 0; } .price-grid { grid-template-columns:1fr; } .price-col { padding:0 0 48px 0; } .price-col:last-child { padding-bottom:0; } .price-col + .price-col { padding-top:48px; } .price-col + .price-col::before { top:0; left:0; width:100%; height:1px; } }
+
+    /* ═══════════════════════════════════════
+       PROCESS TIMELINE
+    ═══════════════════════════════════════ */
+    .process-section { background:#EDE8DE; padding:96px 0; }
+    .process-container { max-width:1240px; margin:0 auto; padding:0 24px; }
+    .process-header { text-align:center; margin-bottom:80px; }
+    .process-h2 { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:clamp(2rem,4vw,3.25rem); line-height:1.0; letter-spacing:-0.02em; color:#0F1B26; }
+    .process-sub { font-family:'Instrument Sans',sans-serif; font-size:16px; font-weight:400; line-height:1.55; color:#3B4A5C; max-width:520px; margin:0 auto; }
+    .process-timeline { display:flex; flex-direction:row; align-items:flex-start; position:relative; }
+    .process-connector { position:absolute; top:48px; left:8%; right:25%; height:1px; background:rgba(184,135,59,.30); pointer-events:none; }
+    .process-step { flex:1 1 0; padding-right:40px; min-width:0; }
+    .process-step:last-child { padding-right:0; }
+    .step-num { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:clamp(4rem,7vw,6rem); line-height:0.9; letter-spacing:-0.02em; color:#B8873B; }
+    .step-div { width:32px; height:1px; background:#0F1B26; margin-top:8px; margin-bottom:16px; }
+    .step-title { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:20px; line-height:1.2; color:#0F1B26; margin-bottom:12px; }
+    .step-desc { font-family:'Instrument Sans',sans-serif; font-size:14px; font-weight:400; line-height:1.55; color:#3B4A5C; max-width:220px; margin-bottom:20px; }
+    .step-mono { font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:500; text-transform:uppercase; letter-spacing:0.08em; color:#6B7280; }
+    @media (max-width:767px) {
+      .process-section { padding:64px 0; } .process-header { margin-bottom:48px; }
+      .process-timeline { flex-direction:column; padding-left:40px; gap:48px; }
+      .process-timeline::before { content:''; position:absolute; left:24px; top:0; bottom:0; width:1px; background:rgba(184,135,59,.30); }
+      .process-connector { display:none; }
+      .process-step { padding-right:0; width:100%; }
+      .step-num { font-size:clamp(3rem,9vw,4rem); } .step-desc { max-width:none; }
+    }
+
+    /* ═══════════════════════════════════════
+       MEET THE CREW
+    ═══════════════════════════════════════ */
+    .crew-section { background:#F7F4ED; padding:96px 0; }
+    .crew-container { max-width:1240px; margin:0 auto; padding:0 24px; }
+    .crew-header { text-align:center; max-width:640px; margin:0 auto; }
+    .crew-sub { font-family:'Instrument Sans',sans-serif; font-size:16px; font-weight:400; line-height:1.55; color:#3B4A5C; }
+    .founder-grid { display:grid; grid-template-columns:5fr 7fr; gap:48px; align-items:center; }
+    .founder-photo { width:100%; aspect-ratio:4/5; border-radius:24px; overflow:hidden; }
+    .founder-index { font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:500; color:#B8873B; letter-spacing:0.08em; text-transform:uppercase; }
+    .founder-name { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:36px; line-height:1.05; color:#0F1B26; }
+    .founder-role { font-family:'Instrument Sans',sans-serif; font-size:16px; font-weight:500; color:#3B4A5C; }
+    .founder-bio { font-family:'Instrument Sans',sans-serif; font-size:17px; font-weight:400; line-height:1.6; color:rgba(15,27,38,.9); }
+    .founder-q-rule { width:40px; height:1px; background:#B8873B; }
+    .founder-quote { font-family:'Fraunces',Georgia,serif; font-style:italic; font-weight:400; font-size:20px; line-height:1.4; color:#0F1B26; margin:0; }
+    .founder-attr { font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:500; text-transform:uppercase; letter-spacing:0.12em; color:#B8873B; font-style:normal; display:block; }
+    .crew-row1 { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+    .crew-row2 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:24px; margin-top:24px; }
+    .crew-tile { border-radius:16px; overflow:hidden; background:#EDE8DE; display:flex; flex-direction:row; min-height:320px; }
+    .crew-tile-photo { width:50%; flex-shrink:0; }
+    .crew-tile-info { width:50%; padding:28px 24px; display:flex; flex-direction:column; justify-content:center; }
+    .crew-compact-photo { width:100%; aspect-ratio:1; border-radius:16px; overflow:hidden; }
+    .crew-index { font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:500; color:#B8873B; letter-spacing:0.1em; text-transform:uppercase; }
+    .crew-tile-name { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:24px; line-height:1.1; color:#0F1B26; }
+    .crew-tile-role { font-family:'Instrument Sans',sans-serif; font-size:14px; font-weight:500; color:#3B4A5C; }
+    .crew-tile-since { font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:500; color:#6B7280; text-transform:uppercase; letter-spacing:0.08em; }
+    .crew-q-rule { height:1px; background:#B8873B; }
+    .crew-tile-quote { font-family:'Fraunces',Georgia,serif; font-style:italic; font-weight:400; font-size:16px; line-height:1.45; color:#0F1B26; margin:0; }
+    .crew-compact-name { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:20px; line-height:1.15; color:#0F1B26; }
+    .crew-compact-role { font-family:'Instrument Sans',sans-serif; font-size:13px; font-weight:500; color:#3B4A5C; }
+    .crew-compact-quote { font-family:'Fraunces',Georgia,serif; font-style:italic; font-weight:400; font-size:14px; line-height:1.5; color:#3B4A5C; margin:0; }
+    @media (min-width:768px) and (max-width:1023px) { .crew-tile { flex-direction:column; min-height:auto; } .crew-tile-photo { width:100%; min-height:200px; } .crew-tile-info { width:100%; } }
+    @media (max-width:767px) { .crew-section { padding:64px 0; } .founder-grid { grid-template-columns:1fr; gap:32px; } .crew-row1 { grid-template-columns:1fr; } .crew-tile { flex-direction:column; min-height:auto; } .crew-tile-photo { width:100%; min-height:220px; } .crew-tile-info { width:100%; } .crew-row2 { grid-template-columns:1fr 1fr; } }
+
+    /* ═══════════════════════════════════════
+       FAQ
+    ═══════════════════════════════════════ */
+    .faq-section { background:#EDE8DE; padding:96px 0; }
+    .faq-container { max-width:1240px; margin:0 auto; padding:0 24px; }
+    .faq-grid { display:grid; grid-template-columns:5fr 7fr; gap:48px; align-items:start; }
+    .faq-left { position:sticky; top:120px; }
+    .faq-sub { font-family:'Instrument Sans',sans-serif; font-size:16px; font-weight:400; line-height:1.55; color:#3B4A5C; max-width:400px; }
+    .faq-contact { background:#F7F4ED; border-radius:16px; padding:24px; margin-top:32px; }
+    .faq-contact-eyebrow { font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:500; color:#B8873B; text-transform:uppercase; letter-spacing:0.1em; }
+    .faq-phone-link { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:28px; color:#0F1B26; text-decoration:none; display:block; margin-top:8px; transition:color 150ms ease-out; }
+    .faq-phone-link:hover { color:#B8873B; }
+    .faq-phone-cap { font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:500; color:#6B7280; text-transform:uppercase; letter-spacing:0.08em; margin-top:8px; }
+    details.faq-item { border-top:1px solid rgba(15,27,38,.15); }
+    details.faq-item:last-child { border-bottom:1px solid rgba(15,27,38,.15); }
+    details.faq-item > summary { list-style:none; cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:16px; padding:24px 0; -webkit-tap-highlight-color:transparent; }
+    details.faq-item > summary::-webkit-details-marker { display:none; }
+    details.faq-item > summary::marker { display:none; }
+    .faq-q { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:20px; line-height:1.3; color:#0F1B26; }
+    .faq-chevron { width:24px; height:24px; min-width:24px; background:#B8873B; border-radius:50%; display:flex; align-items:center; justify-content:center; transition:transform 200ms ease-out; }
+    .faq-plus { font-family:'Instrument Sans',sans-serif; font-size:17px; font-weight:500; color:#F7F4ED; line-height:1; display:block; margin-top:-1px; user-select:none; }
+    details[open].faq-item > summary .faq-chevron { transform:rotate(45deg); }
+    .faq-answer { font-family:'Instrument Sans',sans-serif; font-size:16px; font-weight:400; line-height:1.6; color:#3B4A5C; max-width:560px; padding-bottom:24px; margin:0; }
+    @media (max-width:767px) { .faq-section { padding:64px 0; } .faq-grid { grid-template-columns:1fr; gap:48px; } .faq-left { position:static; } .faq-sub { max-width:none; } details.faq-item > summary { padding:20px 0; } .faq-q { font-size:18px; } .faq-chevron { width:20px; height:20px; min-width:20px; } .faq-plus { font-size:14px; } .faq-answer { max-width:none; } }
+
+    /* ═══════════════════════════════════════
+       SITE HEADER
+    ═══════════════════════════════════════ */
+    .site-header { position:sticky; top:0; z-index:40; width:100%; }
+    .utility-strip { background:#0F1B26; height:36px; }
+    .utility-inner { max-width:1440px; margin:0 auto; padding:0 32px; height:100%; display:flex; justify-content:space-between; align-items:center; }
+    .util-left, .util-right { display:flex; align-items:center; gap:16px; }
+    .util-group { display:flex; align-items:center; gap:6px; }
+    .util-star { color:#B8873B; font-size:11px; line-height:1; }
+    .util-rating { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:13px; color:#F7F4ED; }
+    .util-reviews { font-family:'Instrument Sans',sans-serif; font-weight:400; font-size:12px; color:rgba(247,244,237,.7); }
+    .util-mono { font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:500; color:#F7F4ED; text-transform:uppercase; letter-spacing:0.08em; }
+    .util-open { font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:500; color:#B8873B; text-transform:uppercase; letter-spacing:0.1em; }
+    .util-div { width:1px; height:14px; background:rgba(184,135,59,.4); flex-shrink:0; }
+    .util-socials { display:flex; align-items:center; gap:12px; }
+    .util-social-link { color:rgba(247,244,237,.6); display:flex; align-items:center; text-decoration:none; transition:color 150ms ease-out; }
+    .util-social-link:hover { color:#F7F4ED; }
+    .main-nav-header { height:72px; background:rgba(247,244,237,.92); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); border-bottom:1px solid rgba(15,27,38,.08); }
+    .main-nav-inner { max-width:1440px; margin:0 auto; padding:0 32px; height:100%; display:grid; grid-template-columns:1fr auto 1fr; align-items:center; }
+    .header-nav { display:flex; align-items:center; gap:28px; }
+    .header-nav a { font-family:'Instrument Sans',sans-serif; font-size:14px; font-weight:500; color:#0F1B26; text-decoration:none; transition:color 150ms ease-out; }
+    .header-nav a:hover { color:#B8873B; text-decoration:underline; text-underline-offset:4px; text-decoration-color:#B8873B; text-decoration-thickness:1px; }
+    .header-wordmark { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:18px; letter-spacing:0.04em; color:#0F1B26; text-decoration:none; white-space:nowrap; }
+    .header-cta-wrap { display:flex; justify-content:flex-end; }
+    .header-cta { display:inline-flex; align-items:center; gap:10px; background:#0F1B26; color:#F7F4ED; border-radius:999px; padding:10px 18px; text-decoration:none; font-family:'Instrument Sans',sans-serif; font-size:15px; font-weight:600; white-space:nowrap; transition:background 150ms ease-out, transform 150ms ease-out; }
+    .header-cta:hover { background:#082030; transform:scale(1.02); }
+    .cta-arrow { width:20px; height:20px; background:rgba(247,244,237,.15); border-radius:4px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .mobile-header { display:none; height:56px; background:rgba(247,244,237,.95); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); border-bottom:1px solid rgba(15,27,38,.10); padding:0 16px; align-items:center; justify-content:space-between; }
+    .hamburger-btn { width:40px; height:40px; display:flex; align-items:center; justify-content:center; background:none; border:none; cursor:pointer; color:#0F1B26; padding:0; border-radius:8px; }
+    .mobile-wordmark { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:15px; letter-spacing:0.02em; color:#0F1B26; text-decoration:none; }
+    .mobile-phone-btn { width:40px; height:40px; background:#0F1B26; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#F7F4ED; text-decoration:none; flex-shrink:0; transition:background 150ms ease-out; }
+    .mobile-phone-btn:hover { background:#082030; }
+    #mobile-menu { position:fixed; top:56px; left:0; right:0; height:calc(100vh - 56px); background:#F7F4ED; z-index:39; overflow-y:auto; padding:0 24px 40px; transform:translateY(-110%); transition:transform 280ms cubic-bezier(0.4,0,0.2,1); pointer-events:none; visibility:hidden; }
+    #mobile-menu.mm-open { transform:translateY(0); pointer-events:auto; visibility:visible; }
+    .mm-close-row { display:flex; justify-content:flex-end; padding:10px 0 8px; }
+    .mm-close-btn { width:40px; height:40px; display:flex; align-items:center; justify-content:center; background:none; border:none; cursor:pointer; color:#0F1B26; border-radius:8px; }
+    .mm-nav-link { display:block; font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:28px; color:#0F1B26; text-decoration:none; padding:16px 0; border-bottom:1px solid rgba(15,27,38,.08); }
+    .mm-cta { background:#0F1B26; border-radius:16px; padding:24px; margin-top:32px; }
+    .mm-cta-eyebrow { font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:500; color:#B8873B; text-transform:uppercase; letter-spacing:0.1em; }
+    .mm-cta-phone { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:32px; color:#F7F4ED; text-decoration:none; display:block; margin-top:8px; }
+    .mm-cta-rule { height:1px; background:#B8873B; margin:12px 0; }
+    .mm-cta-caption { font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:500; color:rgba(247,244,237,.7); letter-spacing:0.06em; }
+    @media (max-width:767px) { .utility-strip { display:none; } .main-nav-header { display:none; } .mobile-header { display:flex; } }
+    @media (min-width:768px) { #mobile-menu { display:none !important; } }
+
+    /* ═══════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════ */
+    .site-footer { background:#0F1B26; padding:80px 0; }
+    .footer-container { max-width:1240px; margin:0 auto; padding:0 32px; }
+    .footer-top { display:grid; grid-template-columns:4fr 2fr 3fr 3fr; gap:32px; }
+    .footer-wm { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:28px; color:#F7F4ED; }
+    .footer-tagline { font-family:'Fraunces',Georgia,serif; font-style:italic; font-weight:400; font-size:16px; color:rgba(247,244,237,.8); line-height:1.5; max-width:280px; }
+    .footer-brass-rule { height:1px; width:60px; background:#B8873B; }
+    .footer-owner { font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:500; color:#B8873B; text-transform:uppercase; letter-spacing:0.12em; }
+    .footer-owner-cap { font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:500; color:rgba(247,244,237,.6); }
+    .footer-eyebrow { font-family:'Instrument Sans',sans-serif; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.12em; color:#B8873B; }
+    .footer-hours { font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:500; color:rgba(247,244,237,.8); line-height:1.7; list-style:none; padding:0; margin:0; }
+    .footer-hr-sm { width:40px; height:1px; background:#B8873B; }
+    .footer-tel { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:20px; color:#F7F4ED; text-decoration:none; display:block; transition:color 150ms ease-out; }
+    .footer-tel:hover { color:#B8873B; }
+    .footer-mono-sm { font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:500; color:rgba(247,244,237,.6); }
+    .footer-svc { list-style:none; padding:0; margin:0; }
+    .footer-svc li a { font-family:'Instrument Sans',sans-serif; font-size:14px; font-weight:400; color:rgba(247,244,237,.8); text-decoration:none; display:block; padding:4px 0; transition:color 150ms ease-out; }
+    .footer-svc li a:hover { color:#B8873B; }
+    .footer-cities { display:grid; grid-template-columns:1fr 1fr; gap:0 16px; font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:500; color:rgba(247,244,237,.7); line-height:1.7; }
+    .footer-zips-link { font-family:'Instrument Sans',sans-serif; font-size:13px; font-weight:500; color:#B8873B; text-decoration:none; }
+    .footer-zips-link:hover { text-decoration:underline; }
+    .footer-divider { height:1px; background:rgba(247,244,237,.10); margin:48px 0 24px; }
+    .footer-bottom { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; }
+    .footer-legal { display:flex; align-items:center; flex-wrap:wrap; gap:2px; }
+    .footer-legal-t { font-family:'Instrument Sans',sans-serif; font-size:13px; font-weight:400; color:rgba(247,244,237,.6); text-decoration:none; }
+    a.footer-legal-t:hover { color:#F7F4ED; }
+    .footer-bul { color:rgba(247,244,237,.3); font-size:12px; padding:0 8px; user-select:none; }
+    .footer-creds { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+    .footer-cred { font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:500; color:rgba(247,244,237,.6); letter-spacing:0.08em; text-transform:uppercase; }
+    .footer-cred-sep { width:1px; height:12px; background:rgba(184,135,59,.5); flex-shrink:0; }
+    @media (max-width:767px) { .site-footer { padding:56px 0; } .footer-container { padding:0 24px; } .footer-top { grid-template-columns:1fr; gap:40px; } .footer-bottom { flex-direction:column; align-items:flex-start; } }
+
+    /* ═══════════════════════════════════════
+       MOBILE STICKY BAR
+    ═══════════════════════════════════════ */
+    .mobile-bar { position:fixed; bottom:0; left:0; right:0; z-index:50; display:flex; border-top:1px solid rgba(15,27,38,.15); box-shadow:0 -4px 12px rgba(15,27,38,.08); }
+    .mobile-bar a { flex:1; display:flex; align-items:center; justify-content:center; gap:8px; min-height:64px; padding-bottom:env(safe-area-inset-bottom,0px); text-decoration:none; font-family:'Instrument Sans',sans-serif; font-size:15px; font-weight:600; color:#F7F4ED; transition:background 80ms ease-out; white-space:nowrap; }
+    .bar-call { background:#C23B2A; }
+    .bar-call:active { background:#9E2E20 !important; }
+    .bar-book { background:#0F1B26; }
+    .bar-book:active { background:#082030 !important; }
+    .bar-arrow { width:20px; height:20px; background:rgba(247,244,237,.15); border-radius:4px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    @media (min-width:768px) { .mobile-bar { display:none; } }
+    @media (max-width:767px) { body { padding-bottom:calc(64px + env(safe-area-inset-bottom,0px)); } }
+
+    /* ═══════════════════════════════════════
+       CONTACT FORM
+    ═══════════════════════════════════════ */
+    .cf-section { background:#EDE8DE; padding:96px 0; }
+    .cf-container { max-width:1240px; margin:0 auto; padding:0 24px; }
+    .cf-grid { display:grid; grid-template-columns:5fr 7fr; gap:48px; align-items:start; }
+
+    .cf-left-meta { font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:500; color:#B8873B; text-transform:uppercase; letter-spacing:0.1em; }
+    .cf-sub { font-family:'Instrument Sans',sans-serif; font-size:16px; font-weight:400; line-height:1.6; color:#3B4A5C; max-width:380px; }
+    .cf-detail { display:flex; flex-direction:column; gap:20px; background:#F7F4ED; border-radius:16px; padding:24px; }
+    .cf-detail-row { display:flex; align-items:flex-start; gap:12px; }
+    .cf-detail-icon { width:36px; height:36px; background:#0F1B26; border-radius:8px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .cf-detail-label { font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:500; color:#B8873B; text-transform:uppercase; letter-spacing:0.1em; line-height:1; }
+    .cf-detail-val { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:17px; color:#0F1B26; text-decoration:none; transition:color 150ms; }
+    a.cf-detail-val:hover { color:#B8873B; }
+    .cf-detail-cap { font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:500; color:#6B7280; text-transform:uppercase; letter-spacing:0.08em; }
+
+    .cf-card { background:#F7F4ED; border-radius:20px; padding:36px; }
+    .cf-card-eyebrow { font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:500; color:#B8873B; text-transform:uppercase; letter-spacing:0.12em; margin-bottom:4px; }
+    .cf-card-title { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:22px; color:#0F1B26; margin-bottom:28px; }
+
+    .cf-fields { display:flex; flex-direction:column; gap:16px; }
+    .cf-row2 { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .cf-field { display:flex; flex-direction:column; gap:6px; }
+    .cf-label { font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:500; color:#6B7280; text-transform:uppercase; letter-spacing:0.1em; }
+    .cf-input, .cf-select, .cf-textarea {
+      background:#EDE8DE; border:2px solid transparent; border-radius:10px;
+      box-shadow:inset 0 0 0 1px rgba(15,27,38,.15);
+      padding:0 16px; height:52px;
+      font-family:'Instrument Sans',sans-serif; font-size:15px; font-weight:500; color:#0F1B26;
+      outline:none; -webkit-appearance:none; appearance:none; width:100%;
+      transition:border-color 150ms, box-shadow 150ms;
+    }
+    .cf-input::placeholder, .cf-textarea::placeholder { color:#6B7280; font-weight:400; }
+    .cf-input:focus, .cf-select:focus, .cf-textarea:focus { border-color:#B8873B; box-shadow:none; }
+    .cf-select { background-image:url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236B7280' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 16px center; padding-right:40px; cursor:pointer; }
+    .cf-textarea { height:auto; padding:14px 16px; resize:vertical; min-height:100px; }
+    .cf-hint { font-family:'JetBrains Mono',monospace; font-size:10px; color:#6B7280; }
+    .cf-check-row { display:flex; align-items:flex-start; gap:10px; }
+    .cf-check { width:18px; height:18px; border:1.5px solid rgba(15,27,38,.25); border-radius:4px; background:#EDE8DE; flex-shrink:0; margin-top:1px; cursor:pointer; accent-color:#0F1B26; }
+    .cf-check-label { font-family:'Instrument Sans',sans-serif; font-size:13px; color:#3B4A5C; line-height:1.45; }
+
+    .cf-submit { width:100%; height:56px; background:#0F1B26; color:#F7F4ED; border:none; border-radius:12px; font-family:'Instrument Sans',sans-serif; font-size:16px; font-weight:600; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:10px; transition:background 150ms, transform 100ms; }
+    .cf-submit:hover { background:#082030; }
+    .cf-submit:active { transform:scale(0.99); }
+    .cf-submit-arrow { width:26px; height:26px; background:rgba(247,244,237,.12); border-radius:6px; display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:transform 150ms; }
+    .cf-submit:hover .cf-submit-arrow { transform:translateX(2px); }
+    .cf-legal { font-family:'Instrument Sans',sans-serif; font-size:12px; color:#6B7280; line-height:1.5; text-align:center; }
+
+    /* Success / Error states */
+    .cf-success { display:none; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:48px 24px; gap:16px; }
+    .cf-success-icon { width:56px; height:56px; background:#0F1B26; border-radius:50%; display:flex; align-items:center; justify-content:center; }
+    .cf-success-title { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:24px; color:#0F1B26; }
+    .cf-success-sub { font-family:'Instrument Sans',sans-serif; font-size:15px; color:#3B4A5C; max-width:320px; line-height:1.55; }
+    .cf-success-phone { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:22px; color:#0F1B26; text-decoration:none; }
+    .cf-success-phone:hover { color:#B8873B; }
+
+    @media (max-width:767px) {
+      .cf-section { padding:64px 0; }
+      .cf-grid { grid-template-columns:1fr; gap:40px; }
+      .cf-card { padding:24px; }
+      .cf-row2 { grid-template-columns:1fr; }
+      .cf-sub { max-width:none; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ════════════════════════════════════════════════
+     HEADER (source: Below-Hero Sections.html)
+════════════════════════════════════════════════ -->
+<header class="site-header" role="banner">
+
+  <div class="utility-strip" aria-label="Ratings and credentials">
+    <div class="utility-inner">
+      <div class="util-left">
+        <div class="util-group">
+          <span class="util-star" aria-hidden="true">★</span>
+          <span class="util-rating">4.9</span>
+          <span class="util-reviews">(2,847 reviews)</span>
+        </div>
+        <div class="util-div" aria-hidden="true"></div>
+        <div class="util-group">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+            <path d="M6 1L1.5 2.8v3.4A5.5 5.5 0 0 0 6 11a5.5 5.5 0 0 0 4.5-4.8V2.8L6 1z" stroke="#B8873B" stroke-width="1.1" stroke-linejoin="round"/>
+            <path d="M4 6l1.5 1.5L8 4.5" stroke="#B8873B" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="util-mono">BBB A+ Accredited</span>
+        </div>
+        <div class="util-div" aria-hidden="true"></div>
+        <span class="util-mono">LIC TX #MPL18492</span>
+      </div>
+      <div class="util-right">
+        <div class="util-group">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="#B8873B" aria-hidden="true"><path d="M6.5 1 3.5 5.5H6l-1 5.5 4-6H6.5z"/></svg>
+          <span class="util-open">Open Now &mdash; 24/7 Emergency</span>
+        </div>
+        <div class="util-div" aria-hidden="true"></div>
+        <div class="util-socials">
+          <a href="https://google.com" class="util-social-link" aria-label="Westbrook Plumbing on Google" target="_blank" rel="noopener noreferrer">
+            <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="5.5" stroke="currentColor" stroke-width="1.2"/><path d="M11 8H8.5v2a2.5 2.5 0 1 1 0-4 2.5 2.5 0 0 1 1.7.65" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+          </a>
+          <a href="https://facebook.com" class="util-social-link" aria-label="Westbrook Plumbing on Facebook" target="_blank" rel="noopener noreferrer">
+            <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M10 3.5H8.5A2 2 0 0 0 6.5 5.5V7H5v2.5h1.5V14H9V9.5h2l.5-2.5H9V5.5a.5.5 0 0 1 .5-.5H10V3.5z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="https://instagram.com" class="util-social-link" aria-label="Westbrook Plumbing on Instagram" target="_blank" rel="noopener noreferrer">
+            <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><rect x="2.5" y="2.5" width="11" height="11" rx="3" stroke="currentColor" stroke-width="1.2"/><circle cx="8" cy="8" r="2.5" stroke="currentColor" stroke-width="1.2"/><circle cx="11.5" cy="4.5" r=".7" fill="currentColor"/></svg>
+          </a>
+          <a href="https://yelp.com" class="util-social-link" aria-label="Westbrook Plumbing on Yelp" target="_blank" rel="noopener noreferrer">
+            <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M5 3.5L8 8.5m3-5L8 8.5m0 0V13" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="main-nav-header">
+    <div class="main-nav-inner">
+      <nav class="header-nav" aria-label="Main navigation">
+        <a href="#crew">Heritage</a>
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#crew">Our People</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a href="#hero" class="header-wordmark">WESTBROOK PLUMBING CO.</a>
+      <div class="header-cta-wrap">
+        <a href="tel:+15125558199" class="header-cta" aria-label="Call Westbrook Plumbing at (512) 555-8199">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 2.5h3l1.5 3.5-1.5 1.5a9 9 0 0 0 2.5 2.5L10 8.5l3.5 1.5V13a1 1 0 0 1-1 1A12 12 0 0 1 2 3.5a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+          (512) 555-8199
+          <div class="cta-arrow" aria-hidden="true">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5L9.5 2.5m0 0H3m6.5 0V9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="mobile-header">
+    <button class="hamburger-btn" id="hamburger-btn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </button>
+    <a href="#hero" class="mobile-wordmark">WESTBROOK PLUMBING CO.</a>
+    <a href="tel:+15125558199" class="mobile-phone-btn" aria-label="Call (512) 555-8199">
+      <svg width="18" height="18" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 2.5h3l1.5 3.5-1.5 1.5a9 9 0 0 0 2.5 2.5L10 8.5l3.5 1.5V13a1 1 0 0 1-1 1A12 12 0 0 1 2 3.5a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+
+</header>
+
+<!-- Mobile menu overlay -->
+<div id="mobile-menu" role="dialog" aria-modal="true" aria-label="Navigation menu">
+  <div class="mm-close-row">
+    <button class="mm-close-btn" id="mm-close-btn" aria-label="Close menu">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 4l12 12M16 4L4 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+  <nav aria-label="Mobile navigation">
+    <a href="#crew"    class="mm-nav-link">Heritage</a>
+    <a href="#services" class="mm-nav-link">Services</a>
+    <a href="#process" class="mm-nav-link">Process</a>
+    <a href="#crew"    class="mm-nav-link">Our People</a>
+    <a href="#reviews" class="mm-nav-link">Reviews</a>
+    <a href="#contact" class="mm-nav-link">Contact</a>
+  </nav>
+  <div class="mm-cta">
+    <div class="mm-cta-eyebrow">Emergency &mdash; 24/7</div>
+    <a href="tel:+15125558199" class="mm-cta-phone" aria-label="Call (512) 555-8199">(512) 555-8199</a>
+    <div class="mm-cta-rule" aria-hidden="true"></div>
+    <div class="mm-cta-caption">Live human dispatch, always</div>
+  </div>
+</div>
+
+
+<main>
+
+<!-- ════════════════════════════════════════════════
+     01 · HERO  (source: Hero Section.html)
+════════════════════════════════════════════════ -->
+<section class="hero-section" id="hero" aria-label="Hero">
+  <div class="hero-container">
+    <video id="hero-video" aria-hidden="true" autoplay="" muted="" playsinline="" preload="auto" poster="assets/hero-poster.jpg">
+      <source src="assets/hero-loop.webm" type="video/webm">
+      <source src="assets/hero-loop.mp4"  type="video/mp4">
+    </video>
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="hero-content">
+      <div class="hero-left">
+        <div>
+          <span class="hero-pill">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M7 1L3 7h4l-2 4 6-6.5H7z" fill="#B8873B"/></svg>
+            Emergency 24/7 — We Answer Live
+          </span>
+        </div>
+        <h1 class="hero-h1">Plumbing You Can Tr<em>u</em>st</h1>
+        <div class="hero-divider-group" aria-hidden="true">
+          <div class="hero-brass-rule"></div>
+          <div class="hero-mini-stamp">Tap to call — 24/7 live</div>
+        </div>
+        <div class="hero-phone-group">
+          <a href="tel:+15125558199" class="hero-phone" aria-label="Call (512) 555-8199 — open dialer">(512) 555-8199</a>
+          <p class="hero-subhead">A licensed family team serving Austin since 2000 — bathrooms, water heaters, repipes, 24/7 emergency.</p>
+        </div>
+        <div class="hero-cta-row">
+          <a href="#contact" class="btn-primary">
+            Book a planned visit
+            <span class="btn-arrow-box" aria-hidden="true">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 8L8 2M8 2H3M8 2V7" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </a>
+          <a href="tel:+15125558199" class="btn-ghost">or call us now</a>
+        </div>
+      </div>
+    </div>
+    <div class="trust-cluster" role="list" aria-label="Credentials">
+      <div class="trust-badge" role="listitem" aria-label="Licensed in Texas MPL18492">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M6 1L10.5 3.2V6.5C10.5 8.8 8.5 10.7 6 11.2 3.5 10.7 1.5 8.8 1.5 6.5V3.2L6 1z" stroke="#B8873B" stroke-width="1.2" fill="none"/><path d="M4 6l1.5 1.5L8 4.5" stroke="#B8873B" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>LICENSED TX #MPL18492</span>
+      </div>
+      <div class="trust-badge" role="listitem" aria-label="One million dollar insured">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><circle cx="6" cy="6" r="5" stroke="#B8873B" stroke-width="1.2"/><path d="M3.5 6l2 2 3-3" stroke="#B8873B" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>$1M INSURED</span>
+      </div>
+      <div class="trust-badge" role="listitem" aria-label="BBB A Plus Accredited">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><rect x="1.5" y="1.5" width="9" height="9" rx="2" stroke="#B8873B" stroke-width="1.2"/><text x="6" y="8.4" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="5.5" font-weight="600" fill="#B8873B">A+</text></svg>
+        <span>BBB A+ ACCREDITED</span>
+      </div>
+      <div class="trust-badge" role="listitem" aria-label="Background checked crew">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><circle cx="4.5" cy="3.5" r="2" stroke="#B8873B" stroke-width="1.2"/><path d="M1.5 10.5c0-1.9 1.3-3 3-3" stroke="#B8873B" stroke-width="1.2" stroke-linecap="round"/><path d="M7.5 8l1.5 1.5L11 7" stroke="#B8873B" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>BACKGROUND-CHECKED CREW</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════
+     02 · TRUST STRIP  (source: Below-Hero A)
+════════════════════════════════════════════════ -->
+<section class="trust-strip" id="trust" aria-label="Ratings and credentials">
+  <div class="trust-strip-inner">
+    <div class="trust-item">
+      <span class="trust-stars" aria-hidden="true">★★★★★</span>
+      <div class="trust-text"><span class="trust-main">4.9 GOOGLE</span><span class="trust-sub">2,847 reviews</span></div>
+    </div>
+    <div class="trust-div" aria-hidden="true"></div>
+    <div class="trust-item">
+      <span class="trust-stars" aria-hidden="true">★★★★★</span>
+      <div class="trust-text"><span class="trust-main">5.0 YELP</span><span class="trust-sub">1,200+ reviews</span></div>
+    </div>
+    <div class="trust-div" aria-hidden="true"></div>
+    <div class="trust-item">
+      <span class="trust-stars" aria-hidden="true">★★★★★</span>
+      <div class="trust-text"><span class="trust-main">4.9 ANGI</span><span class="trust-sub">800+ reviews</span></div>
+    </div>
+    <div class="trust-div" aria-hidden="true"></div>
+    <div class="trust-item">
+      <span class="trust-icon" aria-hidden="true">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="10.5" r="4.2" stroke="#B8873B" stroke-width="1.25"/><path d="M5.5 6.5 4.5 2.5h7l-1 4" stroke="#B8873B" stroke-width="1.25" stroke-linejoin="round" fill="none"/><path d="M8 9v3M6.5 10.5h3" stroke="#B8873B" stroke-width="1.1" stroke-linecap="round"/></svg>
+      </span>
+      <div class="trust-text"><span class="trust-main">BEST OF</span><span class="trust-sub">HomeAdvisor 2024 &amp; 2025</span></div>
+    </div>
+    <div class="trust-div" aria-hidden="true"></div>
+    <div class="trust-item">
+      <span class="trust-icon" aria-hidden="true">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="4.5" r="2.2" stroke="#B8873B" stroke-width="1.25"/><path d="M3.5 14c0-2.5 2-4 4.5-4s4.5 1.5 4.5 4" stroke="#B8873B" stroke-width="1.25" stroke-linecap="round" fill="none"/><circle cx="3.5" cy="5.5" r="1.5" stroke="#B8873B" stroke-width="1.1"/><path d="M1.5 13.5c0-1.8.9-2.8 2-2.8" stroke="#B8873B" stroke-width="1.1" stroke-linecap="round"/><circle cx="12.5" cy="5.5" r="1.5" stroke="#B8873B" stroke-width="1.1"/><path d="M14.5 13.5c0-1.8-.9-2.8-2-2.8" stroke="#B8873B" stroke-width="1.1" stroke-linecap="round"/></svg>
+      </span>
+      <div class="trust-text"><span class="trust-main">NEIGHBORHOOD</span><span class="trust-sub">Favorite on Nextdoor</span></div>
+    </div>
+    <div class="trust-div" aria-hidden="true"></div>
+    <div class="trust-item">
+      <span class="trust-icon" aria-hidden="true">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="4" width="12" height="10" rx="1.5" stroke="#B8873B" stroke-width="1.25"/><path d="M2 7.5h12" stroke="#B8873B" stroke-width="1.1"/><path d="M5.5 2v2.5M10.5 2v2.5" stroke="#B8873B" stroke-width="1.25" stroke-linecap="round"/><path d="M5.5 11h5" stroke="#B8873B" stroke-width="1.1" stroke-linecap="round"/></svg>
+      </span>
+      <div class="trust-text"><span class="trust-main">FAMILY-OWNED</span><span class="trust-sub">Serving Austin since 2000</span></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════
+     03 · ZIP / SERVICE AREA  (source: Below-Hero B)
+════════════════════════════════════════════════ -->
+<section class="zip-section" id="service-area">
+  <div class="zip-container">
+    <div class="zip-grid">
+      <div>
+        <span class="pill">Service Area</span>
+        <div style="height:16px;"></div>
+        <h2 class="sec-h2">We&rsquo;re probably in your<br><em class="ig">n</em>eighborhood.</h2>
+        <div style="height:16px;"></div>
+        <p class="zip-body">Type your ZIP and we&rsquo;ll tell you instantly. If we don&rsquo;t serve your area &mdash; we&rsquo;ll point you to a vetted local plumber we trust.</p>
+      </div>
+      <div>
+        <div class="zip-form-card">
+          <form id="zip-form" novalidate="">
+            <label for="zip-input" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;">Enter your ZIP code</label>
+            <div class="zip-form-row">
+              <input id="zip-input" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="5" autocomplete="postal-code" placeholder="Enter ZIP code (e.g. 78745)">
+              <button type="submit" class="zip-btn" aria-label="Check service area for this ZIP">Check <span class="zig-arrow" aria-hidden="true">→</span></button>
+            </div>
+          </form>
+          <div id="zip-result" role="status" aria-live="polite" aria-atomic="true"></div>
+          <a href="#service-areas-full" class="zip-browse">Or browse all service areas →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════
+     04 · VALUE PROPS  (source: Below-Hero C)
+════════════════════════════════════════════════ -->
+<section class="props-section" id="values">
+  <div class="props-container">
+    <div class="props-header">
+      <span class="pill">Why Westbrook</span><br>
+      <h2 class="sec-h2" style="margin-top:16px;">Five reasons people <em class="ig">k</em>eep us.</h2>
+    </div>
+    <div class="props-grid">
+      <div class="prop-card"><div class="prop-num">01</div><div class="prop-rule" aria-hidden="true"></div><div class="prop-title">Same-Day Service</div><p class="prop-desc">Most Austin-area calls answered and dispatched within the hour.</p></div>
+      <div class="prop-card"><div class="prop-num">02</div><div class="prop-rule" aria-hidden="true"></div><div class="prop-title">Licensed &amp; $1M Insured</div><p class="prop-desc">Texas Master Plumber license #MPL18492. $1M general liability.</p></div>
+      <div class="prop-card"><div class="prop-num">03</div><div class="prop-rule" aria-hidden="true"></div><div class="prop-title">Flat-Rate Pricing</div><p class="prop-desc">Written quote before any work begins. The price we say is the price.</p></div>
+      <div class="prop-card"><div class="prop-num">04</div><div class="prop-rule" aria-hidden="true"></div><div class="prop-title">Satisfaction or We Walk</div><p class="prop-desc">If we can&rsquo;t do the job we quoted for the price we quoted, we leave &mdash; and you owe nothing.</p></div>
+      <div class="prop-card"><div class="prop-num">05</div><div class="prop-rule" aria-hidden="true"></div><div class="prop-title">Family-Owned Since 2000</div><p class="prop-desc">Same family, same neighborhood, three generations of Reyes plumbers.</p></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════
+     05 · ABOUT + SERVICES BENTO  (source: Westbrook Plumbing Co.html §3)
+════════════════════════════════════════════════ -->
+<section id="about" style="padding:96px 0;">
+  <div class="mx-auto px-6" style="max-width:1240px;">
+    <div class="grid grid-cols-1 md:grid-cols-12" style="gap:32px;">
+
+      <div class="md:col-span-5">
+        <span class="pill">About Westbrook</span>
+        <div style="height:16px;"></div>
+        <h2 class="font-display font-semibold text-ink t-h2">
+          Built for
+          <svg width="22" height="24" viewBox="0 0 22 24" aria-hidden="true" style="display:inline-block;vertical-align:middle;margin:0 5px 4px;">
+            <rect x="0"  y="3"  width="7"  height="5"  rx="1.5" fill="#B8873B"/>
+            <rect x="0"  y="14" width="7"  height="5"  rx="1.5" fill="#B8873B"/>
+            <rect x="7"  y="2"  width="4"  height="17" rx="1.5" fill="#B8873B"/>
+            <rect x="11" y="3"  width="11" height="5"  rx="1.5" fill="#B8873B"/>
+            <rect x="11" y="14" width="11" height="5"  rx="1.5" fill="#B8873B"/>
+          </svg>
+          <em class="ig">O</em>lder Homes
+        </h2>
+        <div style="height:24px;"></div>
+        <p class="font-body text-ink-soft" style="font-size:16px;line-height:1.6;max-width:380px;">Westbrook helps Austin homeowners maintain, repair, and modernize plumbing in homes built before 1980 — without tearing the place apart. Honest pricing, written before any work begins.</p>
+        <div style="height:24px;"></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+          <img src="assets/copper-joists.jpeg" alt="Exposed copper pipes in older home" style="height:140px;border-radius:16px;width:100%;object-fit:cover;display:block;">
+          <img src="assets/bathroom-tub.jpeg" alt="Finished bathroom remodel" style="height:140px;border-radius:16px;width:100%;object-fit:cover;display:block;">
+        </div>
+      </div>
+
+      <div id="services" class="md:col-span-7" style="display:flex;flex-direction:column;gap:16px;">
+        <div class="card" style="background:#EDE8DE;border-radius:16px;padding:24px;display:flex;gap:16px;align-items:stretch;box-shadow:0 1px 3px rgba(15,27,38,.06);">
+          <div style="flex:3;min-width:0;">
+            <h3 class="font-display font-semibold text-ink t-h3">System-First Repair</h3>
+            <p class="font-body text-ink-soft" style="font-size:15px;line-height:1.55;margin-top:8px;">We map your home&rsquo;s water system before fixing anything &mdash; so the repair lasts.</p>
+            <div style="margin-top:12px;"><a href="#contact" class="btn-sm">Learn More →</a></div>
+            <div style="margin-top:10px;"><span class="font-mono text-brass" style="font-size:13px;">From $149</span></div>
+          </div>
+          <div style="flex:2;min-height:130px;"><img src="assets/copper-macro.jpeg" alt="Copper pipes macro" style="width:100%;height:100%;min-height:130px;border-radius:12px;object-fit:cover;display:block;"></div>
+        </div>
+        <div class="card" style="background:#0E2A3F;border-radius:16px;padding:24px;display:flex;gap:16px;align-items:stretch;">
+          <div style="flex:3;min-width:0;">
+            <h3 class="font-display font-semibold t-h3" style="color:#F7F4ED;">Built for Whole-Home Repipes</h3>
+            <p class="font-body" style="font-size:15px;line-height:1.55;margin-top:8px;color:rgba(247,244,237,.75);">Full copper or PEX repipe in 1&ndash;3 days, with manufacturer-backed warranties.</p>
+            <div style="margin-top:12px;"><a href="#contact" class="btn-sm">Learn More →</a></div>
+            <div style="margin-top:10px;"><span class="font-mono" style="font-size:13px;color:#B8873B;">From $4,200</span></div>
+          </div>
+          <div style="flex:2;min-height:130px;"><img src="assets/copper-blue-wall.jpeg" alt="Copper pipes against dark wall" style="width:100%;height:100%;min-height:130px;border-radius:12px;object-fit:cover;display:block;"></div>
+        </div>
+        <div class="card" style="background:#EDE8DE;border-radius:16px;padding:24px;display:flex;gap:16px;align-items:stretch;box-shadow:0 1px 3px rgba(15,27,38,.06);">
+          <div style="flex:3;min-width:0;">
+            <h3 class="font-display font-semibold text-ink t-h3">Long-Term Water Heaters</h3>
+            <p class="font-body text-ink-soft" style="font-size:15px;line-height:1.55;margin-top:8px;">Tankless and hybrid installs sized for your home&rsquo;s actual demand &mdash; not a sales script.</p>
+            <div style="margin-top:12px;"><a href="#contact" class="btn-sm">Learn More →</a></div>
+            <div style="margin-top:10px;"><span class="font-mono text-brass" style="font-size:13px;">From $1,800</span></div>
+          </div>
+          <div style="flex:2;min-height:130px;"><img src="assets/water-heater.jpeg" alt="Modern tankless water heater" style="width:100%;height:100%;min-height:130px;border-radius:12px;object-fit:cover;display:block;"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════
+     06 · WIDE CINEMATIC STRIP  (source: Westbrook Plumbing Co.html §4)
+════════════════════════════════════════════════ -->
+<section style="padding:96px 24px;">
+  <div class="cine-wrap" style="border-radius:24px;overflow:hidden;background:url('assets/water-slate.jpeg') center/cover no-repeat;"></div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════
+     07 · HANDLE AS ONE SYSTEM  (source: Westbrook Plumbing Co.html §5)
+════════════════════════════════════════════════ -->
+<section id="system" style="padding:96px 0;">
+  <div class="mx-auto px-6" style="max-width:1240px;">
+    <div class="grid grid-cols-1 md:grid-cols-12" style="gap:48px;align-items:center;">
+
+      <div class="md:col-span-5">
+        <img src="assets/basement-pipes.jpeg" alt="Basement utility room with copper pipes" style="width:100%;aspect-ratio:4/5;border-radius:16px;object-fit:cover;display:block;">
+      </div>
+
+      <div class="md:col-span-7" style="display:flex;flex-direction:column;justify-content:center;">
+        <span class="pill">The Approach</span>
+        <div style="height:16px;"></div>
+        <h2 class="font-display font-semibold text-ink t-h2">Handle Your Home&rsquo;s Plumbing as <em class="ig">O</em>ne System</h2>
+        <div style="height:24px;"></div>
+        <div style="display:flex;gap:12px;">
+          <div class="icon-sq" title="System mapping" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#0F1B26" stroke-width="1.5" stroke-linecap="round"><circle cx="4" cy="8" r="2"/><circle cx="12" cy="4" r="2"/><circle cx="12" cy="12" r="2"/><line x1="5.8" y1="7.3" x2="10.2" y2="4.7"/><line x1="5.8" y1="8.7" x2="10.2" y2="11.3"/></svg>
+          </div>
+          <div class="icon-sq" title="Visibility" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#0F1B26" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 8s3-5 7-5 7 5 7 5-3 5-7 5-7-5-7-5z"/><circle cx="8" cy="8" r="2"/></svg>
+          </div>
+          <div class="icon-sq" title="Full scope" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#0F1B26" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2H2v4M10 2h4v4M6 14H2v-4M10 14h4v-4"/></svg>
+          </div>
+        </div>
+        <div style="height:32px;"></div>
+        <div style="background:#EDE8DE;border-radius:16px;padding:24px;">
+          <div class="subcard-grid">
+            <div>
+              <span class="pill pill-br" style="font-size:0.625rem;padding:3px 10px;">Methodology</span>
+              <div style="height:10px;"></div>
+              <h3 class="font-display font-semibold text-ink t-h3">System Mapping</h3>
+              <p class="font-body text-ink-soft" style="font-size:15px;line-height:1.55;margin-top:8px;">We diagnose plumbing as a connected system &mdash; water main, supply lines, drainage, fixtures, and venting &mdash; so repairs hold up across decades, not seasons.</p>
+              <div style="margin-top:14px;"><a href="#contact" class="btn-sm">Learn More →</a></div>
+            </div>
+            <div style="min-height:120px;">
+              <img src="assets/schematic.jpeg" alt="Hand-drawn plumbing schematic" style="width:100%;height:100%;min-height:120px;border-radius:12px;object-fit:cover;display:block;">
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════
+     08 · PRICING TRANSPARENCY  (source: Below-Hero D)
+════════════════════════════════════════════════ -->
+<section class="pricing-section" id="pricing" aria-labelledby="pricing-h2">
+  <div class="pricing-container">
+    <div class="pricing-header">
+      <span class="pill">Pricing</span>
+      <div style="height:24px;"></div>
+      <h2 id="pricing-h2" class="pricing-h2">Upfront. Flat-rate. <em class="ig">N</em>o dispatch fee.</h2>
+      <div style="height:16px;"></div>
+      <p class="pricing-sub">Three of our most-booked services. The number you see here is the number you sign on the estimate.</p>
+    </div>
+    <div style="height:64px;"></div>
+    <!-- DEVELOPER NOTE: price values are placeholders — replace with actual client pricing before launch. -->
+    <div class="price-grid">
+      <div class="price-col">
+        <div class="price-eyebrow">Drain Cleaning</div>
+        <div style="height:12px;"></div>
+        <div class="price-starts-at">starts at</div>
+        <div style="height:4px;"></div>
+        <div class="price-amount">$149</div>
+        <div style="height:16px;"></div>
+        <div class="price-hr" aria-hidden="true"></div>
+        <div style="height:16px;"></div>
+        <p class="price-desc">Includes free camera inspection. Most clogs cleared in under an hour.</p>
+      </div>
+      <div class="price-col">
+        <div class="price-eyebrow">Water Heater Replacement</div>
+        <div style="height:12px;"></div>
+        <div class="price-starts-at">starts at</div>
+        <div style="height:4px;"></div>
+        <div class="price-amount">$1,200</div>
+        <div style="height:16px;"></div>
+        <div class="price-hr" aria-hidden="true"></div>
+        <div style="height:16px;"></div>
+        <p class="price-desc">Tankless or tank install, same-day for most Austin-area calls. Manufacturer warranty included.</p>
+      </div>
+      <div class="price-col">
+        <div class="price-eyebrow">Leak Detection</div>
+        <div style="height:12px;"></div>
+        <div class="price-starts-at">starts at</div>
+        <div style="height:4px;"></div>
+        <div class="price-amount">$275</div>
+        <div style="height:16px;"></div>
+        <div class="price-hr" aria-hidden="true"></div>
+        <div style="height:16px;"></div>
+        <p class="price-desc">Acoustic and thermal scanning. Free if we do the repair in the same visit.</p>
+      </div>
+    </div>
+    <div style="height:64px;"></div>
+    <div class="owners-promise">
+      <div class="owners-hr" aria-hidden="true"></div>
+      <div style="height:24px;"></div>
+      <p class="owners-quote">&ldquo;We give you a written estimate before any work begins. If we cannot do the job for the price we quoted&nbsp;&mdash; we walk.&rdquo;</p>
+      <div style="height:16px;"></div>
+      <div class="owners-attribution">&mdash;&nbsp;Owner&rsquo;s Promise</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════
+     09 · PROCESS TIMELINE  (source: Below-Hero E)
+════════════════════════════════════════════════ -->
+<section class="process-section" id="process" aria-labelledby="process-h2">
+  <div class="process-container">
+    <div class="process-header">
+      <span class="pill">The Process</span>
+      <div style="height:16px;"></div>
+      <h2 id="process-h2" class="process-h2">How a Westbrook <em class="ig">v</em>isit works.</h2>
+      <div style="height:16px;"></div>
+      <p class="process-sub">Four steps. Every job. No surprises between any of them.</p>
+    </div>
+    <div class="process-timeline">
+      <div class="process-connector" aria-hidden="true"></div>
+      <div class="process-step">
+        <div class="step-num" aria-hidden="true">01</div>
+        <div class="step-div" aria-hidden="true"></div>
+        <h3 class="step-title">You call us</h3>
+        <p class="step-desc">Live answer 24/7&nbsp;&mdash; never a call center, never a bot. We confirm your address and the issue.</p>
+        <div class="step-mono">Avg.&nbsp;pick-up:&nbsp;28&nbsp;seconds</div>
+      </div>
+      <div class="process-step">
+        <div class="step-num" aria-hidden="true">02</div>
+        <div class="step-div" aria-hidden="true"></div>
+        <h3 class="step-title">We arrive on-time</h3>
+        <p class="step-desc">Most Austin-area calls met within 60&nbsp;minutes for emergencies. SMS update when we&rsquo;re 15&nbsp;minutes out.</p>
+        <div class="step-mono">Punctuality:&nbsp;97%&nbsp;last&nbsp;quarter</div>
+      </div>
+      <div class="process-step">
+        <div class="step-num" aria-hidden="true">03</div>
+        <div class="step-div" aria-hidden="true"></div>
+        <h3 class="step-title">We quote in writing</h3>
+        <p class="step-desc">Diagnosis, flat-rate price, parts list, and timeline&nbsp;&mdash; on paper, before we open a single tool case.</p>
+        <div class="step-mono">Quotes&nbsp;good&nbsp;for&nbsp;30&nbsp;days</div>
+      </div>
+      <div class="process-step">
+        <div class="step-num" aria-hidden="true">04</div>
+        <div class="step-div" aria-hidden="true"></div>
+        <h3 class="step-title">You approve, we work</h3>
+        <p class="step-desc">Sign the quote and we begin. The price you signed is the price you pay&nbsp;&mdash; even if the job takes longer than expected.</p>
+        <div class="step-mono">100%&nbsp;satisfaction&nbsp;or&nbsp;we&nbsp;walk</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════
+     10 · MEET THE CREW  (source: Below-Hero F)
+════════════════════════════════════════════════ -->
+<section class="crew-section" id="crew" aria-labelledby="crew-h2">
+  <div class="crew-container">
+    <div class="crew-header">
+      <span class="pill">Our People</span>
+      <div style="height:16px;"></div>
+      <h2 id="crew-h2" class="sec-h2">The Reyes family and the <em class="ig">c</em>rew they trust.</h2>
+      <div style="height:16px;"></div>
+      <p class="crew-sub">Same people on every call. Background-checked, drug-tested, uniformed &mdash; and named on every quote before they show up.</p>
+    </div>
+    <div style="height:64px;"></div>
+    <div class="founder-grid">
+      <div>
+        <div class="founder-photo ph" role="img" aria-label="Miguel Reyes, founder of Westbrook Plumbing Co.">
+          <p class="ph-label">[REPLACE: Miguel Reyes, founder,<br>in uniform &mdash; workshop or service<br>truck, documentary side-light,<br>NOT smiling at camera]</p>
+        </div>
+      </div>
+      <div>
+        <div class="founder-index">01 / FOUNDER</div>
+        <div style="height:24px;"></div>
+        <h3 class="founder-name">Miguel Reyes</h3>
+        <div style="height:4px;"></div>
+        <p class="founder-role">Master Plumber TX #MPL18492 &mdash; Founded Westbrook in 2000.</p>
+        <div style="height:24px;"></div>
+        <p class="founder-bio">Miguel apprenticed under his father in El Paso, took his Master Plumber license at 28, and moved to Austin in 1999 to start Westbrook in a one-truck garage on Manor Road. Twenty-six years later, Westbrook is a five-truck shop &mdash; and Miguel still does intake on every job over $5,000.</p>
+        <div style="height:16px;"></div>
+        <p class="founder-bio">His son Carlos joined in 2011 as operations lead. His grandson Tomas started apprenticing in 2024. Three generations, same trade, same family &mdash; and yes, that&rsquo;s the actual reason it&rsquo;s called Westbrook (Miguel&rsquo;s mother&rsquo;s maiden name).</p>
+        <div style="height:24px;"></div>
+        <div class="founder-q-rule" aria-hidden="true"></div>
+        <div style="height:16px;"></div>
+        <blockquote class="founder-quote">&ldquo;We do this the way I&rsquo;d want it done in my own mother&rsquo;s house. That&rsquo;s the whole thing.&rdquo;</blockquote>
+        <div style="height:12px;"></div>
+        <cite class="founder-attr">&mdash;&nbsp;MIGUEL, ON HOW WE OPERATE</cite>
+      </div>
+    </div>
+    <div style="height:64px;"></div>
+    <div class="crew-row1">
+      <div>
+        <div class="crew-tile">
+          <div class="crew-tile-photo ph" role="img" aria-label="Carlos Reyes, Master Plumber and Operations Lead"><p class="ph-label">[Carlos in uniform<br>at intake desk,<br>papers, morning light]</p></div>
+          <div class="crew-tile-info">
+            <div class="crew-index">02 / OPERATIONS</div><div style="height:16px;"></div>
+            <div class="crew-tile-name">Carlos Reyes</div><div style="height:4px;"></div>
+            <div class="crew-tile-role">Master Plumber, Operations Lead</div><div style="height:4px;"></div>
+            <div class="crew-tile-since">WITH WESTBROOK SINCE 2011</div><div style="height:20px;"></div>
+            <div class="crew-q-rule" style="width:32px;" aria-hidden="true"></div><div style="height:16px;"></div>
+            <blockquote class="crew-tile-quote">&ldquo;I sign off on every quote that leaves this office. If a number looks off, the job doesn&rsquo;t go out.&rdquo;</blockquote>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="crew-tile">
+          <div class="crew-tile-photo ph" role="img" aria-label="Jose Martinez, Lead Service Technician"><p class="ph-label">[Jose with service van<br>background, copper pipe<br>&mdash; not a wrench cliché]</p></div>
+          <div class="crew-tile-info">
+            <div class="crew-index">03 / LEAD TECH</div><div style="height:16px;"></div>
+            <div class="crew-tile-name">Jose Martinez</div><div style="height:4px;"></div>
+            <div class="crew-tile-role">Lead Service Technician</div><div style="height:4px;"></div>
+            <div class="crew-tile-since">WITH WESTBROOK SINCE 2014</div><div style="height:20px;"></div>
+            <div class="crew-q-rule" style="width:32px;" aria-hidden="true"></div><div style="height:16px;"></div>
+            <blockquote class="crew-tile-quote">&ldquo;We carry every common part on the truck. Eight out of ten jobs, we don&rsquo;t have to come back twice.&rdquo;</blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="crew-row2">
+      <div class="crew-compact">
+        <div class="crew-compact-photo ph" role="img" aria-label="David Chen, Service Technician"><p class="ph-label">[David in uniform,<br>neutral environment]</p></div>
+        <div style="height:16px;"></div>
+        <div class="crew-index">04 / SERVICE TECH</div><div style="height:8px;"></div>
+        <div class="crew-compact-name">David Chen</div><div style="height:4px;"></div>
+        <div class="crew-compact-role">Service Technician &bull; Since 2019</div><div style="height:12px;"></div>
+        <div class="crew-q-rule" style="width:24px;" aria-hidden="true"></div><div style="height:12px;"></div>
+        <blockquote class="crew-compact-quote">&ldquo;I do mostly water heater installs. Got my Rinnai cert last year.&rdquo;</blockquote>
+      </div>
+      <div class="crew-compact">
+        <div class="crew-compact-photo ph" role="img" aria-label="Maria Garcia, Office and Dispatch"><p class="ph-label">[Maria at desk with<br>phone headset, warm<br>office lighting]</p></div>
+        <div style="height:16px;"></div>
+        <div class="crew-index">05 / OPERATIONS</div><div style="height:8px;"></div>
+        <div class="crew-compact-name">Maria Garcia</div><div style="height:4px;"></div>
+        <div class="crew-compact-role">Office &amp; Dispatch &bull; Since 2016</div><div style="height:12px;"></div>
+        <div class="crew-q-rule" style="width:24px;" aria-hidden="true"></div><div style="height:12px;"></div>
+        <blockquote class="crew-compact-quote">&ldquo;I&rsquo;m the one who answers when you call at 2&nbsp;a.m. Real human. Always.&rdquo;</blockquote>
+      </div>
+      <div class="crew-compact">
+        <div class="crew-compact-photo ph" role="img" aria-label="Tomas Reyes, Apprentice Plumber"><p class="ph-label">[Tomas, youngest team<br>member, in uniform,<br>near older crew]</p></div>
+        <div style="height:16px;"></div>
+        <div class="crew-index">06 / APPRENTICE</div><div style="height:8px;"></div>
+        <div class="crew-compact-name">Tomas Reyes</div><div style="height:4px;"></div>
+        <div class="crew-compact-role">Apprentice Plumber &bull; Since 2024</div><div style="height:12px;"></div>
+        <div class="crew-q-rule" style="width:24px;" aria-hidden="true"></div><div style="height:12px;"></div>
+        <blockquote class="crew-compact-quote">&ldquo;Third generation. Granddad&rsquo;s still my hardest grader.&rdquo;</blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════
+     11 · FAQ  (source: Below-Hero G)
+════════════════════════════════════════════════ -->
+<section class="faq-section" id="faq" aria-labelledby="faq-h2">
+  <div class="faq-container">
+    <div class="faq-grid">
+      <div class="faq-left">
+        <span class="pill">Common Questions</span>
+        <div style="height:16px;"></div>
+        <h2 id="faq-h2" class="sec-h2">Questions before you <em class="ig">c</em>all?</h2>
+        <div style="height:16px;"></div>
+        <p class="faq-sub">The seven things people ask most. If your question isn&rsquo;t here, call &mdash; we answer live, twenty-four hours a day.</p>
+        <div class="faq-contact">
+          <div class="faq-contact-eyebrow">Still have questions</div>
+          <a href="tel:+15125558199" class="faq-phone-link" aria-label="Call (512) 555-8199 — open dialer">(512)&nbsp;555-8199</a>
+          <div class="faq-phone-cap">Answered live &mdash; 24/7</div>
+        </div>
+      </div>
+      <div class="faq-right">
+        <details class="faq-item"><summary><span class="faq-q">Do you actually answer at 2&nbsp;a.m.?</span><div class="faq-chevron" aria-hidden="true"><span class="faq-plus">+</span></div></summary><p class="faq-answer">Yes &mdash; real human, every call, every hour. We have a live dispatcher on overnight shift (it&rsquo;s Maria &mdash; see Our People above). For emergencies, we dispatch within the hour to the Austin metro and most of Travis and Williamson counties.</p></details>
+        <details class="faq-item"><summary><span class="faq-q">How fast can you actually arrive?</span><div class="faq-chevron" aria-hidden="true"><span class="faq-plus">+</span></div></summary><p class="faq-answer">For emergencies in Austin proper: typically 45&ndash;75 minutes from your call to our truck at your door. Cedar Park, Round Rock, Pflugerville: 60&ndash;90 minutes. We send an SMS with a 15-minute heads-up when we&rsquo;re close, and we share live tracking from dispatch.</p></details>
+        <details class="faq-item"><summary><span class="faq-q">Will I know the price before you start working?</span><div class="faq-chevron" aria-hidden="true"><span class="faq-plus">+</span></div></summary><p class="faq-answer">Always. We diagnose first, then write a flat-rate quote on paper before opening a tool case. You sign, we work. The price you sign is what you pay &mdash; even if the job runs long. If we can&rsquo;t do it for the quoted price, we leave and you owe nothing.</p></details>
+        <details class="faq-item"><summary><span class="faq-q">Are you licensed and insured?</span><div class="faq-chevron" aria-hidden="true"><span class="faq-plus">+</span></div></summary><p class="faq-answer">Texas Master Plumber license #MPL18492 (Miguel) plus three licensed journeymen on staff. $1,000,000 general liability and $500,000 workers&rsquo; compensation. All techs are background-checked and drug-tested. Documentation is shown with every quote &mdash; we can also email it ahead of your call.</p></details>
+        <details class="faq-item"><summary><span class="faq-q">What if I&rsquo;m not happy with the work?</span><div class="faq-chevron" aria-hidden="true"><span class="faq-plus">+</span></div></summary><p class="faq-answer">We come back at no charge until you are. Every job carries a 1-year workmanship warranty on top of the manufacturer warranty on any parts we install. Most water heaters carry 6&ndash;12 years through Rinnai, Rheem, and A.O.&nbsp;Smith.</p></details>
+        <details class="faq-item"><summary><span class="faq-q">Do you offer financing?</span><div class="faq-chevron" aria-hidden="true"><span class="faq-plus">+</span></div></summary><p class="faq-answer">Yes, through Wisetack for jobs over $500. Soft credit check that doesn&rsquo;t affect your score, fixed monthly payments, no prepayment penalty. Approval in about 60 seconds. We can run it before you sign &mdash; no obligation.</p></details>
+        <details class="faq-item"><summary><span class="faq-q">Where exactly do you serve?</span><div class="faq-chevron" aria-hidden="true"><span class="faq-plus">+</span></div></summary><p class="faq-answer">Austin and surrounding cities &mdash; Cedar Park, Round Rock, Pflugerville, Leander, Buda, Kyle, Georgetown, Hutto, Lakeway, Bee Cave, West Lake Hills, and Sunset Valley. Use the ZIP-check tool above to confirm your address instantly.</p></details>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════
+     12 · REVIEWS BAND  (source: Westbrook Plumbing Co.html §7)
+════════════════════════════════════════════════ -->
+<section id="reviews" style="padding:96px 0;background:#EDE8DE;">
+  <div class="mx-auto px-6" style="max-width:1240px;">
+    <div class="grid grid-cols-1 md:grid-cols-12" style="gap:48px;align-items:center;">
+      <div class="md:col-span-5">
+        <span class="pill pill-br">Reviews</span>
+        <div style="height:16px;"></div>
+        <div class="font-display font-semibold text-brass t-rating">4.9</div>
+        <div style="height:16px;"></div>
+        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+          <span class="star" style="font-size:18px;letter-spacing:2px;">★★★★★</span>
+          <span class="font-mono text-graphite" style="font-size:12px;">2,847 verified Google reviews</span>
+        </div>
+      </div>
+      <div class="md:col-span-7" style="display:flex;flex-direction:column;gap:12px;">
+        <div class="card" style="background:#F7F4ED;border-radius:16px;padding:24px;box-shadow:0 1px 3px rgba(15,27,38,.06);">
+          <span class="star" style="font-size:14px;letter-spacing:1px;">★★★★★</span>
+          <div style="height:12px;"></div>
+          <p class="font-body text-ink" style="font-style:italic;font-size:16px;line-height:1.55;font-weight:500;">&ldquo;They diagnosed a slab leak three other companies missed. Done in two days, no drama.&rdquo;</p>
+          <div style="height:16px;"></div><hr class="hr"><div style="height:12px;"></div>
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <span class="font-body" style="font-size:14px;font-weight:600;">Sarah K. <span class="text-graphite" style="font-weight:400;">&bull; Cedar Park, TX</span></span>
+            <span class="font-mono text-brass" style="font-size:12px;">MAR 2026</span>
+          </div>
+        </div>
+        <div class="card" style="background:#F7F4ED;border-radius:16px;padding:24px;box-shadow:0 1px 3px rgba(15,27,38,.06);">
+          <span class="star" style="font-size:14px;letter-spacing:1px;">★★★★★</span>
+          <div style="height:12px;"></div>
+          <p class="font-body text-ink" style="font-style:italic;font-size:16px;line-height:1.55;font-weight:500;">&ldquo;Quoted us flat-rate, stuck to it, cleaned up like they were never here.&rdquo;</p>
+          <div style="height:16px;"></div><hr class="hr"><div style="height:12px;"></div>
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <span class="font-body" style="font-size:14px;font-weight:600;">Marcus R. <span class="text-graphite" style="font-weight:400;">&bull; South Austin</span></span>
+            <span class="font-mono text-brass" style="font-size:12px;">FEB 2026</span>
+          </div>
+        </div>
+        <div class="card" style="background:#F7F4ED;border-radius:16px;padding:24px;box-shadow:0 1px 3px rgba(15,27,38,.06);">
+          <span class="star" style="font-size:14px;letter-spacing:1px;">★★★★★</span>
+          <div style="height:12px;"></div>
+          <p class="font-body text-ink" style="font-style:italic;font-size:16px;line-height:1.55;font-weight:500;">&ldquo;Eric talked us out of a repipe we didn&rsquo;t need. Who does that? Westbrook.&rdquo;</p>
+          <div style="height:16px;"></div><hr class="hr"><div style="height:12px;"></div>
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <span class="font-body" style="font-size:14px;font-weight:600;">The Patel family <span class="text-graphite" style="font-weight:400;">&bull; Round Rock</span></span>
+            <span class="font-mono text-brass" style="font-size:12px;">JAN 2026</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════
+     13 · DESIGNED FOR EVERY HOME  (source: Westbrook Plumbing Co.html §6)
+════════════════════════════════════════════════ -->
+<section id="home-types" style="padding:96px 0;">
+  <div class="mx-auto px-6" style="max-width:1240px;">
+    <div class="grid grid-cols-1 md:grid-cols-12" style="gap:32px;align-items:flex-end;margin-bottom:48px;">
+      <div class="md:col-span-5">
+        <span class="pill">How It Works</span>
+        <div style="height:16px;"></div>
+        <h2 class="font-display font-semibold text-ink t-h2">Designed for <em class="ig">E</em>very Home</h2>
+      </div>
+      <div class="md:col-span-7 md:flex md:justify-end">
+        <p class="font-body text-ink-soft" style="font-size:15px;line-height:1.6;max-width:440px;">A structured approach to managing complex home plumbing &mdash; from new construction to homes built before 1980. We scope, quote, and execute the same way every time.</p>
+      </div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-12" style="gap:16px;align-items:start;">
+      <div class="hidden md:flex md:col-span-1 items-start justify-center" style="padding-top:12px;">
+        <span class="font-mono text-brass" style="font-size:13px;writing-mode:vertical-rl;transform:rotate(180deg);letter-spacing:0.08em;">01 / 02</span>
+      </div>
+      <div class="md:col-span-11 grid grid-cols-1 md:grid-cols-2" style="gap:16px;">
+        <div class="relative overflow-hidden" style="border-radius:16px;aspect-ratio:4/3;">
+          <img src="assets/bathroom-tub.jpeg" alt="Modern new-construction bathroom" class="absolute inset-0" style="width:100%;height:100%;object-fit:cover;">
+          <div class="absolute inset-x-0 bottom-0" style="padding:24px;background:linear-gradient(to top,rgba(8,32,48,.72) 0%,transparent 100%);">
+            <div style="margin-bottom:8px;"><span class="pill pill-b" style="font-size:0.625rem;padding:3px 10px;">Westbrook</span></div>
+            <h3 class="font-display font-semibold" style="font-size:1.375rem;line-height:1.1;color:#F7F4ED;">New Construction</h3>
+            <p class="font-body" style="font-size:14px;line-height:1.45;color:rgba(247,244,237,.8);margin-top:4px;">Roughed-in plumbing for builders and remodels</p>
+          </div>
+        </div>
+        <div class="relative overflow-hidden" style="border-radius:16px;aspect-ratio:4/3;">
+          <img src="assets/copper-joists.jpeg" alt="Older home with exposed copper pipes" class="absolute inset-0" style="width:100%;height:100%;object-fit:cover;">
+          <div class="absolute inset-x-0 bottom-0" style="padding:24px;background:linear-gradient(to top,rgba(8,32,48,.68) 0%,transparent 100%);">
+            <div style="margin-bottom:8px;"><span class="pill pill-b" style="font-size:0.625rem;padding:3px 10px;">Westbrook</span></div>
+            <h3 class="font-display font-semibold" style="font-size:1.375rem;line-height:1.1;color:#F7F4ED;">Older Homes (Pre-1980)</h3>
+            <p class="font-body" style="font-size:14px;line-height:1.45;color:rgba(247,244,237,.8);margin-top:4px;">Repipes, code upgrades, leak detection in homes 40+ years old</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:flex-end;gap:12px;margin-top:24px;">
+      <button aria-label="Previous" style="width:36px;height:36px;background:#EDE8DE;border-radius:8px;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#0F1B26;font-size:16px;transition:opacity .15s ease-out;" onmouseenter="this.style.opacity='.6'" onmouseleave="this.style.opacity='1'">←</button>
+      <span class="font-mono text-graphite" style="font-size:13px;">01 / 02</span>
+      <button aria-label="Next" style="width:36px;height:36px;background:#EDE8DE;border-radius:8px;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#0F1B26;font-size:16px;transition:opacity .15s ease-out;" onmouseenter="this.style.opacity='.6'" onmouseleave="this.style.opacity='1'">→</button>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════
+     14 · CONTACT FORM
+════════════════════════════════════════════════ -->
+<section class="cf-section" id="book" aria-labelledby="cf-heading">
+  <div class="cf-container">
+    <div class="cf-grid">
+
+      <!-- Left: info -->
+      <div style="display:flex;flex-direction:column;gap:32px;">
+        <div>
+          <span class="pill">Book a Visit</span>
+          <div style="height:16px;"></div>
+          <h2 id="cf-heading" class="sec-h2">Tell us what&rsquo;s <em class="ig">g</em>oing on.</h2>
+          <div style="height:16px;"></div>
+          <p class="cf-sub">Fill in the form and we&rsquo;ll call you back within the hour during business hours &mdash; or within 15&nbsp;minutes for emergencies.</p>
+        </div>
+        <div class="cf-detail" aria-label="Contact details">
+          <div class="cf-detail-row">
+            <div class="cf-detail-icon" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 2.5h3l1.5 3.5-1.5 1.5a9 9 0 0 0 2.5 2.5L10 8.5l3.5 1.5V13a1 1 0 0 1-1 1A12 12 0 0 1 2 3.5a1 1 0 0 1 1-1z" stroke="#F7F4ED" stroke-width="1.3" stroke-linejoin="round"/></svg>
+            </div>
+            <div>
+              <div class="cf-detail-label">Emergency &mdash; 24/7</div>
+              <a href="tel:+15125558199" class="cf-detail-val">(512)&nbsp;555-8199</a>
+              <div class="cf-detail-cap">Live human dispatch, always</div>
+            </div>
+          </div>
+          <div style="height:1px;background:rgba(184,135,59,.2);" aria-hidden="true"></div>
+          <div class="cf-detail-row">
+            <div class="cf-detail-icon" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="4" width="12" height="10" rx="1.5" stroke="#F7F4ED" stroke-width="1.25"/><path d="M2 7.5h12" stroke="#F7F4ED" stroke-width="1.1"/><path d="M5.5 2v2.5M10.5 2v2.5" stroke="#F7F4ED" stroke-width="1.25" stroke-linecap="round"/></svg>
+            </div>
+            <div>
+              <div class="cf-detail-label">Scheduled Visits</div>
+              <div class="cf-detail-val">Mon&ndash;Fri 7am&ndash;7pm</div>
+              <div class="cf-detail-cap">Sat 8am&ndash;4pm &bull; Sun on call</div>
+            </div>
+          </div>
+          <div style="height:1px;background:rgba(184,135,59,.2);" aria-hidden="true"></div>
+          <div class="cf-detail-row">
+            <div class="cf-detail-icon" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1.5A5.5 5.5 0 1 0 13.5 7H8V1.5z" stroke="#F7F4ED" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/><path d="M10.5 1.5A5.5 5.5 0 0 1 13.5 5h-3V1.5z" stroke="#F7F4ED" stroke-width="1.1" stroke-linejoin="round"/></svg>
+            </div>
+            <div>
+              <div class="cf-detail-label">Same-Day Rate</div>
+              <div class="cf-detail-val">97% on-time last quarter</div>
+              <div class="cf-detail-cap">SMS update 15&nbsp;min before arrival</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: form card -->
+      <div class="cf-card">
+        <div class="cf-card-eyebrow">Request a Visit</div>
+        <div class="cf-card-title">We&rsquo;ll confirm within the hour.</div>
+
+        <!-- Form -->
+        <form
+          id="contact-form"
+          action="https://formspree.io/f/YOUR_FORM_ID"
+          method="POST"
+          novalidate
+        >
+          <div class="cf-fields">
+
+            <div class="cf-row2">
+              <div class="cf-field">
+                <label class="cf-label" for="cf-name">Your name <span style="color:#C23B2A;">*</span></label>
+                <input class="cf-input" id="cf-name" name="name" type="text" placeholder="Miguel Reyes" autocomplete="name" required>
+              </div>
+              <div class="cf-field">
+                <label class="cf-label" for="cf-phone">Phone <span style="color:#C23B2A;">*</span></label>
+                <input class="cf-input" id="cf-phone" name="phone" type="tel" placeholder="(512) 000-0000" autocomplete="tel" required>
+              </div>
+            </div>
+
+            <div class="cf-field">
+              <label class="cf-label" for="cf-email">Email</label>
+              <input class="cf-input" id="cf-email" name="email" type="email" placeholder="you@email.com" autocomplete="email">
+            </div>
+
+            <div class="cf-row2">
+              <div class="cf-field">
+                <label class="cf-label" for="cf-service">Service needed <span style="color:#C23B2A;">*</span></label>
+                <select class="cf-select" id="cf-service" name="service" required>
+                  <option value="" disabled selected>Choose a service</option>
+                  <option value="emergency">🚨 Emergency Repair</option>
+                  <option value="drain">Drain Cleaning</option>
+                  <option value="water-heater">Water Heater Service</option>
+                  <option value="repipe">Whole-Home Repipe</option>
+                  <option value="leak">Leak Detection</option>
+                  <option value="bathroom">Bathroom / Kitchen Remodel</option>
+                  <option value="sewer">Sewer Line Service</option>
+                  <option value="other">Other / Not Sure</option>
+                </select>
+              </div>
+              <div class="cf-field">
+                <label class="cf-label" for="cf-zip">Your ZIP code</label>
+                <input class="cf-input" id="cf-zip" name="zip" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="5" placeholder="78745" autocomplete="postal-code">
+              </div>
+            </div>
+
+            <div class="cf-field">
+              <label class="cf-label" for="cf-message">Describe the issue</label>
+              <textarea class="cf-textarea" id="cf-message" name="message" placeholder="e.g. Water heater stopped working, basement drain is slow, pipe is leaking under the sink…" rows="3"></textarea>
+            </div>
+
+            <div class="cf-check-row">
+              <input class="cf-check" id="cf-consent" name="consent" type="checkbox" required>
+              <label class="cf-check-label" for="cf-consent">I agree to be contacted by Westbrook Plumbing Co. by phone or email about my request.</label>
+            </div>
+
+            <div id="cf-error" role="alert" style="display:none;background:#FEF2F0;border:1px solid rgba(194,59,42,.3);border-radius:10px;padding:12px 16px;font-family:'Instrument Sans',sans-serif;font-size:14px;color:#C23B2A;"></div>
+
+            <button class="cf-submit" type="submit" id="cf-btn">
+              <span id="cf-btn-text">Send Request</span>
+              <div class="cf-submit-arrow" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5L9.5 2.5m0 0H3m6.5 0V9" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+            </button>
+
+            <p class="cf-legal">No spam. No dispatch fee. We&rsquo;ll call to confirm before scheduling anything.</p>
+          </div>
+        </form>
+
+        <!-- Success state -->
+        <div class="cf-success" id="cf-success" aria-live="polite">
+          <div class="cf-success-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L19 7" stroke="#B8873B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="cf-success-title">Request received.</div>
+          <p class="cf-success-sub">We&rsquo;ll call you back within the hour. For emergencies, call us directly:</p>
+          <a href="tel:+15125558199" class="cf-success-phone">(512)&nbsp;555-8199</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════
+     15 · FINAL CTA  (source: Westbrook Plumbing Co.html §9)
+════════════════════════════════════════════════ -->
+<section id="contact" style="padding:96px 24px;">
+  <div class="cta-wrap relative overflow-hidden" style="border-radius:24px;">
+    <img src="assets/cinematic-deep.jpeg" alt="" class="absolute inset-0" style="width:100%;height:100%;object-fit:cover;">
+    <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(8,32,48,.7) 0%,transparent 60%);"></div>
+    <div class="absolute inset-0 flex flex-col items-center justify-center text-center" style="padding:48px 24px;">
+      <span class="pill pill-b" style="margin-bottom:16px;">Get Started</span>
+      <h2 class="font-display font-semibold text-bone t-cta">Ready to fix what&rsquo;s <em class="ig">l</em>eaking?</h2>
+      <div style="height:16px;"></div>
+      <p class="font-body" style="font-size:16px;color:rgba(247,244,237,.8);max-width:480px;line-height:1.55;">Call us, or book online &mdash; we&rsquo;ll be at your door same day for most Austin-area requests.</p>
+      <div style="height:32px;"></div>
+      <a href="tel:+15125558199" class="btn btn-l">
+        Book a visit
+        <span class="bi">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 8L8 2M8 2H3M8 2V7" stroke="#F7F4ED" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+      <div style="height:16px;"></div>
+      <a href="tel:+15125558199" aria-label="Call (512) 555-8199 — open dialer" class="font-mono" style="font-size:13px;color:rgba(247,244,237,.65);text-decoration:none;">or call (512) 555-8199 &mdash; 24/7 emergency</a>
+    </div>
+  </div>
+</section>
+
+
+</main>
+
+
+<!-- ════════════════════════════════════════════════
+     FOOTER  (source: Below-Hero Sections.html)
+════════════════════════════════════════════════ -->
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-container">
+    <div class="footer-top">
+      <div>
+        <div class="footer-wm">Westbrook Plumbing Co.</div>
+        <div style="height:16px;"></div>
+        <p class="footer-tagline">Family-owned plumbing for Austin and surrounding cities since 2000.</p>
+        <div style="height:24px;"></div>
+        <div class="footer-brass-rule" aria-hidden="true"></div>
+        <div style="height:24px;"></div>
+        <div class="footer-owner">Owned by the Reyes Family</div>
+        <div style="height:4px;"></div>
+        <div class="footer-owner-cap">Three generations &middot; Same neighborhood</div>
+      </div>
+      <div>
+        <div class="footer-eyebrow">Hours</div>
+        <div style="height:12px;"></div>
+        <ul class="footer-hours">
+          <li>Mon&ndash;Fri &nbsp;&nbsp; 7am&ndash;7pm</li>
+          <li>Saturday &nbsp; 8am&ndash;4pm</li>
+          <li>Sunday &nbsp;&nbsp;&nbsp; On call</li>
+        </ul>
+        <div style="height:16px;"></div>
+        <div class="footer-hr-sm" aria-hidden="true"></div>
+        <div style="height:16px;"></div>
+        <div class="footer-eyebrow">Emergency</div>
+        <div style="height:8px;"></div>
+        <a href="tel:+15125558199" class="footer-tel" aria-label="Call (512) 555-8199">(512) 555-8199</a>
+        <div style="height:4px;"></div>
+        <div class="footer-mono-sm">Answered live, 24/7</div>
+      </div>
+      <div>
+        <div class="footer-eyebrow">Services</div>
+        <div style="height:12px;"></div>
+        <ul class="footer-svc">
+          <li><a href="#services">Emergency Repair</a></li>
+          <li><a href="#services">Drain Cleaning</a></li>
+          <li><a href="#services">Water Heater Service</a></li>
+          <li><a href="#services">Whole-Home Repipe</a></li>
+          <li><a href="#services">Leak Detection</a></li>
+          <li><a href="#services">Bathroom &amp; Kitchen Remodel</a></li>
+          <li><a href="#services">New Construction</a></li>
+          <li><a href="#services">Sewer Line Service</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-eyebrow">Service Areas</div>
+        <div style="height:12px;"></div>
+        <div class="footer-cities">
+          <div><div>Austin</div><div>Cedar Park</div><div>Round Rock</div><div>Pflugerville</div><div>Leander</div><div>Lakeway</div><div>Bee Cave</div></div>
+          <div><div>Buda</div><div>Kyle</div><div>Georgetown</div><div>Hutto</div><div>West Lake Hills</div><div>Sunset Valley</div><div style="color:rgba(247,244,237,.35);">and more</div></div>
+        </div>
+        <div style="height:16px;"></div>
+        <a href="#service-area" class="footer-zips-link">View all ZIP codes &rarr;</a>
+      </div>
+    </div>
+    <div class="footer-divider" aria-hidden="true"></div>
+    <div class="footer-bottom">
+      <div class="footer-legal">
+        <span class="footer-legal-t">&copy; 2026 Westbrook Plumbing Co.</span>
+        <span class="footer-bul" aria-hidden="true">&bull;</span>
+        <a href="#" class="footer-legal-t">Privacy Policy</a>
+        <span class="footer-bul" aria-hidden="true">&bull;</span>
+        <a href="#" class="footer-legal-t">Terms of Service</a>
+      </div>
+      <div class="footer-creds" aria-label="License and insurance">
+        <span class="footer-cred">LIC TX #MPL18492</span>
+        <div class="footer-cred-sep" aria-hidden="true"></div>
+        <span class="footer-cred">$1M Insured</span>
+        <div class="footer-cred-sep" aria-hidden="true"></div>
+        <span class="footer-cred">BBB A+ Accredited</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- Mobile sticky bottom CTA bar -->
+<nav class="mobile-bar" aria-label="Quick contact options">
+  <a href="tel:+15125558199" class="bar-call" aria-label="Call Westbrook Plumbing at (512) 555-8199 for emergency service">
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 3h3.5l2 4.5-2 2a11 11 0 0 0 3 3l2-2 4.5 2v3.5a1.5 1.5 0 0 1-1.5 1.5A15 15 0 0 1 2.5 4.5 1.5 1.5 0 0 1 4 3z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+    Call (512) 555-8199
+  </a>
+  <a href="#book" class="bar-book" aria-label="Book a plumbing service online">
+    Book Online
+    <div class="bar-arrow" aria-hidden="true">
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5L9.5 2.5m0 0H3m6.5 0V9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+  </a>
+</nav>
+
+
+<script>
+/* ── Video fade-in + ping-pong loop ── */
+(function () {
+  var video = document.getElementById('hero-video');
+  if (!video) return;
+
+  function onReady() { video.classList.add('loaded'); }
+  if (video.readyState >= 3) { onReady(); }
+  else {
+    video.addEventListener('canplay', onReady, { once: true });
+    setTimeout(onReady, 1500);
+  }
+
+  var reversing = false;
+  var lastTs = null;
+
+  function reverseStep(ts) {
+    if (!reversing) return;
+    if (lastTs !== null) {
+      var delta = (ts - lastTs) / 1000;
+      video.currentTime = Math.max(0, video.currentTime - delta);
+    }
+    lastTs = ts;
+    if (video.currentTime <= 0) {
+      reversing = false;
+      lastTs = null;
+      video.play();
+    } else {
+      requestAnimationFrame(reverseStep);
+    }
+  }
+
+  video.addEventListener('ended', function () {
+    video.currentTime = video.duration || 0;
+    reversing = true;
+    lastTs = null;
+    requestAnimationFrame(reverseStep);
+  });
+}());
+
+/* ── ZIP service-area check (Below-Hero Sections.html) ── */
+(function () {
+  var servedZips = {
+    '78701':'Austin','78702':'Austin','78703':'Austin','78704':'Austin','78705':'Austin',
+    '78745':'South Austin','78746':'West Lake Hills','78748':'South Austin',
+    '78749':'Southwest Austin','78750':'Northwest Austin','78751':'Hyde Park',
+    '78752':'North Austin','78753':'North Austin','78754':'East Austin',
+    '78757':'Crestview','78758':'North Austin','78759':'Northwest Austin',
+    '78613':'Cedar Park','78641':'Leander','78660':'Pflugerville',
+    '78664':'Round Rock','78681':'Round Rock','78610':'Buda','78640':'Kyle',
+    '78628':'Georgetown','78626':'Georgetown','78634':'Hutto','78738':'Lakeway',
+    '78739':'Austin','78747':'Austin','78735':'Austin'
+  };
+  var svgCheck = '<svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M2 5.5l2.5 2.5L9 3" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  var svgInfo  = '<svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M5.5 3.5v3M5.5 8v.5" stroke="#6B7280" stroke-width="1.5" stroke-linecap="round"/></svg>';
+
+  function fadeIn(el) {
+    el.style.opacity = '0'; el.style.display = 'block'; el.style.transition = 'none';
+    requestAnimationFrame(function () { requestAnimationFrame(function () { el.style.transition = 'opacity 200ms ease-out'; el.style.opacity = '1'; }); });
+  }
+
+  var form = document.getElementById('zip-form');
+  if (!form) return;
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var raw = document.getElementById('zip-input').value.trim();
+    var result = document.getElementById('zip-result');
+    var html = '';
+    if (!/^\d{5}$/.test(raw)) {
+      html = '<p style="font-family:\'Instrument Sans\',sans-serif;font-size:14px;color:#6B7280;margin:0;">Please enter a valid 5-digit ZIP code.</p>';
+      result.innerHTML = html; fadeIn(result); return;
+    }
+    var city = servedZips[raw];
+    if (city) {
+      html = '<div style="display:flex;align-items:flex-start;gap:10px;"><div style="width:22px;height:22px;background:#B8873B;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">' + svgCheck + '</div><div><p style="font-family:\'Instrument Sans\',sans-serif;font-size:15px;font-weight:500;color:#0F1B26;margin:0;">Yes \u2014 we serve <strong>' + city + '</strong>. Same-day service available.</p><a href="tel:+15125558199" style="font-family:\'JetBrains Mono\',monospace;font-size:13px;font-weight:500;color:#B8873B;text-decoration:none;display:inline-block;margin-top:6px;border-bottom:1px solid transparent;transition:border-color 150ms;" onmouseenter="this.style.borderBottomColor=\'#B8873B\'" onmouseleave="this.style.borderBottomColor=\'transparent\'">Call (512) 555-8199</a></div></div>';
+    } else {
+      html = '<div style="display:flex;align-items:flex-start;gap:10px;"><div style="width:22px;height:22px;border:1.5px solid #6B7280;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">' + svgInfo + '</div><p style="font-family:\'Instrument Sans\',sans-serif;font-size:15px;font-weight:500;color:#3B4A5C;margin:0;">We don\u2019t serve that ZIP yet \u2014 but call us, we\u2019ll refer you to a vetted local plumber.</p></div>';
+    }
+    result.innerHTML = html; fadeIn(result);
+  });
+}());
+
+/* ── Contact form: validation + Formspree AJAX ── */
+(function () {
+  var form    = document.getElementById('contact-form');
+  var btn     = document.getElementById('cf-btn');
+  var btnText = document.getElementById('cf-btn-text');
+  var errBox  = document.getElementById('cf-error');
+  var success = document.getElementById('cf-success');
+  if (!form) return;
+
+  function showError(msg) {
+    errBox.textContent = msg;
+    errBox.style.display = 'block';
+    errBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+  function clearError() { errBox.style.display = 'none'; errBox.textContent = ''; }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    clearError();
+
+    var name    = form.querySelector('#cf-name').value.trim();
+    var phone   = form.querySelector('#cf-phone').value.trim();
+    var service = form.querySelector('#cf-service').value;
+    var consent = form.querySelector('#cf-consent').checked;
+
+    if (!name)    { showError('Please enter your name.'); return; }
+    if (!phone)   { showError('Please enter a phone number so we can reach you.'); return; }
+    if (!service) { showError('Please select the service you need.'); return; }
+    if (!consent) { showError('Please confirm you agree to be contacted.'); return; }
+
+    btn.disabled = true;
+    btnText.textContent = 'Sending…';
+
+    fetch(form.action, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new FormData(form)
+    })
+    .then(function (res) {
+      if (res.ok) {
+        form.style.display = 'none';
+        success.style.display = 'flex';
+      } else {
+        res.json().then(function (data) {
+          showError(data.errors ? data.errors.map(function(e){return e.message;}).join(', ') : 'Something went wrong. Please call us directly.');
+        });
+      }
+    })
+    .catch(function () {
+      showError('Network error. Please call us directly at (512) 555-8199.');
+    })
+    .finally(function () {
+      btn.disabled = false;
+      btnText.textContent = 'Send Request';
+    });
+  });
+}());
+
+/* ── Mobile menu toggle + focus trap + close-on-nav (Below-Hero Sections.html) ── */
+(function () {
+  var btn    = document.getElementById('hamburger-btn');
+  var menu   = document.getElementById('mobile-menu');
+  var closeB = document.getElementById('mm-close-btn');
+
+  function openMenu()  { menu.classList.add('mm-open');    btn.setAttribute('aria-expanded','true');  document.body.style.overflow = 'hidden'; closeB.focus(); }
+  function closeMenu() { menu.classList.remove('mm-open'); btn.setAttribute('aria-expanded','false'); document.body.style.overflow = '';       btn.focus(); }
+
+  if (btn)    btn.addEventListener('click', openMenu);
+  if (closeB) closeB.addEventListener('click', closeMenu);
+
+  /* Close on Escape */
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && menu && menu.classList.contains('mm-open')) closeMenu();
+  });
+
+  /* Close when a nav link is tapped */
+  if (menu) {
+    menu.querySelectorAll('a[href]').forEach(function (a) {
+      a.addEventListener('click', function () { if (menu.classList.contains('mm-open')) closeMenu(); });
+    });
+  }
+
+  /* Focus trap */
+  if (menu) {
+    menu.addEventListener('keydown', function (e) {
+      if (e.key !== 'Tab') return;
+      var els   = menu.querySelectorAll('a[href], button, [tabindex]:not([tabindex="-1"])');
+      var first = els[0]; var last = els[els.length - 1];
+      if (e.shiftKey) { if (document.activeElement === first) { e.preventDefault(); last.focus(); } }
+      else            { if (document.activeElement === last)  { e.preventDefault(); first.focus(); } }
+    });
+  }
+}());
+</script>
+
+</body>
+</html>
