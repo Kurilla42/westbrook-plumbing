@@ -420,6 +420,20 @@
     @media (min-width:768px) { .mobile-bar { display:none; } }
     @media (max-width:767px) { body { padding-bottom:calc(64px + env(safe-area-inset-bottom,0px)); } }
 
+    /* Fix 3 — FAQ: "Still have questions" block ниже вопросов на мобильном */
+    @media (max-width:767px) { .faq-right { order:1; } .faq-left { order:2; } }
+
+    /* Fix 4 — Trust strip: звёздочки выше текста (Google/Yelp/Angi) на мобильном */
+    @media (max-width:767px) {
+      .trust-strip-inner > .trust-item:nth-child(-n+5) { flex-direction:column; align-items:flex-start; gap:4px; }
+    }
+
+    /* Fix 6 — Hero: скрыть "Tap to call" строку на десктопе */
+    @media (min-width:768px) { .hero-divider-group { display:none !important; } }
+
+    /* Fix 10 — The Approach: скрыть фото на мобильном */
+    @media (max-width:767px) { .approach-photo { display:none !important; } }
+
     /* ═══════════════════════════════════════
        CONTACT FORM
     ═══════════════════════════════════════ */
@@ -641,13 +655,13 @@
         <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M6 1L10.5 3.2V6.5C10.5 8.8 8.5 10.7 6 11.2 3.5 10.7 1.5 8.8 1.5 6.5V3.2L6 1z" stroke="#B8873B" stroke-width="1.2" fill="none"/><path d="M4 6l1.5 1.5L8 4.5" stroke="#B8873B" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg>
         <span>LICENSED TX #MPL18492</span>
       </div>
-      <div class="trust-badge" role="listitem" aria-label="One million dollar insured">
-        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><circle cx="6" cy="6" r="5" stroke="#B8873B" stroke-width="1.2"/><path d="M3.5 6l2 2 3-3" stroke="#B8873B" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <span>$1M INSURED</span>
-      </div>
       <div class="trust-badge" role="listitem" aria-label="BBB A Plus Accredited">
         <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><rect x="1.5" y="1.5" width="9" height="9" rx="2" stroke="#B8873B" stroke-width="1.2"/><text x="6" y="8.4" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="5.5" font-weight="600" fill="#B8873B">A+</text></svg>
         <span>BBB A+ ACCREDITED</span>
+      </div>
+      <div class="trust-badge" role="listitem" aria-label="One million dollar insured">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><circle cx="6" cy="6" r="5" stroke="#B8873B" stroke-width="1.2"/><path d="M3.5 6l2 2 3-3" stroke="#B8873B" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>$1M INSURED</span>
       </div>
       <div class="trust-badge" role="listitem" aria-label="Background checked crew">
         <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><circle cx="4.5" cy="3.5" r="2" stroke="#B8873B" stroke-width="1.2"/><path d="M1.5 10.5c0-1.9 1.3-3 3-3" stroke="#B8873B" stroke-width="1.2" stroke-linecap="round"/><path d="M7.5 8l1.5 1.5L11 7" stroke="#B8873B" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -758,23 +772,13 @@
 ════════════════════════════════════════════════ -->
 <section id="about" style="padding:96px 0;">
   <div class="mx-auto px-6" style="max-width:1240px;">
-    <div class="grid grid-cols-1 md:grid-cols-12" style="gap:32px;">
+    <div class="grid grid-cols-1 md:grid-cols-12" style="gap:32px;align-items:stretch;">
 
-      <div class="md:col-span-5">
+      <div class="md:col-span-5" style="display:flex;flex-direction:column;">
         <span class="pill">About Westbrook</span>
         <div style="height:16px;"></div>
-        <h2 class="font-display font-semibold text-ink t-h2">
-          Built for
-          <svg width="22" height="24" viewBox="0 0 22 24" aria-hidden="true" style="display:inline-block;vertical-align:middle;margin:0 5px 4px;">
-            <rect x="0"  y="3"  width="7"  height="5"  rx="1.5" fill="#B8873B"/>
-            <rect x="0"  y="14" width="7"  height="5"  rx="1.5" fill="#B8873B"/>
-            <rect x="7"  y="2"  width="4"  height="17" rx="1.5" fill="#B8873B"/>
-            <rect x="11" y="3"  width="11" height="5"  rx="1.5" fill="#B8873B"/>
-            <rect x="11" y="14" width="11" height="5"  rx="1.5" fill="#B8873B"/>
-          </svg>
-          <em class="ig">O</em>lder Homes
-        </h2>
-        <div style="height:24px;"></div>
+        <h2 class="font-display font-semibold text-ink t-h2">Built for <em class="ig">O</em>lder Homes</h2>
+        <div style="flex:1;min-height:24px;"></div>
         <p class="font-body text-ink-soft" style="font-size:16px;line-height:1.6;max-width:380px;">Westbrook helps Austin homeowners maintain, repair, and modernize plumbing in homes built before 1980 — without tearing the place apart. Honest pricing, written before any work begins.</p>
         <div style="height:24px;"></div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
@@ -819,14 +823,6 @@
 
 
 <!-- ════════════════════════════════════════════════
-     06 · WIDE CINEMATIC STRIP  (source: Westbrook Plumbing Co.html §4)
-════════════════════════════════════════════════ -->
-<section style="padding:96px 24px;">
-  <div class="cine-wrap" style="border-radius:24px;overflow:hidden;background:url('assets/water-slate.jpeg') center/cover no-repeat;"></div>
-</section>
-
-
-<!-- ════════════════════════════════════════════════
      07 · HANDLE AS ONE SYSTEM  (source: Westbrook Plumbing Co.html §5)
 ════════════════════════════════════════════════ -->
 <section id="system" style="padding:96px 0;">
@@ -834,11 +830,11 @@
     <div class="grid grid-cols-1 md:grid-cols-12" style="gap:48px;align-items:center;">
 
       <div class="md:col-span-5">
-        <img src="assets/basement-pipes.jpeg" alt="Basement utility room with copper pipes" style="width:100%;aspect-ratio:4/5;border-radius:16px;object-fit:cover;display:block;">
+        <img src="assets/basement-pipes.jpeg" alt="Basement utility room with copper pipes" class="approach-photo" style="width:100%;aspect-ratio:4/5;border-radius:16px;object-fit:cover;display:block;">
       </div>
 
       <div class="md:col-span-7" style="display:flex;flex-direction:column;justify-content:center;">
-        <span class="pill">The Approach</span>
+        <span class="pill" style="align-self:center;">The Approach</span>
         <div style="height:16px;"></div>
         <h2 class="font-display font-semibold text-ink t-h2">Handle Your Home&rsquo;s Plumbing as <em class="ig">O</em>ne System</h2>
         <div style="height:24px;"></div>
@@ -1361,7 +1357,7 @@
 ════════════════════════════════════════════════ -->
 <section id="contact" style="padding:96px 24px;">
   <div class="cta-wrap relative overflow-hidden" style="border-radius:24px;">
-    <img src="assets/cinematic-deep.jpeg" alt="" class="absolute inset-0" style="width:100%;height:100%;object-fit:cover;">
+    <img src="assets/water-slate.jpeg" alt="" class="absolute inset-0" style="width:100%;height:100%;object-fit:cover;">
     <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(8,32,48,.7) 0%,transparent 60%);"></div>
     <div class="absolute inset-0 flex flex-col items-center justify-center text-center" style="padding:48px 24px;">
       <span class="pill pill-b" style="margin-bottom:16px;">Get Started</span>
@@ -1486,6 +1482,9 @@
   var video = document.getElementById('hero-video');
   if (!video) return;
 
+  var RATE = 0.8;
+  video.playbackRate = RATE;
+
   function onReady() { video.classList.add('loaded'); }
   if (video.readyState >= 3) { onReady(); }
   else {
@@ -1493,19 +1492,26 @@
     setTimeout(onReady, 1500);
   }
 
+  /* Кэшируем длительность — video.duration при ended может вернуть NaN */
+  var dur = 0;
+  video.addEventListener('loadedmetadata', function () { dur = video.duration; });
+
   var reversing = false;
   var lastTs = null;
 
   function reverseStep(ts) {
     if (!reversing) return;
     if (lastTs !== null) {
-      var delta = (ts - lastTs) / 1000;
+      /* Вычитаем столько же времени, сколько прошло бы при нормальном воспроизведении */
+      var delta = (ts - lastTs) / 1000 * RATE;
       video.currentTime = Math.max(0, video.currentTime - delta);
     }
     lastTs = ts;
     if (video.currentTime <= 0) {
       reversing = false;
       lastTs = null;
+      video.currentTime = 0;
+      video.playbackRate = RATE;
       video.play();
     } else {
       requestAnimationFrame(reverseStep);
@@ -1513,7 +1519,10 @@
   }
 
   video.addEventListener('ended', function () {
-    video.currentTime = video.duration || 0;
+    /* Если dur не закэширован — fallback на video.duration */
+    var d = dur > 0 ? dur : video.duration;
+    if (!d || !isFinite(d)) { video.play(); return; }
+    video.currentTime = d;
     reversing = true;
     lastTs = null;
     requestAnimationFrame(reverseStep);
