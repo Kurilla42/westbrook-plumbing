@@ -466,6 +466,13 @@
     /* Fix 6 — Hero: скрыть "Tap to call" строку на десктопе */
     @media (min-width:768px) { .hero-divider-group { display:none !important; } }
 
+    /* Service cards: vertical layout on mobile (< lg = < 1024px) */
+    @media (max-width:1023px) {
+      .svc-card { flex-direction:column !important; padding:0 !important; gap:0 !important; }
+      .svc-img-wrap { order:-1; flex:none !important; min-height:auto !important; width:100%; aspect-ratio:16/10; }
+      .svc-img-wrap img { width:100% !important; height:100% !important; min-height:auto !important; border-radius:16px 16px 0 0 !important; }
+      .svc-body { padding:20px !important; }
+    }
     /* How We Work: инсет + скругление только на десктопе */
     .approach-wrap { position:relative; overflow:hidden; background:url('assets/cinematic-deep-2.jpeg') center/cover no-repeat; }
     @media (min-width:768px) { .approach-wrap { margin:0 24px; border-radius:24px; } }
@@ -855,39 +862,39 @@
       <div id="services" class="lg:col-span-7" style="display:flex;flex-direction:column;gap:16px;">
 
         <!-- Card 1 — cream -->
-        <div class="card" style="background:#EDE8DE;border-radius:16px;padding:24px;display:flex;gap:16px;align-items:stretch;box-shadow:0 1px 3px rgba(15,27,38,.06);">
-          <div style="flex:3;min-width:0;">
+        <div class="card svc-card" style="background:#EDE8DE;border-radius:16px;padding:24px;display:flex;gap:16px;align-items:stretch;box-shadow:0 1px 3px rgba(15,27,38,.06);">
+          <div class="svc-body" style="flex:3;min-width:0;">
             <h3 class="font-display font-semibold text-ink t-h3">System-First Repair</h3>
             <p class="font-body text-ink-soft" style="font-size:15px;line-height:1.55;margin-top:8px;">We map your full water system before touching a wrench. Then we fix the cause, not just the visible leak &mdash; so the repair lasts.</p>
             <div style="margin-top:12px;"><a href="#book" class="btn-sm">Learn More →</a></div>
             <div style="margin-top:10px;"><span class="font-mono text-brass" style="font-size:13px;">From $149</span></div>
             <div style="margin-top:4px;"><span class="font-mono" style="font-size:11px;color:rgba(15,27,38,.60);">Same-day written quote</span></div>
           </div>
-          <div style="flex:2;min-height:130px;"><img src="assets/copper-macro.jpeg" alt="Copper pipes macro" style="width:100%;height:100%;min-height:130px;border-radius:12px;object-fit:cover;display:block;"></div>
+          <div class="svc-img-wrap" style="flex:2;min-height:130px;"><img src="assets/copper-macro.jpeg" alt="Copper pipes macro" style="width:100%;height:100%;min-height:130px;border-radius:12px;object-fit:cover;display:block;"></div>
         </div>
 
         <!-- Card 2 — dark navy (visual rhythm) -->
-        <div class="card" style="background:#0E2A3F;border-radius:16px;padding:24px;display:flex;gap:16px;align-items:stretch;">
-          <div style="flex:3;min-width:0;">
+        <div class="card svc-card" style="background:#0E2A3F;border-radius:16px;padding:24px;display:flex;gap:16px;align-items:stretch;">
+          <div class="svc-body" style="flex:3;min-width:0;">
             <h3 class="font-display font-semibold t-h3" style="color:#F7F4ED;">Whole-Home Repipe</h3>
             <p class="font-body" style="font-size:15px;line-height:1.55;margin-top:8px;color:rgba(247,244,237,.75);">Full copper or PEX repipe in 1&ndash;3 days. Room-by-room with drop cloths and floor protection &mdash; your kitchen stays usable while we work. Manufacturer-backed warranties.</p>
             <div style="margin-top:12px;"><a href="#book" class="btn-sm">Learn More →</a></div>
             <div style="margin-top:10px;"><span class="font-mono" style="font-size:13px;color:#B8873B;">From $4,200</span></div>
             <div style="margin-top:4px;"><span class="font-mono" style="font-size:11px;color:rgba(247,244,237,.60);">10-year warranty &middot; no tear-out guarantee</span></div>
           </div>
-          <div style="flex:2;min-height:130px;"><img src="assets/copper-blue-wall2.jpeg" alt="Copper pipes against dark wall" style="width:100%;height:100%;min-height:130px;border-radius:12px;object-fit:cover;display:block;"></div>
+          <div class="svc-img-wrap" style="flex:2;min-height:130px;"><img src="assets/copper-blue-wall2.jpeg" alt="Copper pipes against dark wall" style="width:100%;height:100%;min-height:130px;border-radius:12px;object-fit:cover;display:block;"></div>
         </div>
 
         <!-- Card 3 — cream -->
-        <div class="card" style="background:#EDE8DE;border-radius:16px;padding:24px;display:flex;gap:16px;align-items:stretch;box-shadow:0 1px 3px rgba(15,27,38,.06);">
-          <div style="flex:3;min-width:0;">
+        <div class="card svc-card" style="background:#EDE8DE;border-radius:16px;padding:24px;display:flex;gap:16px;align-items:stretch;box-shadow:0 1px 3px rgba(15,27,38,.06);">
+          <div class="svc-body" style="flex:3;min-width:0;">
             <h3 class="font-display font-semibold text-ink t-h3">Long-Term Water Heaters</h3>
             <p class="font-body text-ink-soft" style="font-size:15px;line-height:1.55;margin-top:8px;">Tankless or hybrid installs sized to your home&rsquo;s actual hot water demand. We calculate fixture units, not flat assumptions or sales scripts.</p>
             <div style="margin-top:12px;"><a href="#book" class="btn-sm">Learn More →</a></div>
             <div style="margin-top:10px;"><span class="font-mono text-brass" style="font-size:13px;">From $1,800</span></div>
             <div style="margin-top:4px;"><span class="font-mono" style="font-size:11px;color:rgba(15,27,38,.60);">Manufacturer-sized &middot; installed in one day</span></div>
           </div>
-          <div style="flex:2;min-height:130px;"><img src="assets/water-heater.jpeg" alt="Modern tankless water heater" style="width:100%;height:100%;min-height:130px;border-radius:12px;object-fit:cover;display:block;"></div>
+          <div class="svc-img-wrap" style="flex:2;min-height:130px;"><img src="assets/water-heater.jpeg" alt="Modern tankless water heater" style="width:100%;height:100%;min-height:130px;border-radius:12px;object-fit:cover;display:block;"></div>
         </div>
 
       </div>
@@ -1205,8 +1212,8 @@
       <!-- Case 1: Corroded cast iron drain → PVC -->
       <div class="ba-card">
         <div class="ba-slider" data-ba-slider aria-label="Before and after: corroded cast iron drain replacement">
-          <img class="ba-img" src="assets/before1.jpg" alt="Before — heavily corroded cast iron drain pipe with cracks inside wall opening">
-          <img class="ba-img ba-after-img" src="assets/after1.jpg" alt="After — new schedule-40 PVC drain section with Fernco no-hub couplings">
+          <img class="ba-img" src="assets/after1.jpg" alt="After — new schedule-40 PVC drain section with Fernco no-hub couplings">
+          <img class="ba-img ba-after-img" src="assets/before1.jpg" alt="Before — heavily corroded cast iron drain pipe with cracks inside wall opening">
           <div class="ba-divider" aria-hidden="true">
             <div class="ba-handle">
               <svg width="22" height="14" viewBox="0 0 22 14" fill="none" aria-hidden="true"><path d="M1 7h20M7 1L1 7l6 6M15 1l6 6-6 6" stroke="#0F1B26" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -1225,8 +1232,8 @@
       <!-- Case 2: Seized sump pump → new unit -->
       <div class="ba-card">
         <div class="ba-slider" data-ba-slider aria-label="Before and after: failed sump pump replacement">
-          <img class="ba-img" src="assets/before2.jpg" alt="Before — seized rust-covered sump pump sitting in flooded pit with standing groundwater">
-          <img class="ba-img ba-after-img" src="assets/after2.jpg" alt="After — new submersible sump pump with PVC discharge line and check valve">
+          <img class="ba-img" src="assets/after2.jpg" alt="After — new submersible sump pump with PVC discharge line and check valve">
+          <img class="ba-img ba-after-img" src="assets/before2.jpg" alt="Before — seized rust-covered sump pump sitting in flooded pit with standing groundwater">
           <div class="ba-divider" aria-hidden="true">
             <div class="ba-handle">
               <svg width="22" height="14" viewBox="0 0 22 14" fill="none" aria-hidden="true"><path d="M1 7h20M7 1L1 7l6 6M15 1l6 6-6 6" stroke="#0F1B26" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
