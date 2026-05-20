@@ -231,24 +231,24 @@
     /* ═══════════════════════════════════════
        PRICING
     ═══════════════════════════════════════ */
-    .pricing-section { background:#F7F4ED; padding:96px 0; }
+    .pricing-section { background:#EDE8DE; padding:96px 0; }
     .pricing-container { max-width:1080px; margin:0 auto; padding:0 24px; }
     .pricing-header { text-align:center; }
-    .pricing-h2 { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:clamp(2.25rem,4.5vw,3.75rem); line-height:1.0; letter-spacing:-0.02em; color:#0F1B26; }
-    .pricing-sub { font-family:'Instrument Sans',sans-serif; font-size:17px; font-weight:400; line-height:1.55; color:#3B4A5C; max-width:560px; margin:0 auto; }
+    .pricing-h2 { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:clamp(2.25rem,4.5vw,3.75rem); line-height:1.0; letter-spacing:-0.02em; color:#F7F4ED; }
+    .pricing-sub { font-family:'Instrument Sans',sans-serif; font-size:17px; font-weight:400; line-height:1.55; color:rgba(247,244,237,.72); max-width:560px; margin:0 auto; }
     .price-grid { display:grid; grid-template-columns:1fr 1fr 1fr; }
     .price-col { position:relative; padding:0 36px; text-align:center; }
     .price-col:first-child { padding-left:0; }
     .price-col:last-child  { padding-right:0; }
-    .price-col + .price-col::before { content:''; position:absolute; left:0; top:10%; height:80%; width:1px; background:rgba(184,135,59,.25); }
+    .price-col + .price-col::before { content:''; position:absolute; left:0; top:10%; height:80%; width:1px; background:rgba(247,244,237,.15); }
     .price-eyebrow { font-family:'Instrument Sans',sans-serif; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.12em; color:#B8873B; }
-    .price-starts-at { font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:500; color:#6B7280; }
-    .price-amount { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:clamp(3rem,6vw,4.5rem); line-height:0.95; color:#0F1B26; letter-spacing:-0.02em; }
+    .price-starts-at { font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:500; color:rgba(247,244,237,.55); }
+    .price-amount { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:clamp(3rem,6vw,4.5rem); line-height:0.95; color:#F7F4ED; letter-spacing:-0.02em; }
     .price-hr { width:40px; height:1px; background:#B8873B; margin:0 auto; }
-    .price-desc { font-family:'Instrument Sans',sans-serif; font-size:14px; font-weight:400; line-height:1.55; color:#3B4A5C; max-width:260px; margin:0 auto; }
+    .price-desc { font-family:'Instrument Sans',sans-serif; font-size:14px; font-weight:400; line-height:1.55; color:rgba(247,244,237,.72); max-width:260px; margin:0 auto; }
     .owners-promise { text-align:center; max-width:680px; margin:0 auto; }
     .owners-hr { width:60px; height:1px; background:#B8873B; margin:0 auto; }
-    .owners-quote { font-family:'Fraunces',Georgia,serif; font-style:italic; font-weight:400; font-size:clamp(1.25rem,1.6vw + 0.4rem,1.5rem); line-height:1.4; color:#0F1B26; }
+    .owners-quote { font-family:'Fraunces',Georgia,serif; font-style:italic; font-weight:400; font-size:clamp(1.25rem,1.6vw + 0.4rem,1.5rem); line-height:1.4; color:#F7F4ED; }
     .owners-attribution { font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:500; text-transform:uppercase; letter-spacing:0.14em; color:#B8873B; }
     @media (max-width:767px) { .pricing-section { padding:64px 0; } .price-grid { grid-template-columns:1fr; } .price-col { padding:0 0 48px 0; } .price-col:last-child { padding-bottom:0; } .price-col + .price-col { padding-top:48px; } .price-col + .price-col::before { top:0; left:0; width:100%; height:1px; } }
 
@@ -834,32 +834,30 @@
 <!-- ════════════════════════════════════════════════
      05 · HOW WE WORK  (About + Approach merged)
 ════════════════════════════════════════════════ -->
-<section id="about" style="padding:96px 0;">
-  <div class="approach-wrap">
-  <div style="position:absolute;inset:0;background:rgba(8,32,48,0.10);pointer-events:none;" aria-hidden="true"></div>
-  <div class="mx-auto px-6" style="max-width:1240px; position:relative; z-index:1; padding-top:64px; padding-bottom:64px;">
+<section id="about" style="padding:96px 0;background:#F7F4ED;">
+  <div class="mx-auto px-6" style="max-width:1240px;">
     <div class="grid grid-cols-1 lg:grid-cols-12" style="gap:48px;align-items:center;">
 
       <!-- Left: eyebrow + headline + description -->
       <div class="lg:col-span-5" style="display:flex;flex-direction:column;">
         <span class="pill" style="align-self:flex-start;color:#B8873B;border-color:#B8873B;">How We Work</span>
         <div style="height:16px;"></div>
-        <h2 class="font-display font-semibold t-h2" style="color:#F7F4ED;">Built for Pre-1980 <em class="ig">A</em>ustin Homes</h2>
+        <h2 class="font-display font-semibold t-h2" style="color:#0F1B26;">Built for Pre-1980 <em class="ig">A</em>ustin Homes</h2>
         <div style="height:24px;"></div>
-        <p class="font-body" style="font-size:16px;line-height:1.65;max-width:400px;color:rgba(247,244,237,.72);">We handle plumbing as one connected system &mdash; water main, supply lines, drainage, fixtures, and venting. Most leaks are symptoms; we find the cause so the same pipe doesn&rsquo;t fail twice. Honest pricing, written before any work begins.</p>
+        <p class="font-body" style="font-size:16px;line-height:1.65;max-width:400px;color:rgba(15,27,38,.70);">We handle plumbing as one connected system &mdash; water main, supply lines, drainage, fixtures, and venting. Most leaks are symptoms; we find the cause so the same pipe doesn&rsquo;t fail twice. Honest pricing, written before any work begins.</p>
         <!-- Trust markers -->
         <div style="margin-top:32px;display:flex;flex-direction:column;">
-          <div style="display:flex;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid rgba(247,244,237,.10);">
+          <div style="display:flex;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid rgba(15,27,38,.10);">
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true" style="flex-shrink:0;"><path d="M2 7l3.5 3.5L12 3" stroke="#B8873B" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span class="font-mono" style="font-size:11.5px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(247,244,237,.80);">Licensed Master Plumber &middot; TX RMP-43521</span>
+            <span class="font-mono" style="font-size:11.5px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(15,27,38,.65);">Licensed Master Plumber &middot; TX RMP-43521</span>
           </div>
-          <div style="display:flex;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid rgba(247,244,237,.10);">
+          <div style="display:flex;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid rgba(15,27,38,.10);">
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true" style="flex-shrink:0;"><path d="M2 7l3.5 3.5L12 3" stroke="#B8873B" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span class="font-mono" style="font-size:11.5px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(247,244,237,.80);">Same-day written quotes &middot; no surprises</span>
+            <span class="font-mono" style="font-size:11.5px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(15,27,38,.65);">Same-day written quotes &middot; no surprises</span>
           </div>
           <div style="display:flex;align-items:center;gap:10px;padding:12px 0;">
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true" style="flex-shrink:0;"><path d="M2 7l3.5 3.5L12 3" stroke="#B8873B" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span class="font-mono" style="font-size:11.5px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(247,244,237,.80);">Manufacturer-backed warranties &middot; up to 10 years</span>
+            <span class="font-mono" style="font-size:11.5px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(15,27,38,.65);">Manufacturer-backed warranties &middot; up to 10 years</span>
           </div>
         </div>
       </div>
@@ -906,7 +904,6 @@
       </div>
     </div>
   </div>
-  </div><!-- /.approach-wrap -->
 </section>
 
 
@@ -914,9 +911,11 @@
      08 · PRICING TRANSPARENCY  (source: Below-Hero D)
 ════════════════════════════════════════════════ -->
 <section class="pricing-section" id="pricing" aria-labelledby="pricing-h2">
-  <div class="pricing-container">
+  <div class="approach-wrap">
+  <div style="position:absolute;inset:0;background:rgba(8,32,48,0.12);pointer-events:none;" aria-hidden="true"></div>
+  <div class="pricing-container" style="position:relative;z-index:1;padding-top:64px;padding-bottom:64px;">
     <div class="pricing-header">
-      <span class="pill">Pricing</span>
+      <span class="pill" style="color:#F7F4ED;border-color:rgba(247,244,237,.45);">Pricing</span>
       <div style="height:24px;"></div>
       <h2 id="pricing-h2" class="pricing-h2">Upfront. Flat-rate. <em class="ig">N</em>o dispatch fee.</h2>
       <div style="height:16px;"></div>
@@ -968,6 +967,7 @@
       <div class="owners-attribution">&mdash;&nbsp;Owner&rsquo;s Promise</div>
     </div>
   </div>
+  </div><!-- /.approach-wrap -->
 </section>
 
 
