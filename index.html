@@ -333,7 +333,7 @@
        SITE HEADER
     ═══════════════════════════════════════ */
     .site-header { position:sticky; top:0; z-index:40; width:100%; }
-    .utility-strip { background:#0F1B26; height:36px; }
+    .utility-strip { background:#0E2A3F; height:36px; }
     .utility-inner { max-width:1440px; margin:0 auto; padding:0 32px; height:100%; display:flex; justify-content:space-between; align-items:center; }
     .util-left, .util-right { display:flex; align-items:center; gap:16px; }
     .util-group { display:flex; align-items:center; gap:6px; }
@@ -661,7 +661,7 @@
           <p class="hero-subhead">A licensed family team serving Austin since 2000 — bathrooms, water heaters, repipes, 24/7 emergency.</p>
         </div>
         <div class="hero-cta-row">
-          <a href="#contact" class="btn-primary">
+          <a href="#book" class="btn-primary">
             Book a planned visit
             <span class="btn-arrow-box" aria-hidden="true">
               <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 8L8 2M8 2H3M8 2V7" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -813,7 +813,7 @@
           <div style="flex:3;min-width:0;">
             <h3 class="font-display font-semibold text-ink t-h3">System-First Repair</h3>
             <p class="font-body text-ink-soft" style="font-size:15px;line-height:1.55;margin-top:8px;">We map your home&rsquo;s water system before fixing anything &mdash; so the repair lasts.</p>
-            <div style="margin-top:12px;"><a href="#contact" class="btn-sm">Learn More →</a></div>
+            <div style="margin-top:12px;"><a href="#book" class="btn-sm">Learn More →</a></div>
             <div style="margin-top:10px;"><span class="font-mono text-brass" style="font-size:13px;">From $149</span></div>
           </div>
           <div style="flex:2;min-height:130px;"><img src="assets/copper-macro.jpeg" alt="Copper pipes macro" style="width:100%;height:100%;min-height:130px;border-radius:12px;object-fit:cover;display:block;"></div>
@@ -822,7 +822,7 @@
           <div style="flex:3;min-width:0;">
             <h3 class="font-display font-semibold t-h3" style="color:#F7F4ED;">Built for Whole-Home Repipes</h3>
             <p class="font-body" style="font-size:15px;line-height:1.55;margin-top:8px;color:rgba(247,244,237,.75);">Full copper or PEX repipe in 1&ndash;3 days, with manufacturer-backed warranties.</p>
-            <div style="margin-top:12px;"><a href="#contact" class="btn-sm">Learn More →</a></div>
+            <div style="margin-top:12px;"><a href="#book" class="btn-sm">Learn More →</a></div>
             <div style="margin-top:10px;"><span class="font-mono" style="font-size:13px;color:#B8873B;">From $4,200</span></div>
           </div>
           <div style="flex:2;min-height:130px;"><img src="assets/copper-blue-wall2.jpeg" alt="Copper pipes against dark wall" style="width:100%;height:100%;min-height:130px;border-radius:12px;object-fit:cover;display:block;"></div>
@@ -831,7 +831,7 @@
           <div style="flex:3;min-width:0;">
             <h3 class="font-display font-semibold text-ink t-h3">Long-Term Water Heaters</h3>
             <p class="font-body text-ink-soft" style="font-size:15px;line-height:1.55;margin-top:8px;">Tankless and hybrid installs sized for your home&rsquo;s actual demand &mdash; not a sales script.</p>
-            <div style="margin-top:12px;"><a href="#contact" class="btn-sm">Learn More →</a></div>
+            <div style="margin-top:12px;"><a href="#book" class="btn-sm">Learn More →</a></div>
             <div style="margin-top:10px;"><span class="font-mono text-brass" style="font-size:13px;">From $1,800</span></div>
           </div>
           <div style="flex:2;min-height:130px;"><img src="assets/water-heater.jpeg" alt="Modern tankless water heater" style="width:100%;height:100%;min-height:130px;border-radius:12px;object-fit:cover;display:block;"></div>
@@ -879,7 +879,7 @@
               <div style="height:10px;"></div>
               <h3 class="font-display font-semibold text-ink t-h3">System Mapping</h3>
               <p class="font-body text-ink-soft" style="font-size:15px;line-height:1.55;margin-top:8px;">We diagnose plumbing as a connected system &mdash; water main, supply lines, drainage, fixtures, and venting &mdash; so repairs hold up across decades, not seasons.</p>
-              <div style="margin-top:14px;"><a href="#contact" class="btn-sm">Learn More →</a></div>
+              <div style="margin-top:14px;"><a href="#book" class="btn-sm">Learn More →</a></div>
             </div>
             <div style="min-height:120px;">
               <img src="assets/schematic.jpeg" alt="Hand-drawn plumbing schematic" style="width:100%;height:100%;min-height:120px;border-radius:12px;object-fit:cover;display:block;">
@@ -1389,7 +1389,7 @@
       <div style="height:16px;"></div>
       <p class="font-body" style="font-size:16px;color:rgba(247,244,237,.8);max-width:480px;line-height:1.55;">Call us, or book online &mdash; we&rsquo;ll be at your door same day for most Austin-area requests.</p>
       <div style="height:32px;"></div>
-      <a href="tel:+15125558199" class="btn btn-l">
+      <a href="#book" class="btn btn-l">
         Book a visit
         <span class="bi">
           <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 8L8 2M8 2H3M8 2V7" stroke="#F7F4ED" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -1507,15 +1507,32 @@
   var b = document.getElementById('hero-vid-b');
   if (!a || !b) return;
 
-  var FADE = 700; /* matches CSS transition-duration */
+  var FADE = 700;  /* must match CSS transition-duration */
+  var CUE  = 0.8;  /* start crossfade this many seconds before end */
+  var busy = false;
 
-  b.load(); /* preload second clip */
+  b.load();
 
   function crossfade(from, to) {
+    if (busy) return;
+    busy = true;
     to.currentTime = 0;
     to.play().catch(function () {});
     to.classList.add('vid-active');
-    setTimeout(function () { from.classList.remove('vid-active'); }, FADE);
+    setTimeout(function () {
+      from.classList.remove('vid-active');
+      from.pause();
+      busy = false;
+    }, FADE);
+  }
+
+  function watchCue(vid, other) {
+    vid.addEventListener('timeupdate', function () {
+      if (!vid.duration || busy) return;
+      if (vid.currentTime >= vid.duration - CUE) {
+        crossfade(vid, other);
+      }
+    });
   }
 
   function onReady() { a.classList.add('vid-active'); }
@@ -1525,8 +1542,8 @@
     setTimeout(onReady, 1500);
   }
 
-  a.addEventListener('ended', function () { crossfade(a, b); });
-  b.addEventListener('ended', function () { crossfade(b, a); });
+  watchCue(a, b);
+  watchCue(b, a);
 }());
 
 /* ── ZIP service-area check (Below-Hero Sections.html) ── */
