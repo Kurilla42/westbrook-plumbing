@@ -245,30 +245,27 @@
     @media (max-width:767px) { .pricing-section { padding:64px 0; } .price-grid { grid-template-columns:1fr; } .price-col { padding:0 0 48px 0; } .price-col:last-child { padding-bottom:0; } .price-col + .price-col { padding-top:48px; } .price-col + .price-col::before { top:0; left:0; width:100%; height:1px; } }
 
     /* ═══════════════════════════════════════
-       PROCESS TIMELINE
+       BEFORE / AFTER
     ═══════════════════════════════════════ */
-    .process-section { background:#EDE8DE; padding:96px 0; }
-    .process-container { max-width:1240px; margin:0 auto; padding:0 24px; }
-    .process-header { text-align:center; margin-bottom:80px; }
-    .process-h2 { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:clamp(2rem,4vw,3.25rem); line-height:1.0; letter-spacing:-0.02em; color:#0F1B26; }
-    .process-sub { font-family:'Instrument Sans',sans-serif; font-size:16px; font-weight:400; line-height:1.55; color:#3B4A5C; max-width:520px; margin:0 auto; }
-    .process-timeline { display:flex; flex-direction:row; align-items:flex-start; position:relative; }
-    .process-connector { position:absolute; top:48px; left:8%; right:25%; height:1px; background:rgba(184,135,59,.30); pointer-events:none; }
-    .process-step { flex:1 1 0; padding-right:40px; min-width:0; }
-    .process-step:last-child { padding-right:0; }
-    .step-num { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:clamp(4rem,7vw,6rem); line-height:0.9; letter-spacing:-0.02em; color:#B8873B; }
-    .step-div { width:32px; height:1px; background:#0F1B26; margin-top:8px; margin-bottom:16px; }
-    .step-title { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:20px; line-height:1.2; color:#0F1B26; margin-bottom:12px; }
-    .step-desc { font-family:'Instrument Sans',sans-serif; font-size:14px; font-weight:400; line-height:1.55; color:#3B4A5C; max-width:220px; margin-bottom:20px; }
-    .step-mono { font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:500; text-transform:uppercase; letter-spacing:0.08em; color:#6B7280; }
-    @media (max-width:767px) {
-      .process-section { padding:64px 0; } .process-header { margin-bottom:48px; }
-      .process-timeline { flex-direction:column; padding-left:40px; gap:48px; }
-      .process-timeline::before { content:''; position:absolute; left:24px; top:0; bottom:0; width:1px; background:rgba(184,135,59,.30); }
-      .process-connector { display:none; }
-      .process-step { padding-right:0; width:100%; }
-      .step-num { font-size:clamp(3rem,9vw,4rem); } .step-desc { max-width:none; }
-    }
+    .ba-section { background:#EDE8DE; padding:96px 0; }
+    .ba-container { max-width:1240px; margin:0 auto; padding:0 24px; }
+    .ba-h2 { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:clamp(2rem,4vw,3.25rem); line-height:1.05; letter-spacing:-0.01em; color:#0F1B26; }
+    .ba-grid { display:grid; grid-template-columns:1fr 1fr; gap:40px; }
+    .ba-card { display:flex; flex-direction:column; gap:20px; }
+    /* slider */
+    .ba-slider { position:relative; border-radius:16px; overflow:hidden; cursor:ew-resize; user-select:none; -webkit-user-select:none; aspect-ratio:4/3; }
+    .ba-img { display:block; position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+    .ba-after-img { clip-path:inset(0 50% 0 0); }
+    .ba-divider { position:absolute; top:0; bottom:0; left:50%; width:2px; background:#F7F4ED; transform:translateX(-50%); pointer-events:none; box-shadow:0 0 8px rgba(15,27,38,.25); }
+    .ba-handle { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:44px; height:44px; background:#F7F4ED; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 2px 16px rgba(15,27,38,.22); flex-shrink:0; }
+    .ba-label { position:absolute; bottom:14px; font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:500; text-transform:uppercase; letter-spacing:0.12em; color:#F7F4ED; background:rgba(15,27,38,.55); border-radius:4px; padding:4px 8px; pointer-events:none; }
+    .ba-lbl-b { left:14px; }
+    .ba-lbl-a { right:14px; }
+    /* info */
+    .ba-meta { font-family:'JetBrains Mono',monospace; font-size:10.5px; font-weight:500; color:#B8873B; text-transform:uppercase; letter-spacing:0.08em; line-height:1.6; }
+    .ba-title { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:1.25rem; line-height:1.2; color:#0F1B26; margin-top:6px; }
+    .ba-desc { font-family:'Fraunces',Georgia,serif; font-style:italic; font-weight:300; font-size:15px; line-height:1.65; color:rgba(15,27,38,.72); margin-top:10px; }
+    @media (max-width:767px) { .ba-section { padding:64px 0; } .ba-grid { grid-template-columns:1fr; gap:48px; } }
 
     /* ═══════════════════════════════════════
        MEET THE CREW
@@ -962,45 +959,58 @@
 <!-- ════════════════════════════════════════════════
      09 · PROCESS TIMELINE  (source: Below-Hero E)
 ════════════════════════════════════════════════ -->
-<section class="process-section" id="process" aria-labelledby="process-h2">
-  <div class="process-container">
-    <div class="process-header">
-      <span class="pill">The Process</span>
-      <div style="height:16px;"></div>
-      <h2 id="process-h2" class="process-h2">How a Westbrook <em class="ig">v</em>isit works.</h2>
-      <div style="height:16px;"></div>
-      <p class="process-sub">Four steps. Every job. No surprises between any of them.</p>
-    </div>
-    <div class="process-timeline">
-      <div class="process-connector" aria-hidden="true"></div>
-      <div class="process-step">
-        <div class="step-num" aria-hidden="true">01</div>
-        <div class="step-div" aria-hidden="true"></div>
-        <h3 class="step-title">You call us</h3>
-        <p class="step-desc">Live answer 24/7&nbsp;&mdash; never a call center, never a bot. We confirm your address and the issue.</p>
-        <div class="step-mono">Avg.&nbsp;pick-up:&nbsp;28&nbsp;seconds</div>
+<section class="ba-section" id="process" aria-labelledby="ba-h2">
+  <div class="ba-container">
+    <span class="pill">Our Work</span>
+    <div style="height:16px;"></div>
+    <h2 id="ba-h2" class="ba-h2">What we walked <em class="ig">i</em>nto.<br>What we left.</h2>
+    <div style="height:64px;"></div>
+    <div class="ba-grid">
+
+      <!-- Case 1: Cast iron drain → PVC -->
+      <div class="ba-card">
+        <div class="ba-slider" data-ba-slider aria-label="Before and after: corroded cast iron drain replacement">
+          <img class="ba-img" src="assets/before1.jpg" alt="Before — heavily corroded cast iron drain pipe with cracks inside wall opening">
+          <img class="ba-img ba-after-img" src="assets/after1.jpg" alt="After — new schedule-40 PVC drain section with Fernco no-hub couplings">
+          <div class="ba-divider" aria-hidden="true">
+            <div class="ba-handle">
+              <svg width="22" height="14" viewBox="0 0 22 14" fill="none" aria-hidden="true">
+                <path d="M1 7h20M7 1L1 7l6 6M15 1l6 6-6 6" stroke="#0F1B26" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </div>
+          <span class="ba-label ba-lbl-b" aria-hidden="true">Before</span>
+          <span class="ba-label ba-lbl-a" aria-hidden="true">After</span>
+        </div>
+        <div class="ba-info">
+          <div class="ba-meta">South Austin, TX &middot; March 2026 &middot; Drain Replacement &middot; 3 hrs 20 min</div>
+          <h3 class="ba-title">Corroded Cast Iron Drain — Leaking Inside the Wall</h3>
+          <p class="ba-desc">&ldquo;Original cast iron stack had corroded through and was actively leaking inside the wall cavity. Opened access, cut out the failed section, and repaired with schedule-40 PVC using no-hub Fernco couplings. Wall patched same day.&rdquo;</p>
+        </div>
       </div>
-      <div class="process-step">
-        <div class="step-num" aria-hidden="true">02</div>
-        <div class="step-div" aria-hidden="true"></div>
-        <h3 class="step-title">We arrive on-time</h3>
-        <p class="step-desc">Most Austin-area calls met within 60&nbsp;minutes for emergencies. SMS update when we&rsquo;re 15&nbsp;minutes out.</p>
-        <div class="step-mono">Punctuality:&nbsp;97%&nbsp;last&nbsp;quarter</div>
+
+      <!-- Case 2: Seized sump pump → new unit -->
+      <div class="ba-card">
+        <div class="ba-slider" data-ba-slider aria-label="Before and after: failed sump pump replacement">
+          <img class="ba-img" src="assets/before2.jpg" alt="Before — seized rust-covered sump pump sitting in flooded pit with standing groundwater">
+          <img class="ba-img ba-after-img" src="assets/after2.jpg" alt="After — new submersible sump pump with PVC discharge line and check valve">
+          <div class="ba-divider" aria-hidden="true">
+            <div class="ba-handle">
+              <svg width="22" height="14" viewBox="0 0 22 14" fill="none" aria-hidden="true">
+                <path d="M1 7h20M7 1L1 7l6 6M15 1l6 6-6 6" stroke="#0F1B26" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </div>
+          <span class="ba-label ba-lbl-b" aria-hidden="true">Before</span>
+          <span class="ba-label ba-lbl-a" aria-hidden="true">After</span>
+        </div>
+        <div class="ba-info">
+          <div class="ba-meta">Northwest Austin, TX &middot; January 2026 &middot; Pump Replacement &middot; 2 hrs 45 min</div>
+          <h3 class="ba-title">Seized Sump Pump — Basement Flooding at Year 12</h3>
+          <p class="ba-desc">&ldquo;Original pump had seized completely — motor burned out, pit filling with groundwater. Pulled the old unit, installed a new 1/2&nbsp;HP submersible with a PVC discharge line and check valve. Basement was dry within the hour.&rdquo;</p>
+        </div>
       </div>
-      <div class="process-step">
-        <div class="step-num" aria-hidden="true">03</div>
-        <div class="step-div" aria-hidden="true"></div>
-        <h3 class="step-title">We quote in writing</h3>
-        <p class="step-desc">Diagnosis, flat-rate price, parts list, and timeline&nbsp;&mdash; on paper, before we open a single tool case.</p>
-        <div class="step-mono">Quotes&nbsp;good&nbsp;for&nbsp;30&nbsp;days</div>
-      </div>
-      <div class="process-step">
-        <div class="step-num" aria-hidden="true">04</div>
-        <div class="step-div" aria-hidden="true"></div>
-        <h3 class="step-title">You approve, we work</h3>
-        <p class="step-desc">Sign the quote and we begin. The price you signed is the price you pay&nbsp;&mdash; even if the job takes longer than expected.</p>
-        <div class="step-mono">100%&nbsp;satisfaction&nbsp;or&nbsp;we&nbsp;walk</div>
-      </div>
+
     </div>
   </div>
 </section>
@@ -1549,6 +1559,37 @@
 
   watchCue(a, b);
   watchCue(b, a);
+}());
+
+/* ── Before / After image sliders ── */
+(function () {
+  document.querySelectorAll('[data-ba-slider]').forEach(function (slider) {
+    var afterImg = slider.querySelector('.ba-after-img');
+    var divider  = slider.querySelector('.ba-divider');
+    var active   = false;
+
+    function setPos(clientX) {
+      var r   = slider.getBoundingClientRect();
+      var pct = Math.max(0.03, Math.min(0.97, (clientX - r.left) / r.width));
+      var p   = (pct * 100).toFixed(2);
+      afterImg.style.clipPath = 'inset(0 ' + ((1 - pct) * 100).toFixed(2) + '% 0 0)';
+      divider.style.left = p + '%';
+    }
+
+    slider.addEventListener('mousedown', function (e) {
+      active = true; setPos(e.clientX); e.preventDefault();
+    });
+    window.addEventListener('mousemove', function (e) { if (active) setPos(e.clientX); });
+    window.addEventListener('mouseup',   function ()  { active = false; });
+
+    slider.addEventListener('touchstart', function (e) {
+      active = true; setPos(e.touches[0].clientX);
+    }, { passive: true });
+    window.addEventListener('touchmove', function (e) {
+      if (active) setPos(e.touches[0].clientX);
+    }, { passive: true });
+    window.addEventListener('touchend', function () { active = false; });
+  });
 }());
 
 /* ── ZIP service-area check (Below-Hero Sections.html) ── */
