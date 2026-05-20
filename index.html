@@ -127,10 +127,10 @@
     @media (max-width:767px) { .hero-section { padding:12px; } }
     .hero-container { position:relative; border-radius:24px; overflow:hidden; height:clamp(640px,100svh,720px); background-color:#082030; background-size:cover; background-position:center; }
     @media (min-width:768px) { .hero-container { height:clamp(640px,100svh,820px); } }
-    #hero-video { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center right; opacity:0; will-change:opacity; transition:opacity 400ms ease-out; z-index:0; }
-    #hero-video.loaded { opacity:1; }
-    @media (max-width:767px) { #hero-video { display:none !important; } }
-    @media (prefers-reduced-motion:reduce) { #hero-video { display:none !important; } }
+    .hero-vid { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center right; opacity:0; will-change:opacity; transition:opacity 700ms ease-in-out; z-index:0; }
+    .hero-vid.vid-active { opacity:1; }
+    @media (max-width:767px) { .hero-vid { display:none !important; } }
+    @media (prefers-reduced-motion:reduce) { .hero-vid { display:none !important; } }
     .hero-overlay { position:absolute; inset:0; z-index:1; pointer-events:none; background:linear-gradient(135deg,rgba(15,27,38,.55) 0%,rgba(15,27,38,.40) 35%,rgba(14,42,63,.60) 70%,rgba(15,27,38,.82) 100%); }
     .hero-content { position:absolute; inset:0; z-index:2; padding:48px; display:flex; align-items:center; }
     @media (max-width:767px) { .hero-content { padding:24px; align-items:flex-start; padding-top:36px; } }
@@ -187,17 +187,17 @@
     .zip-container { max-width:1240px; margin:0 auto; padding:0 24px; }
     .zip-grid { display:grid; grid-template-columns:5fr 7fr; gap:48px; align-items:center; }
     .zip-body { font-size:16px; font-weight:400; line-height:1.55; color:#3B4A5C; max-width:440px; }
-    .zip-form-card { background:#EDE8DE; border-radius:16px; padding:24px; }
+    .zip-form-card { background:#0E2A3F; border-radius:16px; padding:24px; }
     .zip-form-row { display:flex; flex-direction:row; gap:12px; align-items:stretch; }
-    #zip-input { flex:1; height:56px; background:#F7F4ED; border-radius:12px; border:2px solid transparent; box-shadow:inset 0 0 0 1px rgba(15,27,38,.15); padding:0 20px; font-family:'Instrument Sans',sans-serif; font-size:16px; font-weight:500; color:#0F1B26; outline:none; -webkit-appearance:none; transition:border-color 150ms ease-out, box-shadow 150ms ease-out; }
-    #zip-input::placeholder { color:#6B7280; font-weight:400; }
-    #zip-input:focus { border-color:#B8873B; box-shadow:none; }
-    .zip-btn { height:56px; background:#0F1B26; color:#F7F4ED; border:none; border-radius:12px; padding:0 24px; font-family:'Instrument Sans',sans-serif; font-size:15px; font-weight:600; cursor:pointer; white-space:nowrap; transition:background 150ms ease-out; display:inline-flex; align-items:center; gap:5px; }
-    .zip-btn:hover { background:#082030; }
+    #zip-input { flex:1; height:56px; background:rgba(247,244,237,.08); border-radius:12px; border:1.5px solid rgba(247,244,237,.2); padding:0 20px; font-family:'Instrument Sans',sans-serif; font-size:16px; font-weight:500; color:#F7F4ED; outline:none; -webkit-appearance:none; transition:border-color 150ms ease-out; }
+    #zip-input::placeholder { color:rgba(247,244,237,.4); font-weight:400; }
+    #zip-input:focus { border-color:#B8873B; }
+    .zip-btn { height:56px; background:#F7F4ED; color:#0E2A3F; border:none; border-radius:12px; padding:0 24px; font-family:'Instrument Sans',sans-serif; font-size:15px; font-weight:600; cursor:pointer; white-space:nowrap; transition:background 150ms ease-out; display:inline-flex; align-items:center; gap:5px; }
+    .zip-btn:hover { background:#EDE8DE; }
     .zip-btn .zig-arrow { transition:transform 150ms ease-out; display:inline-block; }
     .zip-btn:hover .zig-arrow { transform:translateX(2px); }
     #zip-result { display:none; opacity:0; margin-top:16px; }
-    .zip-browse { display:inline-block; margin-top:16px; font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:500; color:#6B7280; text-decoration:none; transition:color 150ms ease-out; }
+    .zip-browse { display:inline-block; margin-top:16px; font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:500; color:rgba(247,244,237,.55); text-decoration:none; transition:color 150ms ease-out; }
     .zip-browse:hover { color:#B8873B; }
     @media (max-width:767px) { .zip-grid { grid-template-columns:1fr; gap:32px; } .zip-form-row { flex-direction:column; align-items:stretch; } .zip-btn { height:52px; justify-content:center; } #zip-input { height:52px; } }
 
@@ -312,11 +312,11 @@
     .faq-grid { display:grid; grid-template-columns:5fr 7fr; gap:48px; align-items:start; }
     .faq-left { position:sticky; top:120px; }
     .faq-sub { font-family:'Instrument Sans',sans-serif; font-size:16px; font-weight:400; line-height:1.55; color:#3B4A5C; max-width:400px; }
-    .faq-contact { background:#F7F4ED; border-radius:16px; padding:24px; margin-top:32px; }
+    .faq-contact { background:#0E2A3F; border-radius:16px; padding:24px; margin-top:32px; }
     .faq-contact-eyebrow { font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:500; color:#B8873B; text-transform:uppercase; letter-spacing:0.1em; }
-    .faq-phone-link { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:28px; color:#0F1B26; text-decoration:none; display:block; margin-top:8px; transition:color 150ms ease-out; }
+    .faq-phone-link { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:28px; color:#F7F4ED; text-decoration:none; display:block; margin-top:8px; transition:color 150ms ease-out; }
     .faq-phone-link:hover { color:#B8873B; }
-    .faq-phone-cap { font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:500; color:#6B7280; text-transform:uppercase; letter-spacing:0.08em; margin-top:8px; }
+    .faq-phone-cap { font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:500; color:rgba(247,244,237,.55); text-transform:uppercase; letter-spacing:0.08em; margin-top:8px; }
     details.faq-item { border-top:1px solid rgba(15,27,38,.15); }
     details.faq-item:last-child { border-bottom:1px solid rgba(15,27,38,.15); }
     details.faq-item > summary { list-style:none; cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:16px; padding:24px 0; -webkit-tap-highlight-color:transparent; }
@@ -353,13 +353,13 @@
     .header-nav a:hover { color:#B8873B; text-decoration:underline; text-underline-offset:4px; text-decoration-color:#B8873B; text-decoration-thickness:1px; }
     .header-wordmark { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:18px; letter-spacing:0.04em; color:#0F1B26; text-decoration:none; white-space:nowrap; }
     .header-cta-wrap { display:flex; justify-content:flex-end; }
-    .header-cta { display:inline-flex; align-items:center; gap:10px; background:#0F1B26; color:#F7F4ED; border-radius:999px; padding:10px 18px; text-decoration:none; font-family:'Instrument Sans',sans-serif; font-size:15px; font-weight:600; white-space:nowrap; transition:background 150ms ease-out, transform 150ms ease-out; }
+    .header-cta { display:inline-flex; align-items:center; gap:10px; background:#0E2A3F; color:#F7F4ED; border-radius:999px; padding:10px 18px; text-decoration:none; font-family:'Instrument Sans',sans-serif; font-size:15px; font-weight:600; white-space:nowrap; transition:background 150ms ease-out, transform 150ms ease-out; }
     .header-cta:hover { background:#082030; transform:scale(1.02); }
     .cta-arrow { width:20px; height:20px; background:rgba(247,244,237,.15); border-radius:4px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
     .mobile-header { display:none; height:56px; background:rgba(247,244,237,.95); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); border-bottom:1px solid rgba(15,27,38,.10); padding:0 16px; align-items:center; justify-content:space-between; }
     .hamburger-btn { width:40px; height:40px; display:flex; align-items:center; justify-content:center; background:none; border:none; cursor:pointer; color:#0F1B26; padding:0; border-radius:8px; }
     .mobile-wordmark { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:15px; letter-spacing:0.02em; color:#0F1B26; text-decoration:none; }
-    .mobile-phone-btn { width:40px; height:40px; background:#0F1B26; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#F7F4ED; text-decoration:none; flex-shrink:0; transition:background 150ms ease-out; }
+    .mobile-phone-btn { width:40px; height:40px; background:#0E2A3F; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#F7F4ED; text-decoration:none; flex-shrink:0; transition:background 150ms ease-out; }
     .mobile-phone-btn:hover { background:#082030; }
     #mobile-menu { position:fixed; top:56px; left:0; right:0; height:calc(100vh - 56px); background:#F7F4ED; z-index:39; overflow-y:auto; padding:0 24px 40px; transform:translateY(-110%); transition:transform 280ms cubic-bezier(0.4,0,0.2,1); pointer-events:none; visibility:hidden; }
     #mobile-menu.mm-open { transform:translateY(0); pointer-events:auto; visibility:visible; }
@@ -377,7 +377,7 @@
     /* ═══════════════════════════════════════
        FOOTER
     ═══════════════════════════════════════ */
-    .site-footer { background:#0F1B26; padding:80px 0; }
+    .site-footer { background:#0E2A3F; padding:80px 0; }
     .footer-container { max-width:1240px; margin:0 auto; padding:0 32px; }
     .footer-top { display:grid; grid-template-columns:4fr 2fr 3fr 3fr; gap:32px; }
     .footer-wm { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:28px; color:#F7F4ED; }
@@ -415,7 +415,7 @@
     .mobile-bar a { flex:1; display:flex; align-items:center; justify-content:center; gap:8px; min-height:64px; padding-bottom:env(safe-area-inset-bottom,0px); text-decoration:none; font-family:'Instrument Sans',sans-serif; font-size:15px; font-weight:600; color:#F7F4ED; transition:background 80ms ease-out; white-space:nowrap; }
     .bar-call { background:#C23B2A; }
     .bar-call:active { background:#9E2E20 !important; }
-    .bar-book { background:#0F1B26; }
+    .bar-book { background:#0E2A3F; }
     .bar-book:active { background:#082030 !important; }
     .bar-arrow { width:20px; height:20px; background:rgba(247,244,237,.15); border-radius:4px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
     @media (min-width:768px) { .mobile-bar { display:none; } }
@@ -464,7 +464,7 @@
     .cf-sub { font-family:'Instrument Sans',sans-serif; font-size:16px; font-weight:400; line-height:1.6; color:#3B4A5C; max-width:380px; }
     .cf-detail { display:flex; flex-direction:column; gap:20px; background:#F7F4ED; border-radius:16px; padding:24px; }
     .cf-detail-row { display:flex; align-items:flex-start; gap:12px; }
-    .cf-detail-icon { width:36px; height:36px; background:#0F1B26; border-radius:8px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .cf-detail-icon { width:36px; height:36px; background:#0E2A3F; border-radius:8px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
     .cf-detail-label { font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:500; color:#B8873B; text-transform:uppercase; letter-spacing:0.1em; line-height:1; }
     .cf-detail-val { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:17px; color:#0F1B26; text-decoration:none; transition:color 150ms; }
     a.cf-detail-val:hover { color:#B8873B; }
@@ -495,7 +495,7 @@
     .cf-check { width:18px; height:18px; border:1.5px solid rgba(15,27,38,.25); border-radius:4px; background:#EDE8DE; flex-shrink:0; margin-top:1px; cursor:pointer; accent-color:#0F1B26; }
     .cf-check-label { font-family:'Instrument Sans',sans-serif; font-size:13px; color:#3B4A5C; line-height:1.45; }
 
-    .cf-submit { width:100%; height:56px; background:#0F1B26; color:#F7F4ED; border:none; border-radius:12px; font-family:'Instrument Sans',sans-serif; font-size:16px; font-weight:600; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:10px; transition:background 150ms, transform 100ms; }
+    .cf-submit { width:100%; height:56px; background:#0E2A3F; color:#F7F4ED; border:none; border-radius:12px; font-family:'Instrument Sans',sans-serif; font-size:16px; font-weight:600; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:10px; transition:background 150ms, transform 100ms; }
     .cf-submit:hover { background:#082030; }
     .cf-submit:active { transform:scale(0.99); }
     .cf-submit-arrow { width:26px; height:26px; background:rgba(247,244,237,.12); border-radius:6px; display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:transform 150ms; }
@@ -636,9 +636,11 @@
 ════════════════════════════════════════════════ -->
 <section class="hero-section" id="hero" aria-label="Hero">
   <div class="hero-container">
-    <video id="hero-video" aria-hidden="true" autoplay="" muted="" playsinline="" preload="auto" poster="assets/hero-poster.jpg">
-      <source src="assets/hero-loop.webm" type="video/webm">
-      <source src="assets/hero-loop.mp4"  type="video/mp4">
+    <video id="hero-vid-a" class="hero-vid" aria-hidden="true" autoplay="" muted="" playsinline="" preload="auto" poster="assets/hero-poster.jpg">
+      <source src="assets/hero-loop.mp4" type="video/mp4">
+    </video>
+    <video id="hero-vid-b" class="hero-vid" aria-hidden="true" muted="" playsinline="" preload="auto">
+      <source src="assets/hero-loop2.mp4" type="video/mp4">
     </video>
     <div class="hero-overlay" aria-hidden="true"></div>
     <div class="hero-content">
@@ -801,7 +803,7 @@
         <p class="font-body text-ink-soft" style="font-size:16px;line-height:1.6;max-width:380px;">Westbrook helps Austin homeowners maintain, repair, and modernize plumbing in homes built before 1980 — without tearing the place apart. Honest pricing, written before any work begins.</p>
         <div style="height:24px;"></div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
-          <img src="assets/copper-joists.jpeg" alt="Exposed copper pipes in older home" style="height:140px;border-radius:16px;width:100%;object-fit:cover;display:block;">
+          <img src="assets/copper-joists2.jpeg" alt="Exposed copper pipes in older home" style="height:140px;border-radius:16px;width:100%;object-fit:cover;display:block;">
           <img src="assets/bathroom-tub.jpeg" alt="Finished bathroom remodel" style="height:140px;border-radius:16px;width:100%;object-fit:cover;display:block;">
         </div>
       </div>
@@ -823,7 +825,7 @@
             <div style="margin-top:12px;"><a href="#contact" class="btn-sm">Learn More →</a></div>
             <div style="margin-top:10px;"><span class="font-mono" style="font-size:13px;color:#B8873B;">From $4,200</span></div>
           </div>
-          <div style="flex:2;min-height:130px;"><img src="assets/copper-blue-wall.jpeg" alt="Copper pipes against dark wall" style="width:100%;height:100%;min-height:130px;border-radius:12px;object-fit:cover;display:block;"></div>
+          <div style="flex:2;min-height:130px;"><img src="assets/copper-blue-wall2.jpeg" alt="Copper pipes against dark wall" style="width:100%;height:100%;min-height:130px;border-radius:12px;object-fit:cover;display:block;"></div>
         </div>
         <div class="card" style="background:#EDE8DE;border-radius:16px;padding:24px;display:flex;gap:16px;align-items:stretch;box-shadow:0 1px 3px rgba(15,27,38,.06);">
           <div style="flex:3;min-width:0;">
@@ -845,7 +847,7 @@
      07 · HANDLE AS ONE SYSTEM  (source: Westbrook Plumbing Co.html §5)
 ════════════════════════════════════════════════ -->
 <section id="system" style="padding:96px 0; position:relative; background:url('assets/cinematic-deep-2.jpeg') center/cover no-repeat;">
-  <div style="position:absolute;inset:0;background:rgba(8,32,48,0.74);pointer-events:none;" aria-hidden="true"></div>
+  <div style="position:absolute;inset:0;background:rgba(8,32,48,0.10);pointer-events:none;" aria-hidden="true"></div>
   <div class="mx-auto px-6" style="max-width:1240px; position:relative; z-index:1;">
     <div class="grid grid-cols-1 md:grid-cols-12" style="gap:48px;align-items:stretch;">
 
@@ -1214,7 +1216,7 @@
           </div>
         </div>
         <div class="relative overflow-hidden" style="border-radius:16px;aspect-ratio:4/3;">
-          <img src="assets/copper-joists.jpeg" alt="Older home with exposed copper pipes" class="absolute inset-0" style="width:100%;height:100%;object-fit:cover;">
+          <img src="assets/copper-joists2.jpeg" alt="Older home with exposed copper pipes" class="absolute inset-0" style="width:100%;height:100%;object-fit:cover;">
           <div class="absolute inset-x-0 bottom-0" style="padding:24px;background:linear-gradient(to top,rgba(8,32,48,.68) 0%,transparent 100%);">
             <div style="margin-bottom:8px;"><span class="pill pill-b" style="font-size:0.625rem;padding:3px 10px;">Westbrook</span></div>
             <h3 class="font-display font-semibold" style="font-size:1.375rem;line-height:1.1;color:#F7F4ED;">Older Homes (Pre-1980)</h3>
@@ -1499,54 +1501,32 @@
 
 
 <script>
-/* ── Video fade-in + ping-pong loop ── */
+/* ── Dual-video crossfade loop ── */
 (function () {
-  var video = document.getElementById('hero-video');
-  if (!video) return;
+  var a = document.getElementById('hero-vid-a');
+  var b = document.getElementById('hero-vid-b');
+  if (!a || !b) return;
 
-  var RATE = 0.9;
-  var FPS  = 20;
-  var TICK = 1000 / FPS;
-  var STEP = RATE / FPS;
+  var FADE = 700; /* matches CSS transition-duration */
 
-  video.playbackRate = RATE;
+  b.load(); /* preload second clip */
 
-  function onReady() { video.classList.add('loaded'); }
-  if (video.readyState >= 3) { onReady(); }
+  function crossfade(from, to) {
+    to.currentTime = 0;
+    to.play().catch(function () {});
+    to.classList.add('vid-active');
+    setTimeout(function () { from.classList.remove('vid-active'); }, FADE);
+  }
+
+  function onReady() { a.classList.add('vid-active'); }
+  if (a.readyState >= 3) { onReady(); }
   else {
-    video.addEventListener('canplay', onReady, { once: true });
+    a.addEventListener('canplay', onReady, { once: true });
     setTimeout(onReady, 1500);
   }
 
-  var dur = 0;
-  video.addEventListener('loadedmetadata', function () { dur = video.duration; });
-
-  var revTimer = null;
-  var revPos   = 0;
-
-  function startReverse(d) {
-    revPos = d;
-    revTimer = setInterval(function () {
-      revPos -= STEP;
-      if (revPos <= 0) {
-        clearInterval(revTimer);
-        revTimer = null;
-        video.currentTime = 0;
-        video.playbackRate = RATE;
-        video.play();
-      } else {
-        video.currentTime = revPos;
-      }
-    }, TICK);
-  }
-
-  video.addEventListener('ended', function () {
-    var d = dur > 0 ? dur : video.duration;
-    if (!d || !isFinite(d)) { video.play(); return; }
-    if (revTimer) { clearInterval(revTimer); revTimer = null; }
-    video.pause();
-    startReverse(d);
-  });
+  a.addEventListener('ended', function () { crossfade(a, b); });
+  b.addEventListener('ended', function () { crossfade(b, a); });
 }());
 
 /* ── ZIP service-area check (Below-Hero Sections.html) ── */
