@@ -42,7 +42,12 @@
        RESET & BASE
     ═══════════════════════════════════════ */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; scroll-padding-top: 120px; }
+    html { scroll-behavior: smooth; scroll-padding-top: 7.5rem; }
+    /* Fluid desktop scaling: 1440px is the reference design width. Above it the root
+       font-size grows with the viewport (16px @1440 → ~21.3px @1920 → ~28.4px @2560),
+       so every rem-based size scales proportionally and the page renders identically
+       on any monitor. Below 1440px the root stays 16px (tablet/mobile untouched). */
+    @media (min-width:1440px) { html { font-size: calc(100vw / 90); } }
     body { background: #F7F4ED; font-family: 'Instrument Sans', sans-serif; color: #0F1B26; -webkit-font-smoothing: antialiased; }
     img, svg { display: block; }
     *:focus-visible { outline: 2px solid #B8873B; outline-offset: 2px; }
@@ -56,7 +61,7 @@
     .pill {
       display:inline-flex; align-items:center;
       border:1px solid currentColor; border-radius:999px;
-      padding:4px 12px;
+      padding:0.25rem 0.75rem;
       font-family:'Instrument Sans',sans-serif;
       font-size:0.6875rem; font-weight:600;
       text-transform:uppercase; letter-spacing:0.12em; color:#0F1B26;
@@ -73,14 +78,14 @@
     /* Photo placeholders */
     .ph {
       background-color:#EDE8DE;
-      background-image:repeating-linear-gradient(-45deg,transparent,transparent 5px,rgba(15,27,38,.04) 5px,rgba(15,27,38,.04) 6px);
-      display:flex; align-items:center; justify-content:center; padding:20px;
-      font-family:'JetBrains Mono',monospace; font-size:10px; line-height:1.5; text-align:center;
+      background-image:repeating-linear-gradient(-45deg,transparent,transparent 0.3125rem,rgba(15,27,38,.04) 0.3125rem,rgba(15,27,38,.04) 0.375rem);
+      display:flex; align-items:center; justify-content:center; padding:1.25rem;
+      font-family:'JetBrains Mono',monospace; font-size:0.625rem; line-height:1.5; text-align:center;
     }
-    .ph-label { font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:500; color:#6B7280; text-align:center; line-height:1.7; }
+    .ph-label { font-family:'JetBrains Mono',monospace; font-size:0.625rem; font-weight:500; color:#6B7280; text-align:center; line-height:1.7; }
     .ph-l    { background-image:none; background-color:#EDE8DE; color:#6B7280; }
     .ph-d    { background-image:none; background-color:#082030; color:rgba(247,244,237,.25); }
-    .ph-hero { background-image:none; background:linear-gradient(155deg,#0C2336 0%,#082030 55%,#040e17 100%); color:rgba(247,244,237,.28); font-size:11px; }
+    .ph-hero { background-image:none; background:linear-gradient(155deg,#0C2336 0%,#082030 55%,#040e17 100%); color:rgba(247,244,237,.28); font-size:0.6875rem; }
     .ph-warm { background-image:none; background:linear-gradient(135deg,#A0845A 0%,#7A6040 100%); color:rgba(15,27,38,.35); }
 
     /* Fluid type (earlier-render sections) */
@@ -92,17 +97,17 @@
     .t-cta    { font-size:clamp(2.5rem,6vw,5rem);     line-height:1.0; letter-spacing:-0.02em; }
 
     /* Earlier-render utilities */
-    .nav-a { font-size:14px; font-weight:500; text-decoration:none; color:#0F1B26; transition:opacity .15s ease-out; }
+    .nav-a { font-size:0.875rem; font-weight:500; text-decoration:none; color:#0F1B26; transition:opacity .15s ease-out; }
     .nav-a:hover { opacity:.5; }
-    .btn { display:inline-flex; align-items:center; gap:12px; border-radius:12px; padding:14px 24px; font-family:'Instrument Sans',sans-serif; font-weight:600; font-size:15px; text-decoration:none; border:none; cursor:pointer; transition:opacity .15s ease-out; }
+    .btn { display:inline-flex; align-items:center; gap:0.75rem; border-radius:0.75rem; padding:0.875rem 1.5rem; font-family:'Instrument Sans',sans-serif; font-weight:600; font-size:0.9375rem; text-decoration:none; border:none; cursor:pointer; transition:opacity .15s ease-out; }
     .btn:hover { opacity:.88; }
     .btn:hover .bi { transform:translateX(2px); }
     .btn-d { background:#0F1B26; color:#F7F4ED; }
     .btn-l { background:#F7F4ED; color:#0F1B26; }
-    .bi { width:24px; height:24px; border-radius:3px; display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:transform .15s ease-out; }
+    .bi { width:1.5rem; height:1.5rem; border-radius:0.1875rem; display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:transform .15s ease-out; }
     .btn-d .bi { background:#0E2A3F; }
     .btn-l .bi { background:#0F1B26; }
-    .btn-sm { display:inline-block; background:#F7F4ED; color:#0F1B26; border-radius:8px; padding:8px 14px; font-size:13px; font-weight:500; font-family:'Instrument Sans',sans-serif; text-decoration:none; transition:opacity .15s ease-out; }
+    .btn-sm { display:inline-block; background:#F7F4ED; color:#0F1B26; border-radius:0.5rem; padding:0.5rem 0.875rem; font-size:0.8125rem; font-weight:500; font-family:'Instrument Sans',sans-serif; text-decoration:none; transition:opacity .15s ease-out; }
     .btn-sm:hover { opacity:.7; }
     .card,
     .crew-tile,
@@ -113,17 +118,17 @@
     .crew-tile:hover,
     .zip-form-card:hover,
     .faq-contact:hover,
-    .cf-detail:hover { transform:translateY(-3px); box-shadow:0 10px 28px rgba(15,27,38,.10); }
-    .icon-sq { width:32px; height:32px; background:#EDE8DE; border-radius:8px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .cf-detail:hover { transform:translateY(-0.1875rem); box-shadow:0 0.625rem 1.75rem rgba(15,27,38,.10); }
+    .icon-sq { width:2rem; height:2rem; background:#EDE8DE; border-radius:0.5rem; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
     .hr  { border:none; border-top:1px solid rgba(15,27,38,.1); }
     .star { color:#B8873B; }
 
-    .hero-wrap { height:calc(100svh - 112px); min-height:480px; }
-    .cine-wrap { height:280px; }
-    .cta-wrap  { height:420px; }
-    @media (min-width:768px) { .hero-wrap { height:640px; } .cine-wrap { height:480px; } .cta-wrap { height:560px; } }
+    .hero-wrap { height:calc(100svh - 7rem); min-height:30rem; }
+    .cine-wrap { height:17.5rem; }
+    .cta-wrap  { height:26.25rem; }
+    @media (min-width:768px) { .hero-wrap { height:40rem; } .cine-wrap { height:30rem; } .cta-wrap { height:35rem; } }
 
-    .subcard-grid { display:grid; grid-template-columns:1fr; gap:16px; align-items:start; }
+    .subcard-grid { display:grid; grid-template-columns:1fr; gap:1rem; align-items:start; }
     @media (min-width:640px) { .subcard-grid { grid-template-columns:65fr 35fr; } }
 
     @media (prefers-reduced-motion:reduce) { *, *::before, *::after { transition-duration:.01ms !important; animation-duration:.01ms !important; } }
@@ -131,149 +136,157 @@
     /* ═══════════════════════════════════════
        HERO SECTION
     ═══════════════════════════════════════ */
-    .hero-section { padding:24px; }
-    @media (max-width:767px) { .hero-section { padding:12px; } }
-    .hero-container { position:relative; border-radius:24px; overflow:hidden; height:clamp(640px,100svh,720px); background-color:#0E2A3F; background-size:cover; background-position:center; }
-    @media (min-width:768px) { .hero-container { height:clamp(640px,100svh,820px); } }
+    .hero-section { padding:1.5rem; }
+    @media (max-width:767px) { .hero-section { padding:0.75rem; } }
+    .hero-container { position:relative; border-radius:1.5rem; overflow:hidden; height:clamp(40rem,100svh,45rem); background-color:#0E2A3F; background-size:cover; background-position:center; }
+    @media (min-width:768px) { .hero-container { height:clamp(40rem,100svh,51.25rem); } }
     .hero-vid { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center right; opacity:0; will-change:opacity; transition:opacity 700ms ease-in-out; z-index:0; }
     .hero-vid.vid-active { opacity:1; }
     @media (max-width:767px) { .hero-vid { display:none !important; } }
     @media (prefers-reduced-motion:reduce) { .hero-vid { display:none !important; } }
     .hero-overlay { position:absolute; inset:0; z-index:1; pointer-events:none; background:linear-gradient(135deg,rgba(15,27,38,.55) 0%,rgba(15,27,38,.40) 35%,rgba(14,42,63,.60) 70%,rgba(15,27,38,.82) 100%); }
-    .hero-content { position:absolute; inset:0; z-index:2; padding:48px; display:flex; align-items:center; }
-    @media (max-width:767px) { .hero-content { padding:24px; align-items:flex-start; padding-top:36px; } }
-    .hero-left { width:100%; max-width:720px; display:flex; flex-direction:column; gap:20px; }
+    .hero-content { position:absolute; inset:0; z-index:2; padding:3rem; display:flex; align-items:center; }
+    @media (max-width:767px) { .hero-content { padding:1.5rem; align-items:flex-start; padding-top:2.25rem; } }
+    .hero-left { width:100%; max-width:45rem; display:flex; flex-direction:column; gap:1.25rem; }
     @media (min-width:1024px) { .hero-left { width:58.33%; } }
     @media (min-width:768px) and (max-width:1023px) { .hero-left { width:70%; } }
-    .hero-pill { display:inline-flex; align-items:center; gap:6px; border:1px solid rgba(247,244,237,.6); border-radius:999px; padding:6px 12px; background:rgba(14,42,63,.4); font-family:'Instrument Sans',sans-serif; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.12em; color:#F7F4ED; width:fit-content; }
+    .hero-pill { display:inline-flex; align-items:center; gap:0.375rem; border:1px solid rgba(247,244,237,.6); border-radius:999px; padding:0.375rem 0.75rem; background:rgba(14,42,63,.4); font-family:'Instrument Sans',sans-serif; font-size:0.6875rem; font-weight:600; text-transform:uppercase; letter-spacing:0.12em; color:#F7F4ED; width:fit-content; }
     .hero-h1 { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:clamp(2.75rem,7vw,5.5rem); line-height:0.98; letter-spacing:-0.02em; color:#F7F4ED; margin:0; }
     @media (max-width:767px) { .hero-h1 { font-size:clamp(2.25rem,9vw,3rem); } }
     .hero-h1 em { font-style:italic; font-weight:300; font-variation-settings:'opsz' 9; }
     .hero-divider-group { display:flex; flex-direction:column; gap:0; }
-    .hero-brass-rule { width:80px; height:1px; background:#B8873B; margin:8px 0; }
-    .hero-mini-stamp { font-family:'Instrument Sans',sans-serif; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.14em; color:#B8873B; }
+    .hero-brass-rule { width:5rem; height:1px; background:#B8873B; margin:0.5rem 0; }
+    .hero-mini-stamp { font-family:'Instrument Sans',sans-serif; font-size:0.6875rem; font-weight:600; text-transform:uppercase; letter-spacing:0.14em; color:#B8873B; }
     .hero-phone { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:clamp(3rem,8.5vw,6.5rem); line-height:1.0; letter-spacing:-0.025em; color:#F7F4ED; text-decoration:none; display:inline-block; transition:color 150ms ease-out; }
     .hero-phone:hover { color:#B8873B; }
     @media (max-width:767px) { .hero-phone { font-size:clamp(2.5rem,11vw,3.5rem); } }
-    .hero-subhead { font-size:15px; font-weight:500; line-height:1.5; color:rgba(247,244,237,.80); max-width:460px; }
-    .hero-phone-group { display:flex; flex-direction:column; gap:12px; }
-    .hero-cta-row { display:flex; flex-direction:row; gap:12px; flex-wrap:wrap; }
-    .btn-primary { display:inline-flex; align-items:center; gap:8px; background:#F7F4ED; color:#0F1B26; border:none; border-radius:12px; padding:16px 24px; font-family:'Instrument Sans',sans-serif; font-size:15px; font-weight:600; text-decoration:none; cursor:pointer; transition:opacity 150ms ease-out; min-height:44px; white-space:nowrap; }
+    .hero-subhead { font-size:0.9375rem; font-weight:500; line-height:1.5; color:rgba(247,244,237,.80); max-width:28.75rem; }
+    .hero-phone-group { display:flex; flex-direction:column; gap:0.75rem; }
+    .hero-cta-row { display:flex; flex-direction:row; gap:0.75rem; flex-wrap:wrap; }
+    .btn-primary { display:inline-flex; align-items:center; gap:0.5rem; background:#F7F4ED; color:#0F1B26; border:none; border-radius:0.75rem; padding:1rem 1.5rem; font-family:'Instrument Sans',sans-serif; font-size:0.9375rem; font-weight:600; text-decoration:none; cursor:pointer; transition:opacity 150ms ease-out; min-height:2.75rem; white-space:nowrap; }
     .btn-primary:hover { opacity:.88; }
     .btn-primary:hover .btn-arrow-box { transform:translateX(2px); }
-    .btn-arrow-box { width:24px; height:24px; background:#0F1B26; border-radius:5px; display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:transform 150ms ease-out; }
-    .btn-ghost { display:inline-flex; align-items:center; background:transparent; color:#F7F4ED; border:1px solid rgba(247,244,237,.5); border-radius:12px; padding:16px 24px; font-family:'Instrument Sans',sans-serif; font-size:15px; font-weight:600; text-decoration:none; cursor:pointer; transition:border-color 150ms ease-out, background 150ms ease-out; min-height:44px; white-space:nowrap; }
+    .btn-arrow-box { width:1.5rem; height:1.5rem; background:#0F1B26; border-radius:0.3125rem; display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:transform 150ms ease-out; }
+    .btn-ghost { display:inline-flex; align-items:center; background:transparent; color:#F7F4ED; border:1px solid rgba(247,244,237,.5); border-radius:0.75rem; padding:1rem 1.5rem; font-family:'Instrument Sans',sans-serif; font-size:0.9375rem; font-weight:600; text-decoration:none; cursor:pointer; transition:border-color 150ms ease-out, background 150ms ease-out; min-height:2.75rem; white-space:nowrap; }
     .btn-ghost:hover { border-color:rgba(247,244,237,1); background:rgba(247,244,237,.05); }
-    .trust-cluster { position:absolute; z-index:3; bottom:24px; left:24px; right:24px; display:flex; flex-wrap:wrap; gap:6px; }
-    @media (min-width:768px) and (max-width:1023px) { .trust-cluster { bottom:36px; right:36px; left:auto; display:grid; grid-template-columns:1fr 1fr; gap:7px; } }
-    @media (min-width:1024px) { .trust-cluster { bottom:48px; right:48px; left:auto; display:grid; grid-template-columns:1fr 1fr; gap:8px; } }
-    .trust-badge { display:flex; align-items:center; gap:6px; background:rgba(247,244,237,.10); border:1px solid rgba(247,244,237,.25); border-radius:6px; padding:8px 12px; }
-    .trust-badge span { font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:500; color:#F7F4ED; white-space:nowrap; }
+    .trust-cluster { position:absolute; z-index:3; bottom:1.5rem; left:1.5rem; right:1.5rem; display:flex; flex-wrap:wrap; gap:0.375rem; }
+    @media (min-width:768px) and (max-width:1023px) { .trust-cluster { bottom:2.25rem; right:2.25rem; left:auto; display:grid; grid-template-columns:1fr 1fr; gap:0.4375rem; } }
+    @media (min-width:1024px) { .trust-cluster { bottom:3rem; right:3rem; left:auto; display:grid; grid-template-columns:1fr 1fr; gap:0.5rem; } }
+    .trust-badge { display:flex; align-items:center; gap:0.375rem; background:rgba(247,244,237,.10); border:1px solid rgba(247,244,237,.25); border-radius:0.375rem; padding:0.5rem 0.75rem; }
+    .trust-badge span { font-family:'JetBrains Mono',monospace; font-size:0.6875rem; font-weight:500; color:#F7F4ED; white-space:nowrap; }
 
     /* ═══════════════════════════════════════
        TRUST STRIP
     ═══════════════════════════════════════ */
     .trust-strip { background:#0E2A3F; width:100%; }
-    .trust-strip-inner { max-width:1240px; margin:0 auto; padding:0 24px; height:96px; display:flex; align-items:center; justify-content:space-evenly; }
-    .trust-item { display:flex; align-items:center; gap:9px; flex-shrink:0; }
-    .trust-stars { color:#B8873B; font-size:11px; letter-spacing:1.5px; line-height:1; flex-shrink:0; }
+    .trust-strip-inner { max-width:77.5rem; margin:0 auto; padding:0 1.5rem; height:6rem; display:flex; align-items:center; justify-content:space-evenly; }
+    .trust-item { display:flex; align-items:center; gap:0.5625rem; flex-shrink:0; }
+    .trust-stars { color:#B8873B; font-size:0.6875rem; letter-spacing:1.5px; line-height:1; flex-shrink:0; }
     .trust-icon { flex-shrink:0; display:flex; align-items:center; }
-    .trust-text { display:flex; flex-direction:column; gap:3px; }
-    .trust-main { font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:500; color:#F7F4ED; letter-spacing:0.08em; line-height:1; }
-    .trust-sub { font-family:'Instrument Sans',sans-serif; font-size:12px; font-weight:400; color:rgba(247,244,237,.70); line-height:1; }
-    .trust-div { width:1px; height:32px; background:rgba(184,135,59,.30); flex-shrink:0; }
-    @media (max-width:767px) {
-      .trust-strip-inner { height:auto; padding:24px; display:grid; grid-template-columns:1fr 1fr 1fr; gap:20px 12px; align-items:start; }
+    .trust-text { display:flex; flex-direction:column; gap:0.1875rem; }
+    .trust-main { font-family:'JetBrains Mono',monospace; font-size:0.6875rem; font-weight:500; color:#F7F4ED; letter-spacing:0.08em; line-height:1; }
+    .trust-sub { font-family:'Instrument Sans',sans-serif; font-size:0.75rem; font-weight:400; color:rgba(247,244,237,.70); line-height:1; }
+    .trust-div { width:1px; height:2rem; background:rgba(184,135,59,.30); flex-shrink:0; }
+    /* Trust strip needs ~980px as a single flex row — grid layout below that */
+    @media (max-width:1023px) {
+      .trust-strip-inner { height:auto; padding:1.5rem; display:grid; grid-template-columns:1fr 1fr 1fr; gap:1.25rem 0.75rem; align-items:start; }
       .trust-div { display:none; }
-      .trust-item:nth-child(-n+5) { padding-bottom:20px; border-bottom:1px solid rgba(184,135,59,.20); }
+      .trust-item:nth-child(-n+5) { padding-bottom:1.25rem; border-bottom:1px solid rgba(184,135,59,.20); }
     }
 
     /* ═══════════════════════════════════════
        ZIP / SERVICE AREA
     ═══════════════════════════════════════ */
-    .zip-section { background:#F7F4ED; padding:80px 0; }
-    .zip-container { max-width:1240px; margin:0 auto; padding:0 24px; }
-    .zip-grid { display:grid; grid-template-columns:5fr 7fr; gap:48px; align-items:center; }
-    .zip-body { font-size:16px; font-weight:400; line-height:1.55; color:#3B4A5C; max-width:440px; }
-    .zip-form-card { background:#0E2A3F; border-radius:16px; padding:24px; }
-    .zip-form-row { display:flex; flex-direction:row; gap:12px; align-items:stretch; }
-    #zip-input { flex:1; height:56px; background:rgba(247,244,237,.08); border-radius:12px; border:1.5px solid rgba(247,244,237,.2); padding:0 20px; font-family:'Instrument Sans',sans-serif; font-size:16px; font-weight:500; color:#F7F4ED; outline:none; -webkit-appearance:none; transition:border-color 150ms ease-out; }
+    .zip-section { background:#F7F4ED; padding:5rem 0; }
+    .zip-container { max-width:77.5rem; margin:0 auto; padding:0 1.5rem; }
+    .zip-grid { display:grid; grid-template-columns:5fr 7fr; gap:3rem; align-items:center; }
+    .zip-body { font-size:1rem; font-weight:400; line-height:1.55; color:#3B4A5C; max-width:27.5rem; }
+    .zip-form-card { background:#0E2A3F; border-radius:1rem; padding:1.5rem; }
+    .zip-form-row { display:flex; flex-direction:row; gap:0.75rem; align-items:stretch; }
+    #zip-input { flex:1; height:3.5rem; background:rgba(247,244,237,.08); border-radius:0.75rem; border:1.5px solid rgba(247,244,237,.2); padding:0 1.25rem; font-family:'Instrument Sans',sans-serif; font-size:1rem; font-weight:500; color:#F7F4ED; outline:none; -webkit-appearance:none; transition:border-color 150ms ease-out; }
     #zip-input::placeholder { color:rgba(247,244,237,.4); font-weight:400; }
     #zip-input:focus { border-color:#B8873B; }
-    .zip-btn { height:56px; background:#F7F4ED; color:#0E2A3F; border:none; border-radius:12px; padding:0 24px; font-family:'Instrument Sans',sans-serif; font-size:15px; font-weight:600; cursor:pointer; white-space:nowrap; transition:background 150ms ease-out; display:inline-flex; align-items:center; gap:5px; }
+    .zip-btn { height:3.5rem; background:#F7F4ED; color:#0E2A3F; border:none; border-radius:0.75rem; padding:0 1.5rem; font-family:'Instrument Sans',sans-serif; font-size:0.9375rem; font-weight:600; cursor:pointer; white-space:nowrap; transition:background 150ms ease-out; display:inline-flex; align-items:center; gap:0.3125rem; }
     .zip-btn:hover { background:#EDE8DE; }
     .zip-btn .zig-arrow { transition:transform 150ms ease-out; display:inline-block; }
     .zip-btn:hover .zig-arrow { transform:translateX(2px); }
-    #zip-result { display:none; opacity:0; margin-top:16px; }
-    .zip-browse { display:inline-block; margin-top:16px; font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:500; color:rgba(247,244,237,.55); text-decoration:none; transition:color 150ms ease-out; }
+    #zip-result { display:none; opacity:0; margin-top:1rem; }
+    .zip-browse { display:inline-block; margin-top:1rem; font-family:'JetBrains Mono',monospace; font-size:0.8125rem; font-weight:500; color:rgba(247,244,237,.55); text-decoration:none; transition:color 150ms ease-out; }
     .zip-browse:hover { color:#B8873B; }
-    @media (max-width:767px) { .zip-grid { grid-template-columns:1fr; gap:32px; } .zip-form-row { flex-direction:column; align-items:stretch; } .zip-btn { height:52px; justify-content:center; } #zip-input { height:52px; } }
+    @media (max-width:767px) { .zip-grid { grid-template-columns:1fr; gap:2rem; } .zip-form-row { flex-direction:column; align-items:stretch; } .zip-btn { height:3.25rem; justify-content:center; } #zip-input { height:3.25rem; } }
 
     /* ═══════════════════════════════════════
        VALUE PROPS
     ═══════════════════════════════════════ */
-    .props-section { background:#F7F4ED; padding:96px 0; }
-    .props-container { max-width:1240px; margin:0 auto; padding:0 24px; }
-    .props-header { text-align:left; margin-bottom:48px; }
-    .props-header .pill { margin-bottom:16px; }
+    .props-section { background:#F7F4ED; padding:6rem 0; }
+    .props-container { max-width:77.5rem; margin:0 auto; padding:0 1.5rem; }
+    .props-header { text-align:left; margin-bottom:3rem; }
+    .props-header .pill { margin-bottom:1rem; }
     @media (max-width:1023px) { .about-pics { display:none !important; } }
     .props-grid { display:grid; grid-template-columns:repeat(5,1fr); }
-    .prop-card { padding:0 24px; position:relative; }
+    .prop-card { padding:0 1.5rem; position:relative; }
     .prop-card:first-child { padding-left:0; }
     .prop-card:last-child  { padding-right:0; }
     .prop-card + .prop-card::before { content:''; position:absolute; left:0; top:10%; height:80%; width:1px; background:rgba(184,135,59,.25); }
-    .prop-num { font-family:'JetBrains Mono',monospace; font-size:14px; font-weight:500; color:#B8873B; letter-spacing:0.05em; line-height:1; }
-    .prop-rule { width:32px; height:1px; background:#B8873B; margin:16px 0; }
-    .prop-title { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:20px; line-height:1.15; color:#0F1B26; margin-bottom:12px; }
-    .prop-desc { font-size:14px; font-weight:400; line-height:1.5; color:#3B4A5C; }
-    @media (min-width:768px) and (max-width:1023px) { .prop-card { padding:0 16px; } .prop-card:first-child { padding-left:0; } .prop-card:last-child { padding-right:0; } .prop-title { font-size:17px; } .prop-desc { font-size:13px; } }
-    @media (max-width:767px) { .props-grid { grid-template-columns:1fr; } .prop-card { padding:0 0 32px 0; } .prop-card:last-child { padding-bottom:0; } .prop-card + .prop-card::before { display:none; } .prop-card + .prop-card { border-top:1px solid rgba(184,135,59,.25); padding-top:32px; } }
+    .prop-num { font-family:'JetBrains Mono',monospace; font-size:0.875rem; font-weight:500; color:#B8873B; letter-spacing:0.05em; line-height:1; }
+    .prop-rule { width:2rem; height:1px; background:#B8873B; margin:1rem 0; }
+    .prop-title { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:1.25rem; line-height:1.15; color:#0F1B26; margin-bottom:0.75rem; }
+    .prop-desc { font-size:0.875rem; font-weight:400; line-height:1.5; color:#3B4A5C; }
+    @media (min-width:768px) and (max-width:1023px) { .prop-card { padding:0 1rem; } .prop-card:first-child { padding-left:0; } .prop-card:last-child { padding-right:0; } .prop-title { font-size:1.0625rem; } .prop-desc { font-size:0.8125rem; } }
+    @media (max-width:767px) { .props-grid { grid-template-columns:1fr; } .prop-card { padding:0 0 2rem 0; } .prop-card:last-child { padding-bottom:0; } .prop-card + .prop-card::before { display:none; } .prop-card + .prop-card { border-top:1px solid rgba(184,135,59,.25); padding-top:2rem; } }
 
     /* ═══════════════════════════════════════
        PRICING
     ═══════════════════════════════════════ */
-    .pricing-section { background:#EDE8DE; padding:96px 0; }
-    .pricing-container { max-width:1080px; margin:0 auto; padding:0 24px; }
+    .pricing-section { background:#EDE8DE; padding:6rem 0; }
+    .pricing-container { max-width:67.5rem; margin:0 auto; padding:0 1.5rem; }
     .pricing-header { text-align:center; }
     .pricing-h2 { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:clamp(2.25rem,4.5vw,3.75rem); line-height:1.0; letter-spacing:-0.02em; color:#F7F4ED; }
-    .pricing-sub { font-family:'Instrument Sans',sans-serif; font-size:17px; font-weight:400; line-height:1.55; color:rgba(247,244,237,.72); max-width:560px; margin:0 auto; }
+    .pricing-sub { font-family:'Instrument Sans',sans-serif; font-size:1.0625rem; font-weight:400; line-height:1.55; color:rgba(247,244,237,.72); max-width:35rem; margin:0 auto; }
     .price-grid { display:grid; grid-template-columns:1fr 1fr 1fr; }
-    .price-col { position:relative; padding:0 36px; text-align:center; }
+    .price-col { position:relative; padding:0 2.25rem; text-align:center; }
     .price-col:first-child { padding-left:0; }
     .price-col:last-child  { padding-right:0; }
     .price-col + .price-col::before { content:''; position:absolute; left:0; top:10%; height:80%; width:1px; background:rgba(247,244,237,.15); }
-    .price-eyebrow { font-family:'Instrument Sans',sans-serif; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.12em; color:#B8873B; }
-    .price-starts-at { font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:500; color:rgba(247,244,237,.55); }
+    .price-eyebrow { font-family:'Instrument Sans',sans-serif; font-size:0.6875rem; font-weight:600; text-transform:uppercase; letter-spacing:0.12em; color:#B8873B; }
+    .price-starts-at { font-family:'JetBrains Mono',monospace; font-size:0.75rem; font-weight:500; color:rgba(247,244,237,.55); }
     .price-amount { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:clamp(3rem,6vw,4.5rem); line-height:0.95; color:#F7F4ED; letter-spacing:-0.02em; }
-    .price-hr { width:40px; height:1px; background:#B8873B; margin:0 auto; }
-    .price-desc { font-family:'Instrument Sans',sans-serif; font-size:14px; font-weight:400; line-height:1.55; color:rgba(247,244,237,.72); max-width:260px; margin:0 auto; }
-    .owners-promise { text-align:center; max-width:680px; margin:0 auto; }
-    .owners-hr { width:60px; height:1px; background:#B8873B; margin:0 auto; }
+    .price-hr { width:2.5rem; height:1px; background:#B8873B; margin:0 auto; }
+    .price-desc { font-family:'Instrument Sans',sans-serif; font-size:0.875rem; font-weight:400; line-height:1.55; color:rgba(247,244,237,.72); max-width:16.25rem; margin:0 auto; }
+    .owners-promise { text-align:center; max-width:42.5rem; margin:0 auto; }
+    .owners-hr { width:3.75rem; height:1px; background:#B8873B; margin:0 auto; }
     .owners-quote { font-family:'Fraunces',Georgia,serif; font-style:italic; font-weight:400; font-size:clamp(1.25rem,1.6vw + 0.4rem,1.5rem); line-height:1.4; color:#F7F4ED; }
-    .owners-attribution { font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:500; text-transform:uppercase; letter-spacing:0.14em; color:#B8873B; }
-    @media (max-width:767px) { .pricing-section { padding:64px 0; } .price-grid { grid-template-columns:1fr; } .price-col { padding:0 0 48px 0; } .price-col:last-child { padding-bottom:0; } .price-col + .price-col { padding-top:48px; } .price-col + .price-col::before { top:0; left:0; width:100%; height:1px; } }
+    .owners-attribution { font-family:'JetBrains Mono',monospace; font-size:0.6875rem; font-weight:500; text-transform:uppercase; letter-spacing:0.14em; color:#B8873B; }
+    @media (max-width:767px) { .pricing-section { padding:4rem 0; } .price-grid { grid-template-columns:1fr; } .price-col { padding:0 0 3rem 0; } .price-col:last-child { padding-bottom:0; } .price-col + .price-col { padding-top:3rem; } .price-col + .price-col::before { top:0; left:0; width:100%; height:1px; } }
 
     /* ═══════════════════════════════════════
        PROCESS TIMELINE
     ═══════════════════════════════════════ */
-    .process-section { background:#EDE8DE; padding:96px 0; }
-    .process-container { max-width:1240px; margin:0 auto; padding:0 24px; }
-    .process-header { text-align:center; margin-bottom:80px; }
+    .process-section { background:#EDE8DE; padding:6rem 0; }
+    .process-container { max-width:77.5rem; margin:0 auto; padding:0 1.5rem; }
+    .process-header { text-align:center; margin-bottom:5rem; }
     .process-h2 { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:clamp(2rem,4vw,3.25rem); line-height:1.0; letter-spacing:-0.02em; color:#0F1B26; }
-    .process-sub { font-family:'Instrument Sans',sans-serif; font-size:16px; font-weight:400; line-height:1.55; color:#3B4A5C; max-width:520px; margin:0 auto; }
+    .process-sub { font-family:'Instrument Sans',sans-serif; font-size:1rem; font-weight:400; line-height:1.55; color:#3B4A5C; max-width:32.5rem; margin:0 auto; }
     .process-timeline { display:flex; flex-direction:row; align-items:flex-start; position:relative; }
-    .process-connector { position:absolute; top:48px; left:8%; right:25%; height:1px; background:rgba(184,135,59,.30); pointer-events:none; }
-    .process-step { flex:1 1 0; padding-right:40px; min-width:0; }
+    .process-connector { position:absolute; top:3rem; left:8%; right:25%; height:1px; background:rgba(184,135,59,.30); pointer-events:none; }
+    .process-step { flex:1 1 0; padding-right:2.5rem; min-width:0; }
     .process-step:last-child { padding-right:0; }
     .step-num { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:clamp(4rem,7vw,6rem); line-height:0.9; letter-spacing:-0.02em; color:#B8873B; }
-    .step-div { width:32px; height:1px; background:#0F1B26; margin-top:8px; margin-bottom:16px; }
-    .step-title { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:20px; line-height:1.2; color:#0F1B26; margin-bottom:12px; }
-    .step-desc { font-family:'Instrument Sans',sans-serif; font-size:14px; font-weight:400; line-height:1.55; color:#3B4A5C; max-width:220px; margin-bottom:20px; }
-    .step-mono { font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:500; text-transform:uppercase; letter-spacing:0.08em; color:#6B7280; }
+    .step-div { width:2rem; height:1px; background:#0F1B26; margin-top:0.5rem; margin-bottom:1rem; }
+    .step-title { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:1.25rem; line-height:1.2; color:#0F1B26; margin-bottom:0.75rem; }
+    .step-desc { font-family:'Instrument Sans',sans-serif; font-size:0.875rem; font-weight:400; line-height:1.55; color:#3B4A5C; max-width:13.75rem; margin-bottom:1.25rem; }
+    .step-mono { font-family:'JetBrains Mono',monospace; font-size:0.6875rem; font-weight:500; text-transform:uppercase; letter-spacing:0.08em; color:#6B7280; }
+    /* Tablet: 4 steps don't fit in one row (~146px each) — 2×2 grid instead */
+    @media (min-width:768px) and (max-width:1023px) {
+      .process-timeline { display:grid; grid-template-columns:1fr 1fr; gap:3rem 2rem; }
+      .process-step { padding-right:0; }
+      .process-connector { display:none; }
+      .step-desc { max-width:none; }
+    }
     @media (max-width:767px) {
-      .process-section { padding:64px 0; } .process-header { margin-bottom:48px; }
-      .process-timeline { flex-direction:column; padding-left:40px; gap:48px; }
-      .process-timeline::before { content:''; position:absolute; left:24px; top:0; bottom:0; width:1px; background:rgba(184,135,59,.30); }
+      .process-section { padding:4rem 0; } .process-header { margin-bottom:3rem; }
+      .process-timeline { flex-direction:column; padding-left:2.5rem; gap:3rem; }
+      .process-timeline::before { content:''; position:absolute; left:1.5rem; top:0; bottom:0; width:1px; background:rgba(184,135,59,.30); }
       .process-connector { display:none; }
       .process-step { padding-right:0; width:100%; }
       .step-num { font-size:clamp(3rem,9vw,4rem); } .step-desc { max-width:none; }
@@ -282,174 +295,175 @@
     /* ═══════════════════════════════════════
        BEFORE / AFTER
     ═══════════════════════════════════════ */
-    .ba-section { background:#EDE8DE; padding:96px 0; }
-    .ba-container { max-width:1240px; margin:0 auto; padding:0 24px; }
+    .ba-section { background:#EDE8DE; padding:6rem 0; }
+    .ba-container { max-width:77.5rem; margin:0 auto; padding:0 1.5rem; }
     .ba-h2 { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:clamp(2rem,4vw,3.25rem); line-height:1.05; letter-spacing:-0.01em; color:#0F1B26; }
-    .ba-grid { display:grid; grid-template-columns:1fr 1fr; gap:40px; }
-    .ba-card { display:flex; flex-direction:column; gap:20px; }
-    .ba-slider { position:relative; border-radius:16px; overflow:hidden; cursor:ew-resize; user-select:none; -webkit-user-select:none; aspect-ratio:4/3; }
+    .ba-grid { display:grid; grid-template-columns:1fr 1fr; gap:2.5rem; }
+    .ba-card { display:flex; flex-direction:column; gap:1.25rem; }
+    .ba-slider { position:relative; border-radius:1rem; overflow:hidden; cursor:ew-resize; user-select:none; -webkit-user-select:none; aspect-ratio:4/3; }
     .ba-img { display:block; position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
     .ba-after-img { clip-path:inset(0 50% 0 0); }
-    .ba-divider { position:absolute; top:0; bottom:0; left:50%; width:2px; background:#F7F4ED; transform:translateX(-50%); pointer-events:none; box-shadow:0 0 8px rgba(15,27,38,.25); }
-    .ba-handle { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:44px; height:44px; background:#F7F4ED; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 2px 16px rgba(15,27,38,.22); flex-shrink:0; }
-    .ba-label { position:absolute; bottom:14px; font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:500; text-transform:uppercase; letter-spacing:0.12em; color:#F7F4ED; background:rgba(15,27,38,.55); border-radius:4px; padding:4px 8px; pointer-events:none; }
-    .ba-lbl-b { left:14px; }
-    .ba-lbl-a { right:14px; }
-    .ba-meta { font-family:'JetBrains Mono',monospace; font-size:10.5px; font-weight:500; color:#B8873B; text-transform:uppercase; letter-spacing:0.08em; line-height:1.6; }
-    .ba-title { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:1.25rem; line-height:1.2; color:#0F1B26; margin-top:6px; }
-    .ba-desc { font-family:'Fraunces',Georgia,serif; font-style:italic; font-weight:300; font-size:15px; line-height:1.65; color:rgba(15,27,38,.72); margin-top:10px; }
-    @media (max-width:767px) { .ba-section { padding:64px 0; } .ba-grid { grid-template-columns:1fr; gap:48px; } }
+    .ba-divider { position:absolute; top:0; bottom:0; left:50%; width:2px; background:#F7F4ED; transform:translateX(-50%); pointer-events:none; box-shadow:0 0 0.5rem rgba(15,27,38,.25); }
+    .ba-handle { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:2.75rem; height:2.75rem; background:#F7F4ED; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 2px 1rem rgba(15,27,38,.22); flex-shrink:0; }
+    .ba-label { position:absolute; bottom:0.875rem; font-family:'JetBrains Mono',monospace; font-size:0.625rem; font-weight:500; text-transform:uppercase; letter-spacing:0.12em; color:#F7F4ED; background:rgba(15,27,38,.55); border-radius:0.25rem; padding:0.25rem 0.5rem; pointer-events:none; }
+    .ba-lbl-b { left:0.875rem; }
+    .ba-lbl-a { right:0.875rem; }
+    .ba-meta { font-family:'JetBrains Mono',monospace; font-size:0.65625rem; font-weight:500; color:#B8873B; text-transform:uppercase; letter-spacing:0.08em; line-height:1.6; }
+    .ba-title { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:1.25rem; line-height:1.2; color:#0F1B26; margin-top:0.375rem; }
+    .ba-desc { font-family:'Fraunces',Georgia,serif; font-style:italic; font-weight:300; font-size:0.9375rem; line-height:1.65; color:rgba(15,27,38,.72); margin-top:0.625rem; }
+    @media (max-width:767px) { .ba-section { padding:4rem 0; } .ba-grid { grid-template-columns:1fr; gap:3rem; } }
 
     /* ═══════════════════════════════════════
        MEET THE CREW
     ═══════════════════════════════════════ */
-    .crew-section { background:#F7F4ED; padding:96px 0; }
-    .crew-container { max-width:1240px; margin:0 auto; padding:0 24px; }
-    .crew-header { text-align:center; max-width:640px; margin:0 auto; }
-    .crew-sub { font-family:'Instrument Sans',sans-serif; font-size:16px; font-weight:400; line-height:1.55; color:#3B4A5C; }
-    .founder-grid { display:grid; grid-template-columns:5fr 7fr; gap:48px; align-items:center; }
-    .founder-photo { width:100%; aspect-ratio:4/5; border-radius:24px; overflow:hidden; }
-    .founder-index { font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:500; color:#B8873B; letter-spacing:0.08em; text-transform:uppercase; }
-    .founder-name { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:36px; line-height:1.05; color:#0F1B26; }
-    .founder-role { font-family:'Instrument Sans',sans-serif; font-size:16px; font-weight:500; color:#3B4A5C; }
-    .founder-bio { font-family:'Instrument Sans',sans-serif; font-size:17px; font-weight:400; line-height:1.6; color:rgba(15,27,38,.9); }
-    .founder-q-rule { width:40px; height:1px; background:#B8873B; }
-    .founder-quote { font-family:'Fraunces',Georgia,serif; font-style:italic; font-weight:400; font-size:20px; line-height:1.4; color:#0F1B26; margin:0; }
-    .founder-attr { font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:500; text-transform:uppercase; letter-spacing:0.12em; color:#B8873B; font-style:normal; display:block; }
-    .crew-row1 { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
-    .crew-row2 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:24px; margin-top:24px; }
-    .crew-tile { border-radius:16px; overflow:hidden; background:#EDE8DE; display:flex; flex-direction:row; min-height:320px; }
+    .crew-section { background:#F7F4ED; padding:6rem 0; }
+    .crew-container { max-width:77.5rem; margin:0 auto; padding:0 1.5rem; }
+    .crew-header { text-align:center; max-width:40rem; margin:0 auto; }
+    .crew-sub { font-family:'Instrument Sans',sans-serif; font-size:1rem; font-weight:400; line-height:1.55; color:#3B4A5C; }
+    .founder-grid { display:grid; grid-template-columns:5fr 7fr; gap:3rem; align-items:center; }
+    .founder-photo { width:100%; aspect-ratio:4/5; border-radius:1.5rem; overflow:hidden; }
+    .founder-index { font-family:'JetBrains Mono',monospace; font-size:0.75rem; font-weight:500; color:#B8873B; letter-spacing:0.08em; text-transform:uppercase; }
+    .founder-name { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:2.25rem; line-height:1.05; color:#0F1B26; }
+    .founder-role { font-family:'Instrument Sans',sans-serif; font-size:1rem; font-weight:500; color:#3B4A5C; }
+    .founder-bio { font-family:'Instrument Sans',sans-serif; font-size:1.0625rem; font-weight:400; line-height:1.6; color:rgba(15,27,38,.9); }
+    .founder-q-rule { width:2.5rem; height:1px; background:#B8873B; }
+    .founder-quote { font-family:'Fraunces',Georgia,serif; font-style:italic; font-weight:400; font-size:1.25rem; line-height:1.4; color:#0F1B26; margin:0; }
+    .founder-attr { font-family:'JetBrains Mono',monospace; font-size:0.6875rem; font-weight:500; text-transform:uppercase; letter-spacing:0.12em; color:#B8873B; font-style:normal; display:block; }
+    .crew-row1 { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; }
+    .crew-row2 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:1.5rem; margin-top:1.5rem; }
+    .crew-tile { border-radius:1rem; overflow:hidden; background:#EDE8DE; display:flex; flex-direction:row; min-height:20rem; }
     .crew-tile-photo { width:50%; flex-shrink:0; }
-    .crew-tile-info { width:50%; padding:28px 24px; display:flex; flex-direction:column; justify-content:center; }
-    .crew-compact-photo { width:100%; aspect-ratio:1; border-radius:16px; overflow:hidden; }
-    .crew-index { font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:500; color:#B8873B; letter-spacing:0.1em; text-transform:uppercase; }
-    .crew-tile-name { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:24px; line-height:1.1; color:#0F1B26; }
-    .crew-tile-role { font-family:'Instrument Sans',sans-serif; font-size:14px; font-weight:500; color:#3B4A5C; }
-    .crew-tile-since { font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:500; color:#6B7280; text-transform:uppercase; letter-spacing:0.08em; }
+    .crew-tile-info { width:50%; padding:1.75rem 1.5rem; display:flex; flex-direction:column; justify-content:center; }
+    .crew-compact-photo { width:100%; aspect-ratio:1; border-radius:1rem; overflow:hidden; }
+    .crew-index { font-family:'JetBrains Mono',monospace; font-size:0.6875rem; font-weight:500; color:#B8873B; letter-spacing:0.1em; text-transform:uppercase; }
+    .crew-tile-name { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:1.5rem; line-height:1.1; color:#0F1B26; }
+    .crew-tile-role { font-family:'Instrument Sans',sans-serif; font-size:0.875rem; font-weight:500; color:#3B4A5C; }
+    .crew-tile-since { font-family:'JetBrains Mono',monospace; font-size:0.6875rem; font-weight:500; color:#6B7280; text-transform:uppercase; letter-spacing:0.08em; }
     .crew-q-rule { height:1px; background:#B8873B; }
-    .crew-tile-quote { font-family:'Fraunces',Georgia,serif; font-style:italic; font-weight:400; font-size:16px; line-height:1.45; color:#0F1B26; margin:0; }
-    .crew-compact-name { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:20px; line-height:1.15; color:#0F1B26; }
-    .crew-compact-role { font-family:'Instrument Sans',sans-serif; font-size:13px; font-weight:500; color:#3B4A5C; }
-    .crew-compact-quote { font-family:'Fraunces',Georgia,serif; font-style:italic; font-weight:400; font-size:14px; line-height:1.5; color:#3B4A5C; margin:0; }
-    @media (min-width:768px) and (max-width:1023px) { .crew-tile { flex-direction:column; min-height:auto; } .crew-tile-photo { width:100%; min-height:200px; } .crew-tile-info { width:100%; } }
-    @media (max-width:767px) { .crew-section { padding:64px 0; } .founder-grid { grid-template-columns:1fr; gap:32px; } .crew-row1 { grid-template-columns:1fr; } .crew-tile { flex-direction:column; min-height:auto; } .crew-tile-photo { width:100%; min-height:220px; } .crew-tile-info { width:100%; } .crew-row2 { grid-template-columns:1fr 1fr; } }
+    .crew-tile-quote { font-family:'Fraunces',Georgia,serif; font-style:italic; font-weight:400; font-size:1rem; line-height:1.45; color:#0F1B26; margin:0; }
+    .crew-compact-name { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:1.25rem; line-height:1.15; color:#0F1B26; }
+    .crew-compact-role { font-family:'Instrument Sans',sans-serif; font-size:0.8125rem; font-weight:500; color:#3B4A5C; }
+    .crew-compact-quote { font-family:'Fraunces',Georgia,serif; font-style:italic; font-weight:400; font-size:0.875rem; line-height:1.5; color:#3B4A5C; margin:0; }
+    @media (min-width:768px) and (max-width:1023px) { .crew-tile { flex-direction:column; min-height:auto; } .crew-tile-photo { width:100%; min-height:12.5rem; } .crew-tile-info { width:100%; } }
+    @media (max-width:767px) { .crew-section { padding:4rem 0; } .founder-grid { grid-template-columns:1fr; gap:2rem; } .crew-row1 { grid-template-columns:1fr; } .crew-tile { flex-direction:column; min-height:auto; } .crew-tile-photo { width:100%; min-height:13.75rem; } .crew-tile-info { width:100%; } .crew-row2 { grid-template-columns:1fr 1fr; } }
 
     /* ═══════════════════════════════════════
        FAQ
     ═══════════════════════════════════════ */
-    .faq-section { background:#EDE8DE; padding:96px 0; }
-    .faq-container { max-width:1240px; margin:0 auto; padding:0 24px; }
-    .faq-grid { display:grid; grid-template-columns:5fr 7fr; gap:48px; align-items:start; }
-    .faq-left { position:sticky; top:120px; }
-    .faq-sub { font-family:'Instrument Sans',sans-serif; font-size:16px; font-weight:400; line-height:1.55; color:#3B4A5C; max-width:400px; }
-    .faq-contact { background:#0E2A3F; border-radius:16px; padding:24px; margin-top:32px; }
-    .faq-contact-eyebrow { font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:500; color:#B8873B; text-transform:uppercase; letter-spacing:0.1em; }
-    .faq-phone-link { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:28px; color:#F7F4ED; text-decoration:none; display:block; margin-top:8px; transition:color 150ms ease-out; }
+    .faq-section { background:#EDE8DE; padding:6rem 0; }
+    .faq-container { max-width:77.5rem; margin:0 auto; padding:0 1.5rem; }
+    .faq-grid { display:grid; grid-template-columns:5fr 7fr; gap:3rem; align-items:start; }
+    .faq-left { position:sticky; top:7.5rem; }
+    .faq-sub { font-family:'Instrument Sans',sans-serif; font-size:1rem; font-weight:400; line-height:1.55; color:#3B4A5C; max-width:25rem; }
+    .faq-contact { background:#0E2A3F; border-radius:1rem; padding:1.5rem; margin-top:2rem; }
+    .faq-contact-eyebrow { font-family:'JetBrains Mono',monospace; font-size:0.6875rem; font-weight:500; color:#B8873B; text-transform:uppercase; letter-spacing:0.1em; }
+    .faq-phone-link { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:1.75rem; color:#F7F4ED; text-decoration:none; display:block; margin-top:0.5rem; transition:color 150ms ease-out; }
     .faq-phone-link:hover { color:#B8873B; }
-    .faq-phone-cap { font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:500; color:rgba(247,244,237,.55); text-transform:uppercase; letter-spacing:0.08em; margin-top:8px; }
+    .faq-phone-cap { font-family:'JetBrains Mono',monospace; font-size:0.75rem; font-weight:500; color:rgba(247,244,237,.55); text-transform:uppercase; letter-spacing:0.08em; margin-top:0.5rem; }
     details.faq-item { border-top:1px solid rgba(15,27,38,.15); }
     details.faq-item:last-child { border-bottom:1px solid rgba(15,27,38,.15); }
-    details.faq-item > summary { list-style:none; cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:16px; padding:24px 0; -webkit-tap-highlight-color:transparent; }
+    details.faq-item > summary { list-style:none; cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:1rem; padding:1.5rem 0; -webkit-tap-highlight-color:transparent; }
     details.faq-item > summary::-webkit-details-marker { display:none; }
     details.faq-item > summary::marker { display:none; }
-    .faq-q { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:20px; line-height:1.3; color:#0F1B26; }
-    .faq-chevron { width:24px; height:24px; min-width:24px; background:#B8873B; border-radius:50%; display:flex; align-items:center; justify-content:center; transition:transform 200ms ease-out; }
-    .faq-plus { font-family:'Instrument Sans',sans-serif; font-size:17px; font-weight:500; color:#F7F4ED; line-height:1; display:block; margin-top:-1px; user-select:none; }
+    .faq-q { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:1.25rem; line-height:1.3; color:#0F1B26; }
+    .faq-chevron { width:1.5rem; height:1.5rem; min-width:1.5rem; background:#B8873B; border-radius:50%; display:flex; align-items:center; justify-content:center; transition:transform 200ms ease-out; }
+    .faq-plus { font-family:'Instrument Sans',sans-serif; font-size:1.0625rem; font-weight:500; color:#F7F4ED; line-height:1; display:block; margin-top:-1px; user-select:none; }
     details[open].faq-item > summary .faq-chevron { transform:rotate(45deg); }
-    .faq-answer { font-family:'Instrument Sans',sans-serif; font-size:16px; font-weight:400; line-height:1.6; color:#3B4A5C; max-width:560px; padding-bottom:24px; margin:0; }
-    @media (max-width:767px) { .faq-section { padding:64px 0; } .faq-grid { grid-template-columns:1fr; gap:48px; } .faq-left { position:static; } .faq-sub { max-width:none; } details.faq-item > summary { padding:20px 0; } .faq-q { font-size:18px; } .faq-chevron { width:20px; height:20px; min-width:20px; } .faq-plus { font-size:14px; } .faq-answer { max-width:none; } }
+    .faq-answer { font-family:'Instrument Sans',sans-serif; font-size:1rem; font-weight:400; line-height:1.6; color:#3B4A5C; max-width:35rem; padding-bottom:1.5rem; margin:0; }
+    @media (max-width:767px) { .faq-section { padding:4rem 0; } .faq-grid { grid-template-columns:1fr; gap:3rem; } .faq-left { position:static; } .faq-sub { max-width:none; } details.faq-item > summary { padding:1.25rem 0; } .faq-q { font-size:1.125rem; } .faq-chevron { width:1.25rem; height:1.25rem; min-width:1.25rem; } .faq-plus { font-size:0.875rem; } .faq-answer { max-width:none; } }
 
     /* ═══════════════════════════════════════
        SITE HEADER
     ═══════════════════════════════════════ */
     .site-header { position:sticky; top:0; z-index:40; width:100%; }
-    .utility-strip { background:#0E2A3F; height:36px; }
-    .utility-inner { max-width:1440px; margin:0 auto; padding:0 32px; height:100%; display:flex; justify-content:space-between; align-items:center; }
-    .util-left, .util-right { display:flex; align-items:center; gap:16px; }
-    .util-group { display:flex; align-items:center; gap:6px; }
-    .util-star { color:#B8873B; font-size:11px; line-height:1; }
-    .util-rating { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:13px; color:#F7F4ED; }
-    .util-reviews { font-family:'Instrument Sans',sans-serif; font-weight:400; font-size:12px; color:rgba(247,244,237,.7); }
-    .util-mono { font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:500; color:#F7F4ED; text-transform:uppercase; letter-spacing:0.08em; }
-    .util-open { font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:500; color:#B8873B; text-transform:uppercase; letter-spacing:0.1em; }
-    .util-div { width:1px; height:14px; background:rgba(184,135,59,.4); flex-shrink:0; }
-    .util-socials { display:flex; align-items:center; gap:12px; }
+    .utility-strip { background:#0E2A3F; height:2.25rem; }
+    .utility-inner { max-width:90rem; margin:0 auto; padding:0 2rem; height:100%; display:flex; justify-content:space-between; align-items:center; }
+    .util-left, .util-right { display:flex; align-items:center; gap:1rem; }
+    .util-group { display:flex; align-items:center; gap:0.375rem; }
+    .util-star { color:#B8873B; font-size:0.6875rem; line-height:1; }
+    .util-rating { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:0.8125rem; color:#F7F4ED; }
+    .util-reviews { font-family:'Instrument Sans',sans-serif; font-weight:400; font-size:0.75rem; color:rgba(247,244,237,.7); }
+    .util-mono { font-family:'JetBrains Mono',monospace; font-size:0.6875rem; font-weight:500; color:#F7F4ED; text-transform:uppercase; letter-spacing:0.08em; }
+    .util-open { font-family:'JetBrains Mono',monospace; font-size:0.6875rem; font-weight:500; color:#B8873B; text-transform:uppercase; letter-spacing:0.1em; }
+    .util-div { width:1px; height:0.875rem; background:rgba(184,135,59,.4); flex-shrink:0; }
+    .util-socials { display:flex; align-items:center; gap:0.75rem; }
     .util-social-link { color:rgba(247,244,237,.6); display:flex; align-items:center; text-decoration:none; transition:color 150ms ease-out; }
     .util-social-link:hover { color:#F7F4ED; }
-    .main-nav-header { height:72px; background:rgba(247,244,237,.92); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); border-bottom:1px solid rgba(15,27,38,.08); }
-    .main-nav-inner { max-width:1440px; margin:0 auto; padding:0 32px; height:100%; display:grid; grid-template-columns:1fr auto 1fr; align-items:center; }
-    .header-nav { display:flex; align-items:center; gap:28px; }
-    .header-nav a { font-family:'Instrument Sans',sans-serif; font-size:14px; font-weight:500; color:#0F1B26; text-decoration:none; transition:color 150ms ease-out; }
-    .header-nav a:hover { color:#B8873B; text-decoration:underline; text-underline-offset:4px; text-decoration-color:#B8873B; text-decoration-thickness:1px; }
-    .header-wordmark { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:18px; letter-spacing:0.04em; color:#0F1B26; text-decoration:none; white-space:nowrap; }
+    .main-nav-header { height:4.5rem; background:rgba(247,244,237,.92); backdrop-filter:blur(0.5rem); -webkit-backdrop-filter:blur(0.5rem); border-bottom:1px solid rgba(15,27,38,.08); }
+    .main-nav-inner { max-width:90rem; margin:0 auto; padding:0 2rem; height:100%; display:grid; grid-template-columns:1fr auto 1fr; align-items:center; }
+    .header-nav { display:flex; align-items:center; gap:1.75rem; }
+    .header-nav a { font-family:'Instrument Sans',sans-serif; font-size:0.875rem; font-weight:500; color:#0F1B26; text-decoration:none; transition:color 150ms ease-out; white-space:nowrap; }
+    .header-nav a:hover { color:#B8873B; text-decoration:underline; text-underline-offset:0.25rem; text-decoration-color:#B8873B; text-decoration-thickness:1px; }
+    .header-wordmark { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:1.125rem; letter-spacing:0.04em; color:#0F1B26; text-decoration:none; white-space:nowrap; }
     .header-cta-wrap { display:flex; justify-content:flex-end; }
-    .header-cta { display:inline-flex; align-items:center; gap:10px; background:#0E2A3F; color:#F7F4ED; border-radius:999px; padding:10px 18px; text-decoration:none; font-family:'Instrument Sans',sans-serif; font-size:15px; font-weight:600; white-space:nowrap; transition:background 150ms ease-out, transform 150ms ease-out; }
+    .header-cta { display:inline-flex; align-items:center; gap:0.625rem; background:#0E2A3F; color:#F7F4ED; border-radius:999px; padding:0.625rem 1.125rem; text-decoration:none; font-family:'Instrument Sans',sans-serif; font-size:0.9375rem; font-weight:600; white-space:nowrap; transition:background 150ms ease-out, transform 150ms ease-out; }
     .header-cta:hover { background:#082030; transform:scale(1.02); }
-    .cta-arrow { width:20px; height:20px; background:rgba(247,244,237,.15); border-radius:4px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
-    .mobile-header { display:none; height:56px; background:rgba(247,244,237,.95); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); border-bottom:1px solid rgba(15,27,38,.10); padding:0 16px; align-items:center; justify-content:space-between; }
-    .hamburger-btn { width:40px; height:40px; display:flex; align-items:center; justify-content:center; background:none; border:none; cursor:pointer; color:#0F1B26; padding:0; border-radius:8px; }
-    .mobile-wordmark { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:15px; letter-spacing:0.02em; color:#0F1B26; text-decoration:none; }
-    .mobile-phone-btn { width:40px; height:40px; background:#0E2A3F; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#F7F4ED; text-decoration:none; flex-shrink:0; transition:background 150ms ease-out; }
+    .cta-arrow { width:1.25rem; height:1.25rem; background:rgba(247,244,237,.15); border-radius:0.25rem; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .mobile-header { display:none; height:3.5rem; background:rgba(247,244,237,.95); backdrop-filter:blur(0.5rem); -webkit-backdrop-filter:blur(0.5rem); border-bottom:1px solid rgba(15,27,38,.10); padding:0 1rem; align-items:center; justify-content:space-between; }
+    .hamburger-btn { width:2.5rem; height:2.5rem; display:flex; align-items:center; justify-content:center; background:none; border:none; cursor:pointer; color:#0F1B26; padding:0; border-radius:0.5rem; }
+    .mobile-wordmark { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:0.9375rem; letter-spacing:0.02em; color:#0F1B26; text-decoration:none; }
+    .mobile-phone-btn { width:2.5rem; height:2.5rem; background:#0E2A3F; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#F7F4ED; text-decoration:none; flex-shrink:0; transition:background 150ms ease-out; }
     .mobile-phone-btn:hover { background:#082030; }
-    #mobile-menu { position:fixed; top:56px; left:0; right:0; height:calc(100vh - 56px); background:#F7F4ED; z-index:39; overflow-y:auto; padding:0 24px 40px; transform:translateY(-110%); transition:transform 280ms cubic-bezier(0.4,0,0.2,1); pointer-events:none; visibility:hidden; }
+    #mobile-menu { position:fixed; top:3.5rem; left:0; right:0; height:calc(100vh - 3.5rem); background:#F7F4ED; z-index:39; overflow-y:auto; padding:0 1.5rem 2.5rem; transform:translateY(-110%); transition:transform 280ms cubic-bezier(0.4,0,0.2,1); pointer-events:none; visibility:hidden; }
     #mobile-menu.mm-open { transform:translateY(0); pointer-events:auto; visibility:visible; }
-    .mm-close-row { display:flex; justify-content:flex-end; padding:10px 0 8px; }
-    .mm-close-btn { width:40px; height:40px; display:flex; align-items:center; justify-content:center; background:none; border:none; cursor:pointer; color:#0F1B26; border-radius:8px; }
-    .mm-nav-link { display:block; font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:28px; color:#0F1B26; text-decoration:none; padding:16px 0; border-bottom:1px solid rgba(15,27,38,.08); }
-    .mm-cta { background:#0F1B26; border-radius:16px; padding:24px; margin-top:32px; }
-    .mm-cta-eyebrow { font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:500; color:#B8873B; text-transform:uppercase; letter-spacing:0.1em; }
-    .mm-cta-phone { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:32px; color:#F7F4ED; text-decoration:none; display:block; margin-top:8px; }
-    .mm-cta-rule { height:1px; background:#B8873B; margin:12px 0; }
-    .mm-cta-caption { font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:500; color:rgba(247,244,237,.7); letter-spacing:0.06em; }
-    @media (max-width:767px) { .utility-strip { display:none; } .main-nav-header { display:none; } .mobile-header { display:flex; } }
-    @media (min-width:768px) { #mobile-menu { display:none !important; } }
+    .mm-close-row { display:flex; justify-content:flex-end; padding:0.625rem 0 0.5rem; }
+    .mm-close-btn { width:2.5rem; height:2.5rem; display:flex; align-items:center; justify-content:center; background:none; border:none; cursor:pointer; color:#0F1B26; border-radius:0.5rem; }
+    .mm-nav-link { display:block; font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:1.75rem; color:#0F1B26; text-decoration:none; padding:1rem 0; border-bottom:1px solid rgba(15,27,38,.08); }
+    .mm-cta { background:#0F1B26; border-radius:1rem; padding:1.5rem; margin-top:2rem; }
+    .mm-cta-eyebrow { font-family:'JetBrains Mono',monospace; font-size:0.6875rem; font-weight:500; color:#B8873B; text-transform:uppercase; letter-spacing:0.1em; }
+    .mm-cta-phone { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:2rem; color:#F7F4ED; text-decoration:none; display:block; margin-top:0.5rem; }
+    .mm-cta-rule { height:1px; background:#B8873B; margin:0.75rem 0; }
+    .mm-cta-caption { font-family:'JetBrains Mono',monospace; font-size:0.75rem; font-weight:500; color:rgba(247,244,237,.7); letter-spacing:0.06em; }
+    /* Desktop nav (links + centered wordmark + CTA) needs ~1360px to breathe — below that use the mobile header */
+    @media (max-width:1359px) { .utility-strip { display:none; } .main-nav-header { display:none; } .mobile-header { display:flex; } }
+    @media (min-width:1360px) { #mobile-menu { display:none !important; } }
 
     /* ═══════════════════════════════════════
        FOOTER
     ═══════════════════════════════════════ */
-    .site-footer { background:#0E2A3F; padding:80px 0; }
-    .footer-container { max-width:1240px; margin:0 auto; padding:0 32px; }
-    .footer-top { display:grid; grid-template-columns:4fr 2fr 3fr 3fr; gap:32px; }
-    .footer-wm { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:28px; color:#F7F4ED; }
-    .footer-tagline { font-family:'Fraunces',Georgia,serif; font-style:italic; font-weight:400; font-size:16px; color:rgba(247,244,237,.8); line-height:1.5; max-width:280px; }
-    .footer-brass-rule { height:1px; width:60px; background:#B8873B; }
-    .footer-owner { font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:500; color:#B8873B; text-transform:uppercase; letter-spacing:0.12em; }
-    .footer-owner-cap { font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:500; color:rgba(247,244,237,.6); }
-    .footer-eyebrow { font-family:'Instrument Sans',sans-serif; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.12em; color:#B8873B; }
-    .footer-hours { font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:500; color:rgba(247,244,237,.8); line-height:1.7; list-style:none; padding:0; margin:0; }
-    .footer-hr-sm { width:40px; height:1px; background:#B8873B; }
-    .footer-tel { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:20px; color:#F7F4ED; text-decoration:none; display:block; transition:color 150ms ease-out; }
+    .site-footer { background:#0E2A3F; padding:5rem 0; }
+    .footer-container { max-width:77.5rem; margin:0 auto; padding:0 2rem; }
+    .footer-top { display:grid; grid-template-columns:4fr 2fr 3fr 3fr; gap:2rem; }
+    .footer-wm { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:1.75rem; color:#F7F4ED; }
+    .footer-tagline { font-family:'Fraunces',Georgia,serif; font-style:italic; font-weight:400; font-size:1rem; color:rgba(247,244,237,.8); line-height:1.5; max-width:17.5rem; }
+    .footer-brass-rule { height:1px; width:3.75rem; background:#B8873B; }
+    .footer-owner { font-family:'JetBrains Mono',monospace; font-size:0.75rem; font-weight:500; color:#B8873B; text-transform:uppercase; letter-spacing:0.12em; }
+    .footer-owner-cap { font-family:'JetBrains Mono',monospace; font-size:0.6875rem; font-weight:500; color:rgba(247,244,237,.6); }
+    .footer-eyebrow { font-family:'Instrument Sans',sans-serif; font-size:0.6875rem; font-weight:600; text-transform:uppercase; letter-spacing:0.12em; color:#B8873B; }
+    .footer-hours { font-family:'JetBrains Mono',monospace; font-size:0.75rem; font-weight:500; color:rgba(247,244,237,.8); line-height:1.7; list-style:none; padding:0; margin:0; }
+    .footer-hr-sm { width:2.5rem; height:1px; background:#B8873B; }
+    .footer-tel { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:1.25rem; color:#F7F4ED; text-decoration:none; display:block; transition:color 150ms ease-out; }
     .footer-tel:hover { color:#B8873B; }
-    .footer-mono-sm { font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:500; color:rgba(247,244,237,.6); }
+    .footer-mono-sm { font-family:'JetBrains Mono',monospace; font-size:0.6875rem; font-weight:500; color:rgba(247,244,237,.6); }
     .footer-svc { list-style:none; padding:0; margin:0; }
-    .footer-svc li a { font-family:'Instrument Sans',sans-serif; font-size:14px; font-weight:400; color:rgba(247,244,237,.8); text-decoration:none; display:block; padding:4px 0; transition:color 150ms ease-out; }
+    .footer-svc li a { font-family:'Instrument Sans',sans-serif; font-size:0.875rem; font-weight:400; color:rgba(247,244,237,.8); text-decoration:none; display:block; padding:0.25rem 0; transition:color 150ms ease-out; }
     .footer-svc li a:hover { color:#B8873B; }
-    .footer-cities { display:grid; grid-template-columns:1fr 1fr; gap:0 16px; font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:500; color:rgba(247,244,237,.7); line-height:1.7; }
-    .footer-zips-link { font-family:'Instrument Sans',sans-serif; font-size:13px; font-weight:500; color:#B8873B; text-decoration:none; }
+    .footer-cities { display:grid; grid-template-columns:1fr 1fr; gap:0 1rem; font-family:'JetBrains Mono',monospace; font-size:0.75rem; font-weight:500; color:rgba(247,244,237,.7); line-height:1.7; }
+    .footer-zips-link { font-family:'Instrument Sans',sans-serif; font-size:0.8125rem; font-weight:500; color:#B8873B; text-decoration:none; }
     .footer-zips-link:hover { text-decoration:underline; }
-    .footer-divider { height:1px; background:rgba(247,244,237,.10); margin:48px 0 24px; }
-    .footer-bottom { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; }
+    .footer-divider { height:1px; background:rgba(247,244,237,.10); margin:3rem 0 1.5rem; }
+    .footer-bottom { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.75rem; }
     .footer-legal { display:flex; align-items:center; flex-wrap:wrap; gap:2px; }
-    .footer-legal-t { font-family:'Instrument Sans',sans-serif; font-size:13px; font-weight:400; color:rgba(247,244,237,.6); text-decoration:none; }
+    .footer-legal-t { font-family:'Instrument Sans',sans-serif; font-size:0.8125rem; font-weight:400; color:rgba(247,244,237,.6); text-decoration:none; }
     a.footer-legal-t:hover { color:#F7F4ED; }
-    .footer-bul { color:rgba(247,244,237,.3); font-size:12px; padding:0 8px; user-select:none; }
-    .footer-creds { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
-    .footer-cred { font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:500; color:rgba(247,244,237,.6); letter-spacing:0.08em; text-transform:uppercase; }
-    .footer-cred-sep { width:1px; height:12px; background:rgba(184,135,59,.5); flex-shrink:0; }
-    @media (max-width:767px) { .site-footer { padding:56px 0; } .footer-container { padding:0 24px; } .footer-top { grid-template-columns:1fr; gap:40px; } .footer-bottom { flex-direction:column; align-items:flex-start; } }
+    .footer-bul { color:rgba(247,244,237,.3); font-size:0.75rem; padding:0 0.5rem; user-select:none; }
+    .footer-creds { display:flex; align-items:center; gap:0.625rem; flex-wrap:wrap; }
+    .footer-cred { font-family:'JetBrains Mono',monospace; font-size:0.6875rem; font-weight:500; color:rgba(247,244,237,.6); letter-spacing:0.08em; text-transform:uppercase; }
+    .footer-cred-sep { width:1px; height:0.75rem; background:rgba(184,135,59,.5); flex-shrink:0; }
+    @media (max-width:767px) { .site-footer { padding:3.5rem 0; } .footer-container { padding:0 1.5rem; } .footer-top { grid-template-columns:1fr; gap:2.5rem; } .footer-bottom { flex-direction:column; align-items:flex-start; } }
 
     /* ═══════════════════════════════════════
        MOBILE STICKY BAR
     ═══════════════════════════════════════ */
-    .mobile-bar { position:fixed; bottom:0; left:0; right:0; z-index:50; display:flex; border-top:1px solid rgba(15,27,38,.15); box-shadow:0 -4px 12px rgba(15,27,38,.08); }
-    .mobile-bar a { flex:1; display:flex; align-items:center; justify-content:center; gap:8px; min-height:64px; padding-bottom:env(safe-area-inset-bottom,0px); text-decoration:none; font-family:'Instrument Sans',sans-serif; font-size:15px; font-weight:600; color:#F7F4ED; transition:background 80ms ease-out; white-space:nowrap; }
+    .mobile-bar { position:fixed; bottom:0; left:0; right:0; z-index:50; display:flex; border-top:1px solid rgba(15,27,38,.15); box-shadow:0 -0.25rem 0.75rem rgba(15,27,38,.08); }
+    .mobile-bar a { flex:1; display:flex; align-items:center; justify-content:center; gap:0.5rem; min-height:4rem; padding-bottom:env(safe-area-inset-bottom,0px); text-decoration:none; font-family:'Instrument Sans',sans-serif; font-size:0.9375rem; font-weight:600; color:#F7F4ED; transition:background 80ms ease-out; white-space:nowrap; }
     .bar-call { background:#C23B2A; }
     .bar-call:active { background:#9E2E20 !important; }
     .bar-book { background:#0E2A3F; }
     .bar-book:active { background:#082030 !important; }
-    .bar-arrow { width:20px; height:20px; background:rgba(247,244,237,.15); border-radius:4px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .bar-arrow { width:1.25rem; height:1.25rem; background:rgba(247,244,237,.15); border-radius:0.25rem; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
     @media (min-width:768px) { .mobile-bar { display:none; } }
-    @media (max-width:767px) { body { padding-bottom:calc(64px + env(safe-area-inset-bottom,0px)); } }
+    @media (max-width:767px) { body { padding-bottom:calc(4rem + env(safe-area-inset-bottom,0px)); } }
 
     /* FAQ mobile: header text → questions → phone block */
     @media (max-width:767px) {
@@ -461,35 +475,35 @@
 
     /* Fix 4 — Trust strip: звёздочки выше текста (Google/Yelp/Angi) на мобильном */
     @media (max-width:767px) {
-      .trust-strip-inner > .trust-item:nth-child(-n+5) { flex-direction:column; align-items:flex-start; gap:4px; }
+      .trust-strip-inner > .trust-item:nth-child(-n+5) { flex-direction:column; align-items:flex-start; gap:0.25rem; }
     }
 
     /* Fix 6 — Hero: скрыть "Tap to call" строку на десктопе */
     @media (min-width:768px) { .hero-divider-group { display:none !important; } }
 
-    /* Service cards: vertical layout on mobile (< lg = < 1024px) */
+    /* Service cards: vertical layout on mobile (< lg = < 64rem) */
     @media (max-width:1023px) {
       .svc-card { flex-direction:column !important; padding:0 !important; gap:0 !important; }
       .svc-img-wrap { order:-1; flex:none !important; min-height:auto !important; width:100%; aspect-ratio:16/10; }
-      .svc-img-wrap img { width:100% !important; height:100% !important; min-height:auto !important; border-radius:16px 16px 0 0 !important; }
-      .svc-body { padding:20px !important; }
+      .svc-img-wrap img { width:100% !important; height:100% !important; min-height:auto !important; border-radius:1rem 1rem 0 0 !important; }
+      .svc-body { padding:1.25rem !important; }
     }
-    /* Service cards: full-bleed image on desktop (≥ lg = ≥ 1024px) */
+    /* Service cards: full-bleed image on desktop (≥ lg = ≥ 64rem) */
     @media (min-width:1024px) {
       .svc-card { padding-right:0 !important; }
-      .svc-img-wrap { margin:-24px 0 -24px 0 !important; min-height:auto !important; flex:2.6 !important; }
-      .svc-img-wrap img { border-radius:10px 16px 16px 10px !important; min-height:auto !important; }
+      .svc-img-wrap { margin:-1.5rem 0 -1.5rem 0 !important; min-height:auto !important; flex:2.6 !important; }
+      .svc-img-wrap img { border-radius:0.625rem 1rem 1rem 0.625rem !important; min-height:auto !important; }
     }
     /* How We Work: инсет + скругление только на десктопе */
     .approach-wrap { position:relative; overflow:hidden; background:url('assets/cinematic-deep-2.jpeg') center/cover no-repeat; }
-    @media (min-width:768px) { .approach-wrap { margin:0 24px; border-radius:24px; } }
+    @media (min-width:768px) { .approach-wrap { margin:0 1.5rem; border-radius:1.5rem; } }
 
     /* Hero mobile: license pills visible but 20% smaller so they don't overlap the button */
     @media (max-width:767px) {
-      .trust-cluster { gap:4px; }
-      .trust-badge { padding:6px 9px; gap:5px; }
-      .trust-badge svg { width:10px; height:10px; flex-shrink:0; }
-      .trust-badge span { font-size:8.8px; }
+      .trust-cluster { gap:0.25rem; }
+      .trust-badge { padding:0.375rem 0.5625rem; gap:0.3125rem; }
+      .trust-badge svg { width:0.625rem !important; height:0.625rem !important; flex-shrink:0; }
+      .trust-badge span { font-size:0.55rem; }
     }
 
     /* Trust strip: иконки у последних 3 пунктов скрыты на мобильном */
@@ -500,64 +514,64 @@
     /* ═══════════════════════════════════════
        CONTACT FORM
     ═══════════════════════════════════════ */
-    .cf-section { background:#EDE8DE; padding:96px 0; }
-    .cf-container { max-width:1240px; margin:0 auto; padding:0 24px; }
-    .cf-grid { display:grid; grid-template-columns:5fr 7fr; gap:48px; align-items:start; }
+    .cf-section { background:#EDE8DE; padding:6rem 0; }
+    .cf-container { max-width:77.5rem; margin:0 auto; padding:0 1.5rem; }
+    .cf-grid { display:grid; grid-template-columns:5fr 7fr; gap:3rem; align-items:start; }
 
-    .cf-left-meta { font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:500; color:#B8873B; text-transform:uppercase; letter-spacing:0.1em; }
-    .cf-sub { font-family:'Instrument Sans',sans-serif; font-size:16px; font-weight:400; line-height:1.6; color:#3B4A5C; max-width:380px; }
-    .cf-detail { display:flex; flex-direction:column; gap:20px; background:#F7F4ED; border-radius:16px; padding:24px; }
-    .cf-detail-row { display:flex; align-items:flex-start; gap:12px; }
-    .cf-detail-icon { width:36px; height:36px; background:#0E2A3F; border-radius:8px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
-    .cf-detail-label { font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:500; color:#B8873B; text-transform:uppercase; letter-spacing:0.1em; line-height:1; }
-    .cf-detail-val { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:17px; color:#0F1B26; text-decoration:none; transition:color 150ms; }
+    .cf-left-meta { font-family:'JetBrains Mono',monospace; font-size:0.75rem; font-weight:500; color:#B8873B; text-transform:uppercase; letter-spacing:0.1em; }
+    .cf-sub { font-family:'Instrument Sans',sans-serif; font-size:1rem; font-weight:400; line-height:1.6; color:#3B4A5C; max-width:23.75rem; }
+    .cf-detail { display:flex; flex-direction:column; gap:1.25rem; background:#F7F4ED; border-radius:1rem; padding:1.5rem; }
+    .cf-detail-row { display:flex; align-items:flex-start; gap:0.75rem; }
+    .cf-detail-icon { width:2.25rem; height:2.25rem; background:#0E2A3F; border-radius:0.5rem; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .cf-detail-label { font-family:'JetBrains Mono',monospace; font-size:0.625rem; font-weight:500; color:#B8873B; text-transform:uppercase; letter-spacing:0.1em; line-height:1; }
+    .cf-detail-val { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:1.0625rem; color:#0F1B26; text-decoration:none; transition:color 150ms; }
     a.cf-detail-val:hover { color:#B8873B; }
-    .cf-detail-cap { font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:500; color:#6B7280; text-transform:uppercase; letter-spacing:0.08em; }
+    .cf-detail-cap { font-family:'JetBrains Mono',monospace; font-size:0.625rem; font-weight:500; color:#6B7280; text-transform:uppercase; letter-spacing:0.08em; }
 
-    .cf-card { background:#F7F4ED; border-radius:20px; padding:36px; }
-    .cf-card-eyebrow { font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:500; color:#B8873B; text-transform:uppercase; letter-spacing:0.12em; margin-bottom:4px; }
-    .cf-card-title { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:22px; color:#0F1B26; margin-bottom:28px; }
+    .cf-card { background:#F7F4ED; border-radius:1.25rem; padding:2.25rem; }
+    .cf-card-eyebrow { font-family:'JetBrains Mono',monospace; font-size:0.6875rem; font-weight:500; color:#B8873B; text-transform:uppercase; letter-spacing:0.12em; margin-bottom:0.25rem; }
+    .cf-card-title { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:1.375rem; color:#0F1B26; margin-bottom:1.75rem; }
 
-    .cf-fields { display:flex; flex-direction:column; gap:16px; }
-    .cf-row2 { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
-    .cf-field { display:flex; flex-direction:column; gap:6px; }
-    .cf-label { font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:500; color:#6B7280; text-transform:uppercase; letter-spacing:0.1em; }
+    .cf-fields { display:flex; flex-direction:column; gap:1rem; }
+    .cf-row2 { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+    .cf-field { display:flex; flex-direction:column; gap:0.375rem; }
+    .cf-label { font-family:'JetBrains Mono',monospace; font-size:0.625rem; font-weight:500; color:#6B7280; text-transform:uppercase; letter-spacing:0.1em; }
     .cf-input, .cf-select, .cf-textarea {
-      background:#EDE8DE; border:2px solid transparent; border-radius:10px;
+      background:#EDE8DE; border:2px solid transparent; border-radius:0.625rem;
       box-shadow:inset 0 0 0 1px rgba(15,27,38,.15);
-      padding:0 16px; height:52px;
-      font-family:'Instrument Sans',sans-serif; font-size:15px; font-weight:500; color:#0F1B26;
+      padding:0 1rem; height:3.25rem;
+      font-family:'Instrument Sans',sans-serif; font-size:0.9375rem; font-weight:500; color:#0F1B26;
       outline:none; -webkit-appearance:none; appearance:none; width:100%;
       transition:border-color 150ms, box-shadow 150ms;
     }
     .cf-input::placeholder, .cf-textarea::placeholder { color:#6B7280; font-weight:400; }
     .cf-input:focus, .cf-select:focus, .cf-textarea:focus { border-color:#B8873B; box-shadow:none; }
-    .cf-select { background-image:url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236B7280' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 16px center; padding-right:40px; cursor:pointer; }
-    .cf-textarea { height:auto; padding:14px 16px; resize:vertical; min-height:100px; }
-    .cf-hint { font-family:'JetBrains Mono',monospace; font-size:10px; color:#6B7280; }
-    .cf-check-row { display:flex; align-items:flex-start; gap:10px; }
-    .cf-check { width:18px; height:18px; border:1.5px solid rgba(15,27,38,.25); border-radius:4px; background:#EDE8DE; flex-shrink:0; margin-top:1px; cursor:pointer; accent-color:#0F1B26; }
-    .cf-check-label { font-family:'Instrument Sans',sans-serif; font-size:13px; color:#3B4A5C; line-height:1.45; }
+    .cf-select { background-image:url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236B7280' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 1rem center; padding-right:2.5rem; cursor:pointer; }
+    .cf-textarea { height:auto; padding:0.875rem 1rem; resize:vertical; min-height:6.25rem; }
+    .cf-hint { font-family:'JetBrains Mono',monospace; font-size:0.625rem; color:#6B7280; }
+    .cf-check-row { display:flex; align-items:flex-start; gap:0.625rem; }
+    .cf-check { width:1.125rem; height:1.125rem; border:1.5px solid rgba(15,27,38,.25); border-radius:0.25rem; background:#EDE8DE; flex-shrink:0; margin-top:1px; cursor:pointer; accent-color:#0F1B26; }
+    .cf-check-label { font-family:'Instrument Sans',sans-serif; font-size:0.8125rem; color:#3B4A5C; line-height:1.45; }
 
-    .cf-submit { width:100%; height:56px; background:#0E2A3F; color:#F7F4ED; border:none; border-radius:12px; font-family:'Instrument Sans',sans-serif; font-size:16px; font-weight:600; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:10px; transition:background 150ms, transform 100ms; }
+    .cf-submit { width:100%; height:3.5rem; background:#0E2A3F; color:#F7F4ED; border:none; border-radius:0.75rem; font-family:'Instrument Sans',sans-serif; font-size:1rem; font-weight:600; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:0.625rem; transition:background 150ms, transform 100ms; }
     .cf-submit:hover { background:#082030; }
     .cf-submit:active { transform:scale(0.99); }
-    .cf-submit-arrow { width:26px; height:26px; background:rgba(247,244,237,.12); border-radius:6px; display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:transform 150ms; }
+    .cf-submit-arrow { width:1.625rem; height:1.625rem; background:rgba(247,244,237,.12); border-radius:0.375rem; display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:transform 150ms; }
     .cf-submit:hover .cf-submit-arrow { transform:translateX(2px); }
-    .cf-legal { font-family:'Instrument Sans',sans-serif; font-size:12px; color:#6B7280; line-height:1.5; text-align:center; }
+    .cf-legal { font-family:'Instrument Sans',sans-serif; font-size:0.75rem; color:#6B7280; line-height:1.5; text-align:center; }
 
     /* Success / Error states */
-    .cf-success { display:none; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:48px 24px; gap:16px; }
-    .cf-success-icon { width:56px; height:56px; background:#0F1B26; border-radius:50%; display:flex; align-items:center; justify-content:center; }
-    .cf-success-title { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:24px; color:#0F1B26; }
-    .cf-success-sub { font-family:'Instrument Sans',sans-serif; font-size:15px; color:#3B4A5C; max-width:320px; line-height:1.55; }
-    .cf-success-phone { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:22px; color:#0F1B26; text-decoration:none; }
+    .cf-success { display:none; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:3rem 1.5rem; gap:1rem; }
+    .cf-success-icon { width:3.5rem; height:3.5rem; background:#0F1B26; border-radius:50%; display:flex; align-items:center; justify-content:center; }
+    .cf-success-title { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:1.5rem; color:#0F1B26; }
+    .cf-success-sub { font-family:'Instrument Sans',sans-serif; font-size:0.9375rem; color:#3B4A5C; max-width:20rem; line-height:1.55; }
+    .cf-success-phone { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:1.375rem; color:#0F1B26; text-decoration:none; }
     .cf-success-phone:hover { color:#B8873B; }
 
     @media (max-width:767px) {
-      .cf-section { padding:64px 0; }
-      .cf-grid { grid-template-columns:1fr; gap:40px; }
-      .cf-card { padding:24px; }
+      .cf-section { padding:4rem 0; }
+      .cf-grid { grid-template-columns:1fr; gap:2.5rem; }
+      .cf-card { padding:1.5rem; }
       .cf-row2 { grid-template-columns:1fr; }
       .cf-sub { max-width:none; }
     }
@@ -581,7 +595,7 @@
         </div>
         <div class="util-div" aria-hidden="true"></div>
         <div class="util-group">
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" style="width:0.75rem;height:0.75rem;">
             <path d="M6 1L1.5 2.8v3.4A5.5 5.5 0 0 0 6 11a5.5 5.5 0 0 0 4.5-4.8V2.8L6 1z" stroke="#B8873B" stroke-width="1.1" stroke-linejoin="round"/>
             <path d="M4 6l1.5 1.5L8 4.5" stroke="#B8873B" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
@@ -592,22 +606,22 @@
       </div>
       <div class="util-right">
         <div class="util-group">
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="#B8873B" aria-hidden="true"><path d="M6.5 1 3.5 5.5H6l-1 5.5 4-6H6.5z"/></svg>
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="#B8873B" aria-hidden="true" style="width:0.75rem;height:0.75rem;"><path d="M6.5 1 3.5 5.5H6l-1 5.5 4-6H6.5z"/></svg>
           <span class="util-open">Open Now &mdash; 24/7 Emergency</span>
         </div>
         <div class="util-div" aria-hidden="true"></div>
         <div class="util-socials">
           <a href="https://google.com" class="util-social-link" aria-label="Westbrook Plumbing on Google" target="_blank" rel="noopener noreferrer">
-            <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="5.5" stroke="currentColor" stroke-width="1.2"/><path d="M11 8H8.5v2a2.5 2.5 0 1 1 0-4 2.5 2.5 0 0 1 1.7.65" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+            <svg width="15" height="15" viewBox="0 0 16 16" fill="none" style="width:0.9375rem;height:0.9375rem;"><circle cx="8" cy="8" r="5.5" stroke="currentColor" stroke-width="1.2"/><path d="M11 8H8.5v2a2.5 2.5 0 1 1 0-4 2.5 2.5 0 0 1 1.7.65" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
           </a>
           <a href="https://facebook.com" class="util-social-link" aria-label="Westbrook Plumbing on Facebook" target="_blank" rel="noopener noreferrer">
-            <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M10 3.5H8.5A2 2 0 0 0 6.5 5.5V7H5v2.5h1.5V14H9V9.5h2l.5-2.5H9V5.5a.5.5 0 0 1 .5-.5H10V3.5z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
+            <svg width="15" height="15" viewBox="0 0 16 16" fill="none" style="width:0.9375rem;height:0.9375rem;"><path d="M10 3.5H8.5A2 2 0 0 0 6.5 5.5V7H5v2.5h1.5V14H9V9.5h2l.5-2.5H9V5.5a.5.5 0 0 1 .5-.5H10V3.5z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
           </a>
           <a href="https://instagram.com" class="util-social-link" aria-label="Westbrook Plumbing on Instagram" target="_blank" rel="noopener noreferrer">
-            <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><rect x="2.5" y="2.5" width="11" height="11" rx="3" stroke="currentColor" stroke-width="1.2"/><circle cx="8" cy="8" r="2.5" stroke="currentColor" stroke-width="1.2"/><circle cx="11.5" cy="4.5" r=".7" fill="currentColor"/></svg>
+            <svg width="15" height="15" viewBox="0 0 16 16" fill="none" style="width:0.9375rem;height:0.9375rem;"><rect x="2.5" y="2.5" width="11" height="11" rx="3" stroke="currentColor" stroke-width="1.2"/><circle cx="8" cy="8" r="2.5" stroke="currentColor" stroke-width="1.2"/><circle cx="11.5" cy="4.5" r=".7" fill="currentColor"/></svg>
           </a>
           <a href="https://yelp.com" class="util-social-link" aria-label="Westbrook Plumbing on Yelp" target="_blank" rel="noopener noreferrer">
-            <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M5 3.5L8 8.5m3-5L8 8.5m0 0V13" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg width="15" height="15" viewBox="0 0 16 16" fill="none" style="width:0.9375rem;height:0.9375rem;"><path d="M5 3.5L8 8.5m3-5L8 8.5m0 0V13" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
         </div>
       </div>
@@ -627,10 +641,10 @@
       <a href="#hero" class="header-wordmark">WESTBROOK PLUMBING CO.</a>
       <div class="header-cta-wrap">
         <a href="tel:+15125558199" class="header-cta" aria-label="Call Westbrook Plumbing at (512) 555-8199">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 2.5h3l1.5 3.5-1.5 1.5a9 9 0 0 0 2.5 2.5L10 8.5l3.5 1.5V13a1 1 0 0 1-1 1A12 12 0 0 1 2 3.5a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" style="width:1rem;height:1rem;"><path d="M3 2.5h3l1.5 3.5-1.5 1.5a9 9 0 0 0 2.5 2.5L10 8.5l3.5 1.5V13a1 1 0 0 1-1 1A12 12 0 0 1 2 3.5a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
           (512) 555-8199
           <div class="cta-arrow" aria-hidden="true">
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5L9.5 2.5m0 0H3m6.5 0V9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="width:0.75rem;height:0.75rem;"><path d="M2.5 9.5L9.5 2.5m0 0H3m6.5 0V9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
         </a>
       </div>
@@ -639,11 +653,11 @@
 
   <div class="mobile-header">
     <button class="hamburger-btn" id="hamburger-btn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="width:1.5rem;height:1.5rem;"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
     </button>
     <a href="#hero" class="mobile-wordmark">WESTBROOK PLUMBING CO.</a>
     <a href="tel:+15125558199" class="mobile-phone-btn" aria-label="Call (512) 555-8199">
-      <svg width="18" height="18" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 2.5h3l1.5 3.5-1.5 1.5a9 9 0 0 0 2.5 2.5L10 8.5l3.5 1.5V13a1 1 0 0 1-1 1A12 12 0 0 1 2 3.5a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+      <svg width="18" height="18" viewBox="0 0 16 16" fill="none" aria-hidden="true" style="width:1.125rem;height:1.125rem;"><path d="M3 2.5h3l1.5 3.5-1.5 1.5a9 9 0 0 0 2.5 2.5L10 8.5l3.5 1.5V13a1 1 0 0 1-1 1A12 12 0 0 1 2 3.5a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
     </a>
   </div>
 
@@ -653,7 +667,7 @@
 <div id="mobile-menu" role="dialog" aria-modal="true" aria-label="Navigation menu">
   <div class="mm-close-row">
     <button class="mm-close-btn" id="mm-close-btn" aria-label="Close menu">
-      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 4l12 12M16 4L4 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true" style="width:1.25rem;height:1.25rem;"><path d="M4 4l12 12M16 4L4 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
     </button>
   </div>
   <nav aria-label="Mobile navigation">
@@ -691,7 +705,7 @@
       <div class="hero-left">
         <div>
           <span class="hero-pill">
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M7 1L3 7h4l-2 4 6-6.5H7z" fill="#B8873B"/></svg>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" style="width:0.75rem;height:0.75rem;"><path d="M7 1L3 7h4l-2 4 6-6.5H7z" fill="#B8873B"/></svg>
             Emergency 24/7 — We Answer Live
           </span>
         </div>
@@ -708,7 +722,7 @@
           <a href="#book" class="btn-primary">
             Book a planned visit
             <span class="btn-arrow-box" aria-hidden="true">
-              <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 8L8 2M8 2H3M8 2V7" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" style="width:0.625rem;height:0.625rem;"><path d="M2 8L8 2M8 2H3M8 2V7" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </span>
           </a>
           <a href="tel:+15125558199" class="btn-ghost">or call us now</a>
@@ -717,19 +731,19 @@
     </div>
     <div class="trust-cluster" role="list" aria-label="Credentials">
       <div class="trust-badge" role="listitem" aria-label="Licensed in Texas MPL18492">
-        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M6 1L10.5 3.2V6.5C10.5 8.8 8.5 10.7 6 11.2 3.5 10.7 1.5 8.8 1.5 6.5V3.2L6 1z" stroke="#B8873B" stroke-width="1.2" fill="none"/><path d="M4 6l1.5 1.5L8 4.5" stroke="#B8873B" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" style="width:0.75rem;height:0.75rem;"><path d="M6 1L10.5 3.2V6.5C10.5 8.8 8.5 10.7 6 11.2 3.5 10.7 1.5 8.8 1.5 6.5V3.2L6 1z" stroke="#B8873B" stroke-width="1.2" fill="none"/><path d="M4 6l1.5 1.5L8 4.5" stroke="#B8873B" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg>
         <span>LICENSED TX #MPL18492</span>
       </div>
       <div class="trust-badge" role="listitem" aria-label="BBB A Plus Accredited">
-        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><rect x="1.5" y="1.5" width="9" height="9" rx="2" stroke="#B8873B" stroke-width="1.2"/><text x="6" y="8.4" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="5.5" font-weight="600" fill="#B8873B">A+</text></svg>
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" style="width:0.75rem;height:0.75rem;"><rect x="1.5" y="1.5" width="9" height="9" rx="2" stroke="#B8873B" stroke-width="1.2"/><text x="6" y="8.4" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="5.5" font-weight="600" fill="#B8873B">A+</text></svg>
         <span>BBB A+ ACCREDITED</span>
       </div>
       <div class="trust-badge" role="listitem" aria-label="One million dollar insured">
-        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><circle cx="6" cy="6" r="5" stroke="#B8873B" stroke-width="1.2"/><path d="M3.5 6l2 2 3-3" stroke="#B8873B" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" style="width:0.75rem;height:0.75rem;"><circle cx="6" cy="6" r="5" stroke="#B8873B" stroke-width="1.2"/><path d="M3.5 6l2 2 3-3" stroke="#B8873B" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         <span>$1M INSURED</span>
       </div>
       <div class="trust-badge" role="listitem" aria-label="Background checked crew">
-        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><circle cx="4.5" cy="3.5" r="2" stroke="#B8873B" stroke-width="1.2"/><path d="M1.5 10.5c0-1.9 1.3-3 3-3" stroke="#B8873B" stroke-width="1.2" stroke-linecap="round"/><path d="M7.5 8l1.5 1.5L11 7" stroke="#B8873B" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" style="width:0.75rem;height:0.75rem;"><circle cx="4.5" cy="3.5" r="2" stroke="#B8873B" stroke-width="1.2"/><path d="M1.5 10.5c0-1.9 1.3-3 3-3" stroke="#B8873B" stroke-width="1.2" stroke-linecap="round"/><path d="M7.5 8l1.5 1.5L11 7" stroke="#B8873B" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         <span>BACKGROUND-CHECKED CREW</span>
       </div>
     </div>
@@ -759,21 +773,21 @@
     <div class="trust-div" aria-hidden="true"></div>
     <div class="trust-item">
       <span class="trust-icon" aria-hidden="true">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="10.5" r="4.2" stroke="#B8873B" stroke-width="1.25"/><path d="M5.5 6.5 4.5 2.5h7l-1 4" stroke="#B8873B" stroke-width="1.25" stroke-linejoin="round" fill="none"/><path d="M8 9v3M6.5 10.5h3" stroke="#B8873B" stroke-width="1.1" stroke-linecap="round"/></svg>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="width:1rem;height:1rem;"><circle cx="8" cy="10.5" r="4.2" stroke="#B8873B" stroke-width="1.25"/><path d="M5.5 6.5 4.5 2.5h7l-1 4" stroke="#B8873B" stroke-width="1.25" stroke-linejoin="round" fill="none"/><path d="M8 9v3M6.5 10.5h3" stroke="#B8873B" stroke-width="1.1" stroke-linecap="round"/></svg>
       </span>
       <div class="trust-text"><span class="trust-main">BEST OF</span><span class="trust-sub">HomeAdvisor 2024 &amp; 2025</span></div>
     </div>
     <div class="trust-div" aria-hidden="true"></div>
     <div class="trust-item">
       <span class="trust-icon" aria-hidden="true">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="4.5" r="2.2" stroke="#B8873B" stroke-width="1.25"/><path d="M3.5 14c0-2.5 2-4 4.5-4s4.5 1.5 4.5 4" stroke="#B8873B" stroke-width="1.25" stroke-linecap="round" fill="none"/><circle cx="3.5" cy="5.5" r="1.5" stroke="#B8873B" stroke-width="1.1"/><path d="M1.5 13.5c0-1.8.9-2.8 2-2.8" stroke="#B8873B" stroke-width="1.1" stroke-linecap="round"/><circle cx="12.5" cy="5.5" r="1.5" stroke="#B8873B" stroke-width="1.1"/><path d="M14.5 13.5c0-1.8-.9-2.8-2-2.8" stroke="#B8873B" stroke-width="1.1" stroke-linecap="round"/></svg>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="width:1rem;height:1rem;"><circle cx="8" cy="4.5" r="2.2" stroke="#B8873B" stroke-width="1.25"/><path d="M3.5 14c0-2.5 2-4 4.5-4s4.5 1.5 4.5 4" stroke="#B8873B" stroke-width="1.25" stroke-linecap="round" fill="none"/><circle cx="3.5" cy="5.5" r="1.5" stroke="#B8873B" stroke-width="1.1"/><path d="M1.5 13.5c0-1.8.9-2.8 2-2.8" stroke="#B8873B" stroke-width="1.1" stroke-linecap="round"/><circle cx="12.5" cy="5.5" r="1.5" stroke="#B8873B" stroke-width="1.1"/><path d="M14.5 13.5c0-1.8-.9-2.8-2-2.8" stroke="#B8873B" stroke-width="1.1" stroke-linecap="round"/></svg>
       </span>
       <div class="trust-text"><span class="trust-main">NEIGHBORHOOD</span><span class="trust-sub">Favorite on Nextdoor</span></div>
     </div>
     <div class="trust-div" aria-hidden="true"></div>
     <div class="trust-item">
       <span class="trust-icon" aria-hidden="true">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="4" width="12" height="10" rx="1.5" stroke="#B8873B" stroke-width="1.25"/><path d="M2 7.5h12" stroke="#B8873B" stroke-width="1.1"/><path d="M5.5 2v2.5M10.5 2v2.5" stroke="#B8873B" stroke-width="1.25" stroke-linecap="round"/><path d="M5.5 11h5" stroke="#B8873B" stroke-width="1.1" stroke-linecap="round"/></svg>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="width:1rem;height:1rem;"><rect x="2" y="4" width="12" height="10" rx="1.5" stroke="#B8873B" stroke-width="1.25"/><path d="M2 7.5h12" stroke="#B8873B" stroke-width="1.1"/><path d="M5.5 2v2.5M10.5 2v2.5" stroke="#B8873B" stroke-width="1.25" stroke-linecap="round"/><path d="M5.5 11h5" stroke="#B8873B" stroke-width="1.1" stroke-linecap="round"/></svg>
       </span>
       <div class="trust-text"><span class="trust-main">FAMILY-OWNED</span><span class="trust-sub">Serving Austin since 2000</span></div>
     </div>
@@ -789,9 +803,9 @@
     <div class="zip-grid">
       <div>
         <span class="pill">Service Area</span>
-        <div style="height:16px;"></div>
+        <div style="height:1rem;"></div>
         <h2 class="sec-h2">We&rsquo;re probably in your<br><em class="ig">n</em>eighborhood.</h2>
-        <div style="height:16px;"></div>
+        <div style="height:1rem;"></div>
         <p class="zip-body">Type your ZIP and we&rsquo;ll tell you instantly. If we don&rsquo;t serve your area &mdash; we&rsquo;ll point you to a vetted local plumber we trust.</p>
       </div>
       <div>
@@ -819,7 +833,7 @@
   <div class="props-container">
     <div class="props-header">
       <span class="pill">Why Westbrook</span><br>
-      <h2 class="sec-h2" style="margin-top:16px;">Five reasons people <em class="ig">k</em>eep us.</h2>
+      <h2 class="sec-h2" style="margin-top:1rem;">Five reasons people <em class="ig">k</em>eep us.</h2>
     </div>
     <div class="props-grid">
       <div class="prop-card"><div class="prop-num">01</div><div class="prop-rule" aria-hidden="true"></div><div class="prop-title">Same-Day Service</div><p class="prop-desc">Most Austin-area calls answered and dispatched within the hour.</p></div>
@@ -835,9 +849,9 @@
 <!-- ════════════════════════════════════════════════
      05 · HOW WE WORK  (About + Approach merged)
 ════════════════════════════════════════════════ -->
-<section id="about" style="padding:96px 0;background:#F7F4ED;">
-  <div class="mx-auto px-6" style="max-width:1240px;">
-    <div class="grid grid-cols-1 lg:grid-cols-12" style="gap:48px;align-items:stretch;">
+<section id="about" style="padding:6rem 0;background:#F7F4ED;">
+  <div class="mx-auto px-6" style="max-width:77.5rem;">
+    <div class="grid grid-cols-1 lg:grid-cols-12" style="gap:3rem;align-items:stretch;">
 
       <!-- Left: eyebrow + headline + description + trust markers + photos -->
       <div class="lg:col-span-5" style="display:flex;flex-direction:column;">
@@ -845,78 +859,78 @@
         <!-- TOP GROUP: pill / h2 / desc — anchored to top -->
         <div>
           <span class="pill" style="align-self:flex-start;color:#B8873B;border-color:#B8873B;">How We Work</span>
-          <div style="height:16px;"></div>
+          <div style="height:1rem;"></div>
           <h2 class="font-display font-semibold t-h2" style="color:#0F1B26;">Built for Pre-1980 <em class="ig">A</em>ustin Homes</h2>
-          <div style="height:24px;"></div>
-          <p class="font-body" style="font-size:16px;line-height:1.65;max-width:400px;color:rgba(15,27,38,.70);">We handle plumbing as one connected system &mdash; water main, supply lines, drainage, fixtures, and venting. Most leaks are symptoms; we find the cause so the same pipe doesn&rsquo;t fail twice. Honest pricing, written before any work begins.</p>
+          <div style="height:1.5rem;"></div>
+          <p class="font-body" style="font-size:1rem;line-height:1.65;max-width:25rem;color:rgba(15,27,38,.70);">We handle plumbing as one connected system &mdash; water main, supply lines, drainage, fixtures, and venting. Most leaks are symptoms; we find the cause so the same pipe doesn&rsquo;t fail twice. Honest pricing, written before any work begins.</p>
         </div>
 
         <!-- SPACER: pushes trust markers + photos to bottom -->
-        <div style="flex:1;min-height:24px;"></div>
+        <div style="flex:1;min-height:1.5rem;"></div>
 
         <!-- BOTTOM GROUP: trust markers + photos — anchored to bottom of card 3 -->
         <div>
           <!-- Trust markers -->
           <div style="display:flex;flex-direction:column;">
-            <div style="display:flex;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid rgba(15,27,38,.10);">
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true" style="flex-shrink:0;"><path d="M2 7l3.5 3.5L12 3" stroke="#B8873B" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span class="font-mono" style="font-size:11.5px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(15,27,38,.65);">Licensed Master Plumber &middot; TX RMP-43521</span>
+            <div style="display:flex;align-items:center;gap:0.625rem;padding:0.75rem 0;border-bottom:1px solid rgba(15,27,38,.10);">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true" style="width:0.875rem;height:0.875rem;flex-shrink:0;"><path d="M2 7l3.5 3.5L12 3" stroke="#B8873B" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span class="font-mono" style="font-size:0.71875rem;text-transform:uppercase;letter-spacing:0.08em;color:rgba(15,27,38,.65);">Licensed Master Plumber &middot; TX RMP-43521</span>
             </div>
-            <div style="display:flex;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid rgba(15,27,38,.10);">
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true" style="flex-shrink:0;"><path d="M2 7l3.5 3.5L12 3" stroke="#B8873B" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span class="font-mono" style="font-size:11.5px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(15,27,38,.65);">Same-day written quotes &middot; no surprises</span>
+            <div style="display:flex;align-items:center;gap:0.625rem;padding:0.75rem 0;border-bottom:1px solid rgba(15,27,38,.10);">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true" style="width:0.875rem;height:0.875rem;flex-shrink:0;"><path d="M2 7l3.5 3.5L12 3" stroke="#B8873B" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span class="font-mono" style="font-size:0.71875rem;text-transform:uppercase;letter-spacing:0.08em;color:rgba(15,27,38,.65);">Same-day written quotes &middot; no surprises</span>
             </div>
-            <div style="display:flex;align-items:center;gap:10px;padding:12px 0;">
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true" style="flex-shrink:0;"><path d="M2 7l3.5 3.5L12 3" stroke="#B8873B" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span class="font-mono" style="font-size:11.5px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(15,27,38,.65);">Manufacturer-backed warranties &middot; up to 10 years</span>
+            <div style="display:flex;align-items:center;gap:0.625rem;padding:0.75rem 0;">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true" style="width:0.875rem;height:0.875rem;flex-shrink:0;"><path d="M2 7l3.5 3.5L12 3" stroke="#B8873B" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span class="font-mono" style="font-size:0.71875rem;text-transform:uppercase;letter-spacing:0.08em;color:rgba(15,27,38,.65);">Manufacturer-backed warranties &middot; up to 10 years</span>
             </div>
           </div>
           <!-- Photos row — desktop only -->
-          <div class="about-pics" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px;">
-            <img src="assets/cinematic-deep.jpeg" alt="Austin home plumbing — cinematic" style="width:100%;aspect-ratio:4/3;border-radius:12px;object-fit:cover;display:block;">
-            <img src="assets/bathroom-tub.jpeg" alt="Finished bathroom — tub and tile" style="width:100%;aspect-ratio:4/3;border-radius:12px;object-fit:cover;display:block;">
+          <div class="about-pics" style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-top:1rem;">
+            <img src="assets/cinematic-deep.jpeg" alt="Austin home plumbing — cinematic" style="width:100%;aspect-ratio:4/3;border-radius:0.75rem;object-fit:cover;display:block;">
+            <img src="assets/bathroom-tub.jpeg" alt="Finished bathroom — tub and tile" style="width:100%;aspect-ratio:4/3;border-radius:0.75rem;object-fit:cover;display:block;">
           </div>
         </div>
 
       </div>
 
       <!-- Right: 3 service cards -->
-      <div id="services" class="lg:col-span-7" style="display:flex;flex-direction:column;gap:16px;">
+      <div id="services" class="lg:col-span-7" style="display:flex;flex-direction:column;gap:1rem;">
 
         <!-- Card 1 — cream -->
-        <div class="card svc-card" style="background:#EDE8DE;border-radius:16px;padding:24px;display:flex;gap:16px;align-items:stretch;box-shadow:0 1px 3px rgba(15,27,38,.06);">
+        <div class="card svc-card" style="background:#EDE8DE;border-radius:1rem;padding:1.5rem;display:flex;gap:1rem;align-items:stretch;box-shadow:0 1px 0.1875rem rgba(15,27,38,.06);">
           <div class="svc-body" style="flex:3;min-width:0;">
             <h3 class="font-display font-semibold text-ink t-h3">System-First Repair</h3>
-            <p class="font-body text-ink-soft" style="font-size:15px;line-height:1.55;margin-top:8px;">We map your full water system before touching a wrench. Then we fix the cause, not just the visible leak &mdash; so the repair lasts.</p>
-            <div style="margin-top:12px;"><a href="#book" class="btn-sm">Learn More →</a></div>
-            <div style="margin-top:10px;"><span class="font-mono text-brass" style="font-size:13px;">From $149</span></div>
-            <div style="margin-top:4px;"><span class="font-mono" style="font-size:11px;color:rgba(15,27,38,.60);">Same-day written quote</span></div>
+            <p class="font-body text-ink-soft" style="font-size:0.9375rem;line-height:1.55;margin-top:0.5rem;">We map your full water system before touching a wrench. Then we fix the cause, not just the visible leak &mdash; so the repair lasts.</p>
+            <div style="margin-top:0.75rem;"><a href="#book" class="btn-sm">Learn More →</a></div>
+            <div style="margin-top:0.625rem;"><span class="font-mono text-brass" style="font-size:0.8125rem;">From $149</span></div>
+            <div style="margin-top:0.25rem;"><span class="font-mono" style="font-size:0.6875rem;color:rgba(15,27,38,.60);">Same-day written quote</span></div>
           </div>
-          <div class="svc-img-wrap" style="flex:2;min-height:130px;"><img src="assets/copper-macro.jpeg" alt="Copper pipes macro" style="width:100%;height:100%;min-height:130px;border-radius:12px;object-fit:cover;display:block;"></div>
+          <div class="svc-img-wrap" style="flex:2;min-height:8.125rem;"><img src="assets/copper-macro.jpeg" alt="Copper pipes macro" style="width:100%;height:100%;min-height:8.125rem;border-radius:0.75rem;object-fit:cover;display:block;"></div>
         </div>
 
         <!-- Card 2 — dark navy (visual rhythm) -->
-        <div class="card svc-card" style="background:#0E2A3F;border-radius:16px;padding:24px;display:flex;gap:16px;align-items:stretch;">
+        <div class="card svc-card" style="background:#0E2A3F;border-radius:1rem;padding:1.5rem;display:flex;gap:1rem;align-items:stretch;">
           <div class="svc-body" style="flex:3;min-width:0;">
             <h3 class="font-display font-semibold t-h3" style="color:#F7F4ED;">Whole-Home Repipe</h3>
-            <p class="font-body" style="font-size:15px;line-height:1.55;margin-top:8px;color:rgba(247,244,237,.75);">Full copper or PEX repipe in 1&ndash;3 days. Room-by-room with drop cloths and floor protection &mdash; your kitchen stays usable while we work. Manufacturer-backed warranties.</p>
-            <div style="margin-top:12px;"><a href="#book" class="btn-sm">Learn More →</a></div>
-            <div style="margin-top:10px;"><span class="font-mono" style="font-size:13px;color:#B8873B;">From $4,200</span></div>
-            <div style="margin-top:4px;"><span class="font-mono" style="font-size:11px;color:rgba(247,244,237,.60);">10-year warranty &middot; no tear-out guarantee</span></div>
+            <p class="font-body" style="font-size:0.9375rem;line-height:1.55;margin-top:0.5rem;color:rgba(247,244,237,.75);">Full copper or PEX repipe in 1&ndash;3 days. Room-by-room with drop cloths and floor protection &mdash; your kitchen stays usable while we work. Manufacturer-backed warranties.</p>
+            <div style="margin-top:0.75rem;"><a href="#book" class="btn-sm">Learn More →</a></div>
+            <div style="margin-top:0.625rem;"><span class="font-mono" style="font-size:0.8125rem;color:#B8873B;">From $4,200</span></div>
+            <div style="margin-top:0.25rem;"><span class="font-mono" style="font-size:0.6875rem;color:rgba(247,244,237,.60);">10-year warranty &middot; no tear-out guarantee</span></div>
           </div>
-          <div class="svc-img-wrap" style="flex:2;min-height:130px;"><img src="assets/copper-blue-wall2.jpeg" alt="Copper pipes against dark wall" style="width:100%;height:100%;min-height:130px;border-radius:12px;object-fit:cover;display:block;"></div>
+          <div class="svc-img-wrap" style="flex:2;min-height:8.125rem;"><img src="assets/copper-blue-wall2.jpeg" alt="Copper pipes against dark wall" style="width:100%;height:100%;min-height:8.125rem;border-radius:0.75rem;object-fit:cover;display:block;"></div>
         </div>
 
         <!-- Card 3 — cream -->
-        <div class="card svc-card" style="background:#EDE8DE;border-radius:16px;padding:24px;display:flex;gap:16px;align-items:stretch;box-shadow:0 1px 3px rgba(15,27,38,.06);">
+        <div class="card svc-card" style="background:#EDE8DE;border-radius:1rem;padding:1.5rem;display:flex;gap:1rem;align-items:stretch;box-shadow:0 1px 0.1875rem rgba(15,27,38,.06);">
           <div class="svc-body" style="flex:3;min-width:0;">
             <h3 class="font-display font-semibold text-ink t-h3">Long-Term Water Heaters</h3>
-            <p class="font-body text-ink-soft" style="font-size:15px;line-height:1.55;margin-top:8px;">Tankless or hybrid installs sized to your home&rsquo;s actual hot water demand. We calculate fixture units, not flat assumptions or sales scripts.</p>
-            <div style="margin-top:12px;"><a href="#book" class="btn-sm">Learn More →</a></div>
-            <div style="margin-top:10px;"><span class="font-mono text-brass" style="font-size:13px;">From $1,800</span></div>
-            <div style="margin-top:4px;"><span class="font-mono" style="font-size:11px;color:rgba(15,27,38,.60);">Manufacturer-sized &middot; installed in one day</span></div>
+            <p class="font-body text-ink-soft" style="font-size:0.9375rem;line-height:1.55;margin-top:0.5rem;">Tankless or hybrid installs sized to your home&rsquo;s actual hot water demand. We calculate fixture units, not flat assumptions or sales scripts.</p>
+            <div style="margin-top:0.75rem;"><a href="#book" class="btn-sm">Learn More →</a></div>
+            <div style="margin-top:0.625rem;"><span class="font-mono text-brass" style="font-size:0.8125rem;">From $1,800</span></div>
+            <div style="margin-top:0.25rem;"><span class="font-mono" style="font-size:0.6875rem;color:rgba(15,27,38,.60);">Manufacturer-sized &middot; installed in one day</span></div>
           </div>
-          <div class="svc-img-wrap" style="flex:2;min-height:130px;"><img src="assets/water-heater.jpeg" alt="Modern tankless water heater" style="width:100%;height:100%;min-height:130px;border-radius:12px;object-fit:cover;display:block;"></div>
+          <div class="svc-img-wrap" style="flex:2;min-height:8.125rem;"><img src="assets/water-heater.jpeg" alt="Modern tankless water heater" style="width:100%;height:100%;min-height:8.125rem;border-radius:0.75rem;object-fit:cover;display:block;"></div>
         </div>
 
       </div>
@@ -931,57 +945,57 @@
 <section class="pricing-section" id="pricing" aria-labelledby="pricing-h2">
   <div class="approach-wrap">
   <div style="position:absolute;inset:0;background:rgba(8,32,48,0.12);pointer-events:none;" aria-hidden="true"></div>
-  <div class="pricing-container" style="position:relative;z-index:1;padding-top:64px;padding-bottom:64px;">
+  <div class="pricing-container" style="position:relative;z-index:1;padding-top:4rem;padding-bottom:4rem;">
     <div class="pricing-header">
       <span class="pill" style="color:#F7F4ED;border-color:rgba(247,244,237,.45);">Pricing</span>
-      <div style="height:24px;"></div>
+      <div style="height:1.5rem;"></div>
       <h2 id="pricing-h2" class="pricing-h2">Upfront. Flat-rate. <em class="ig">N</em>o dispatch fee.</h2>
-      <div style="height:16px;"></div>
+      <div style="height:1rem;"></div>
       <p class="pricing-sub">Three of our most-booked services. The number you see here is the number you sign on the estimate.</p>
     </div>
-    <div style="height:64px;"></div>
+    <div style="height:4rem;"></div>
     <!-- DEVELOPER NOTE: price values are placeholders — replace with actual client pricing before launch. -->
     <div class="price-grid">
       <div class="price-col">
         <div class="price-eyebrow">Drain Cleaning</div>
-        <div style="height:12px;"></div>
+        <div style="height:0.75rem;"></div>
         <div class="price-starts-at">starts at</div>
-        <div style="height:4px;"></div>
+        <div style="height:0.25rem;"></div>
         <div class="price-amount">$149</div>
-        <div style="height:16px;"></div>
+        <div style="height:1rem;"></div>
         <div class="price-hr" aria-hidden="true"></div>
-        <div style="height:16px;"></div>
+        <div style="height:1rem;"></div>
         <p class="price-desc">Includes free camera inspection. Most clogs cleared in under an hour.</p>
       </div>
       <div class="price-col">
         <div class="price-eyebrow">Water Heater Replacement</div>
-        <div style="height:12px;"></div>
+        <div style="height:0.75rem;"></div>
         <div class="price-starts-at">starts at</div>
-        <div style="height:4px;"></div>
+        <div style="height:0.25rem;"></div>
         <div class="price-amount">$1,200</div>
-        <div style="height:16px;"></div>
+        <div style="height:1rem;"></div>
         <div class="price-hr" aria-hidden="true"></div>
-        <div style="height:16px;"></div>
+        <div style="height:1rem;"></div>
         <p class="price-desc">Tankless or tank install, same-day for most Austin-area calls. Manufacturer warranty included.</p>
       </div>
       <div class="price-col">
         <div class="price-eyebrow">Leak Detection</div>
-        <div style="height:12px;"></div>
+        <div style="height:0.75rem;"></div>
         <div class="price-starts-at">starts at</div>
-        <div style="height:4px;"></div>
+        <div style="height:0.25rem;"></div>
         <div class="price-amount">$275</div>
-        <div style="height:16px;"></div>
+        <div style="height:1rem;"></div>
         <div class="price-hr" aria-hidden="true"></div>
-        <div style="height:16px;"></div>
+        <div style="height:1rem;"></div>
         <p class="price-desc">Acoustic and thermal scanning. Free if we do the repair in the same visit.</p>
       </div>
     </div>
-    <div style="height:64px;"></div>
+    <div style="height:4rem;"></div>
     <div class="owners-promise">
       <div class="owners-hr" aria-hidden="true"></div>
-      <div style="height:24px;"></div>
+      <div style="height:1.5rem;"></div>
       <p class="owners-quote">&ldquo;We give you a written estimate before any work begins. If we cannot do the job for the price we quoted&nbsp;&mdash; we walk.&rdquo;</p>
-      <div style="height:16px;"></div>
+      <div style="height:1rem;"></div>
       <div class="owners-attribution">&mdash;&nbsp;Owner&rsquo;s Promise</div>
     </div>
   </div>
@@ -996,9 +1010,9 @@
   <div class="process-container">
     <div class="process-header">
       <span class="pill">The Process</span>
-      <div style="height:16px;"></div>
+      <div style="height:1rem;"></div>
       <h2 id="process-h2" class="process-h2">How a Westbrook <em class="ig">v</em>isit works.</h2>
-      <div style="height:16px;"></div>
+      <div style="height:1rem;"></div>
       <p class="process-sub">Four steps. Every job. No surprises between any of them.</p>
     </div>
     <div class="process-timeline">
@@ -1008,28 +1022,28 @@
         <div class="step-div" aria-hidden="true"></div>
         <h3 class="step-title">You call us</h3>
         <p class="step-desc">Live answer 24/7&nbsp;&mdash; never a call center, never a bot. We confirm your address and the issue.</p>
-        <div class="step-mono">Avg.&nbsp;pick-up:&nbsp;28&nbsp;seconds</div>
+        <div class="step-mono">Avg. pick-up: 28&nbsp;seconds</div>
       </div>
       <div class="process-step">
         <div class="step-num" aria-hidden="true">02</div>
         <div class="step-div" aria-hidden="true"></div>
         <h3 class="step-title">We arrive on-time</h3>
         <p class="step-desc">Most Austin-area calls met within 60&nbsp;minutes for emergencies. SMS update when we&rsquo;re 15&nbsp;minutes out.</p>
-        <div class="step-mono">Punctuality:&nbsp;97%&nbsp;last&nbsp;quarter</div>
+        <div class="step-mono">Punctuality: 97% last&nbsp;quarter</div>
       </div>
       <div class="process-step">
         <div class="step-num" aria-hidden="true">03</div>
         <div class="step-div" aria-hidden="true"></div>
         <h3 class="step-title">We quote in writing</h3>
         <p class="step-desc">Diagnosis, flat-rate price, parts list, and timeline&nbsp;&mdash; on paper, before we open a single tool case.</p>
-        <div class="step-mono">Quotes&nbsp;good&nbsp;for&nbsp;30&nbsp;days</div>
+        <div class="step-mono">Quotes good for 30&nbsp;days</div>
       </div>
       <div class="process-step">
         <div class="step-num" aria-hidden="true">04</div>
         <div class="step-div" aria-hidden="true"></div>
         <h3 class="step-title">You approve, we work</h3>
         <p class="step-desc">Sign the quote and we begin. The price you signed is the price you pay&nbsp;&mdash; even if the job takes longer than expected.</p>
-        <div class="step-mono">100%&nbsp;satisfaction&nbsp;or&nbsp;we&nbsp;walk</div>
+        <div class="step-mono">100% satisfaction or we&nbsp;walk</div>
       </div>
     </div>
   </div>
@@ -1043,12 +1057,12 @@
   <div class="crew-container">
     <div class="crew-header">
       <span class="pill">Our People</span>
-      <div style="height:16px;"></div>
+      <div style="height:1rem;"></div>
       <h2 id="crew-h2" class="sec-h2">The Reyes family and the <em class="ig">c</em>rew they trust.</h2>
-      <div style="height:16px;"></div>
+      <div style="height:1rem;"></div>
       <p class="crew-sub">Same people on every call. Background-checked, drug-tested, uniformed &mdash; and named on every quote before they show up.</p>
     </div>
-    <div style="height:64px;"></div>
+    <div style="height:4rem;"></div>
     <div class="founder-grid">
       <div>
         <div class="founder-photo">
@@ -1057,33 +1071,33 @@
       </div>
       <div>
         <div class="founder-index">01 / FOUNDER</div>
-        <div style="height:24px;"></div>
+        <div style="height:1.5rem;"></div>
         <h3 class="founder-name">Miguel Reyes</h3>
-        <div style="height:4px;"></div>
+        <div style="height:0.25rem;"></div>
         <p class="founder-role">Master Plumber TX #MPL18492 &mdash; Founded Westbrook in 2000.</p>
-        <div style="height:24px;"></div>
+        <div style="height:1.5rem;"></div>
         <p class="founder-bio">Miguel apprenticed under his father in El Paso, took his Master Plumber license at 28, and moved to Austin in 1999 to start Westbrook in a one-truck garage on Manor Road. Twenty-six years later, Westbrook is a five-truck shop &mdash; and Miguel still does intake on every job over $5,000.</p>
-        <div style="height:16px;"></div>
+        <div style="height:1rem;"></div>
         <p class="founder-bio">His son Carlos joined in 2011 as operations lead. His grandson Tomas started apprenticing in 2024. Three generations, same trade, same family &mdash; and yes, that&rsquo;s the actual reason it&rsquo;s called Westbrook (Miguel&rsquo;s mother&rsquo;s maiden name).</p>
-        <div style="height:24px;"></div>
+        <div style="height:1.5rem;"></div>
         <div class="founder-q-rule" aria-hidden="true"></div>
-        <div style="height:16px;"></div>
+        <div style="height:1rem;"></div>
         <blockquote class="founder-quote">&ldquo;We do this the way I&rsquo;d want it done in my own mother&rsquo;s house. That&rsquo;s the whole thing.&rdquo;</blockquote>
-        <div style="height:12px;"></div>
+        <div style="height:0.75rem;"></div>
         <cite class="founder-attr">&mdash;&nbsp;MIGUEL, ON HOW WE OPERATE</cite>
       </div>
     </div>
-    <div style="height:64px;"></div>
+    <div style="height:4rem;"></div>
     <div class="crew-row1">
       <div>
         <div class="crew-tile">
           <div class="crew-tile-photo" style="overflow:hidden;"><img src="assets/crew-carlos.jpeg" alt="Carlos Reyes, Master Plumber and Operations Lead" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div>
           <div class="crew-tile-info">
-            <div class="crew-index">02 / OPERATIONS</div><div style="height:16px;"></div>
-            <div class="crew-tile-name">Carlos Reyes</div><div style="height:4px;"></div>
-            <div class="crew-tile-role">Master Plumber, Operations Lead</div><div style="height:4px;"></div>
-            <div class="crew-tile-since">WITH WESTBROOK SINCE 2011</div><div style="height:20px;"></div>
-            <div class="crew-q-rule" style="width:32px;" aria-hidden="true"></div><div style="height:16px;"></div>
+            <div class="crew-index">02 / OPERATIONS</div><div style="height:1rem;"></div>
+            <div class="crew-tile-name">Carlos Reyes</div><div style="height:0.25rem;"></div>
+            <div class="crew-tile-role">Master Plumber, Operations Lead</div><div style="height:0.25rem;"></div>
+            <div class="crew-tile-since">WITH WESTBROOK SINCE 2011</div><div style="height:1.25rem;"></div>
+            <div class="crew-q-rule" style="width:2rem;" aria-hidden="true"></div><div style="height:1rem;"></div>
             <blockquote class="crew-tile-quote">&ldquo;I sign off on every quote that leaves this office. If a number looks off, the job doesn&rsquo;t go out.&rdquo;</blockquote>
           </div>
         </div>
@@ -1092,11 +1106,11 @@
         <div class="crew-tile">
           <div class="crew-tile-photo" style="overflow:hidden;"><img src="assets/crew-jose.jpeg" alt="Jose Martinez, Lead Service Technician" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div>
           <div class="crew-tile-info">
-            <div class="crew-index">03 / LEAD TECH</div><div style="height:16px;"></div>
-            <div class="crew-tile-name">Jose Martinez</div><div style="height:4px;"></div>
-            <div class="crew-tile-role">Lead Service Technician</div><div style="height:4px;"></div>
-            <div class="crew-tile-since">WITH WESTBROOK SINCE 2014</div><div style="height:20px;"></div>
-            <div class="crew-q-rule" style="width:32px;" aria-hidden="true"></div><div style="height:16px;"></div>
+            <div class="crew-index">03 / LEAD TECH</div><div style="height:1rem;"></div>
+            <div class="crew-tile-name">Jose Martinez</div><div style="height:0.25rem;"></div>
+            <div class="crew-tile-role">Lead Service Technician</div><div style="height:0.25rem;"></div>
+            <div class="crew-tile-since">WITH WESTBROOK SINCE 2014</div><div style="height:1.25rem;"></div>
+            <div class="crew-q-rule" style="width:2rem;" aria-hidden="true"></div><div style="height:1rem;"></div>
             <blockquote class="crew-tile-quote">&ldquo;We carry every common part on the truck. Eight out of ten jobs, we don&rsquo;t have to come back twice.&rdquo;</blockquote>
           </div>
         </div>
@@ -1105,29 +1119,29 @@
     <div class="crew-row2">
       <div class="crew-compact">
         <div class="crew-compact-photo" style="overflow:hidden;"><img src="assets/crew-david.jpeg" alt="David Chen, Service Technician" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div>
-        <div style="height:16px;"></div>
-        <div class="crew-index">04 / SERVICE TECH</div><div style="height:8px;"></div>
-        <div class="crew-compact-name">David Chen</div><div style="height:4px;"></div>
-        <div class="crew-compact-role">Service Technician &bull; Since 2019</div><div style="height:12px;"></div>
-        <div class="crew-q-rule" style="width:24px;" aria-hidden="true"></div><div style="height:12px;"></div>
+        <div style="height:1rem;"></div>
+        <div class="crew-index">04 / SERVICE TECH</div><div style="height:0.5rem;"></div>
+        <div class="crew-compact-name">David Chen</div><div style="height:0.25rem;"></div>
+        <div class="crew-compact-role">Service Technician &bull; Since 2019</div><div style="height:0.75rem;"></div>
+        <div class="crew-q-rule" style="width:1.5rem;" aria-hidden="true"></div><div style="height:0.75rem;"></div>
         <blockquote class="crew-compact-quote">&ldquo;I do mostly water heater installs. Got my Rinnai cert last year.&rdquo;</blockquote>
       </div>
       <div class="crew-compact">
         <div class="crew-compact-photo" style="overflow:hidden;"><img src="assets/crew-maria.jpeg" alt="Maria Garcia, Office and Dispatch" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div>
-        <div style="height:16px;"></div>
-        <div class="crew-index">05 / OPERATIONS</div><div style="height:8px;"></div>
-        <div class="crew-compact-name">Maria Garcia</div><div style="height:4px;"></div>
-        <div class="crew-compact-role">Office &amp; Dispatch &bull; Since 2016</div><div style="height:12px;"></div>
-        <div class="crew-q-rule" style="width:24px;" aria-hidden="true"></div><div style="height:12px;"></div>
+        <div style="height:1rem;"></div>
+        <div class="crew-index">05 / OPERATIONS</div><div style="height:0.5rem;"></div>
+        <div class="crew-compact-name">Maria Garcia</div><div style="height:0.25rem;"></div>
+        <div class="crew-compact-role">Office &amp; Dispatch &bull; Since 2016</div><div style="height:0.75rem;"></div>
+        <div class="crew-q-rule" style="width:1.5rem;" aria-hidden="true"></div><div style="height:0.75rem;"></div>
         <blockquote class="crew-compact-quote">&ldquo;I&rsquo;m the one who answers when you call at 2&nbsp;a.m. Real human. Always.&rdquo;</blockquote>
       </div>
       <div class="crew-compact">
         <div class="crew-compact-photo" style="overflow:hidden;"><img src="assets/crew-tomas.jpeg" alt="Tomas Reyes, Apprentice Plumber" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div>
-        <div style="height:16px;"></div>
-        <div class="crew-index">06 / APPRENTICE</div><div style="height:8px;"></div>
-        <div class="crew-compact-name">Tomas Reyes</div><div style="height:4px;"></div>
-        <div class="crew-compact-role">Apprentice Plumber &bull; Since 2024</div><div style="height:12px;"></div>
-        <div class="crew-q-rule" style="width:24px;" aria-hidden="true"></div><div style="height:12px;"></div>
+        <div style="height:1rem;"></div>
+        <div class="crew-index">06 / APPRENTICE</div><div style="height:0.5rem;"></div>
+        <div class="crew-compact-name">Tomas Reyes</div><div style="height:0.25rem;"></div>
+        <div class="crew-compact-role">Apprentice Plumber &bull; Since 2024</div><div style="height:0.75rem;"></div>
+        <div class="crew-q-rule" style="width:1.5rem;" aria-hidden="true"></div><div style="height:0.75rem;"></div>
         <blockquote class="crew-compact-quote">&ldquo;Third generation. Granddad&rsquo;s still my hardest grader.&rdquo;</blockquote>
       </div>
     </div>
@@ -1144,9 +1158,9 @@
       <div class="faq-left">
         <div class="faq-left-top">
           <span class="pill">Common Questions</span>
-          <div style="height:16px;"></div>
+          <div style="height:1rem;"></div>
           <h2 id="faq-h2" class="sec-h2">Questions before you <em class="ig">c</em>all?</h2>
-          <div style="height:16px;"></div>
+          <div style="height:1rem;"></div>
           <p class="faq-sub">The seven things people ask most. If your question isn&rsquo;t here, call &mdash; we answer live, twenty-four hours a day.</p>
         </div>
         <div class="faq-contact">
@@ -1172,76 +1186,76 @@
 <!-- ════════════════════════════════════════════════
      12 · REVIEWS BAND  (source: Westbrook Plumbing Co.html §7)
 ════════════════════════════════════════════════ -->
-<section id="reviews" style="padding:96px 0;background:#EDE8DE;">
-  <div class="mx-auto px-6" style="max-width:1240px;">
-    <div class="grid grid-cols-1 md:grid-cols-12" style="gap:48px;align-items:stretch;">
+<section id="reviews" style="padding:6rem 0;background:#EDE8DE;">
+  <div class="mx-auto px-6" style="max-width:77.5rem;">
+    <div class="grid grid-cols-1 md:grid-cols-12" style="gap:3rem;align-items:stretch;">
       <div class="md:col-span-5" style="display:flex;flex-direction:column;">
         <!-- Pill — flush to top, level with card 1 -->
         <span class="pill pill-br" style="align-self:flex-start;">Reviews</span>
 
         <!-- Stat 1: Google -->
-        <div style="flex:1;display:flex;flex-direction:column;justify-content:center;padding:20px 0;">
+        <div style="flex:1;display:flex;flex-direction:column;justify-content:center;padding:1.25rem 0;">
           <div class="font-display font-semibold text-brass" style="font-size:clamp(2.75rem,4vw,4rem);line-height:0.9;">4.9</div>
-          <div style="height:12px;"></div>
-          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
-            <span class="star" style="font-size:15px;letter-spacing:2px;">★★★★★</span>
-            <span class="font-mono text-graphite" style="font-size:11.5px;">2,847 verified Google reviews</span>
+          <div style="height:0.75rem;"></div>
+          <div style="display:flex;align-items:center;gap:0.5rem;flex-wrap:wrap;">
+            <span class="star" style="font-size:0.9375rem;letter-spacing:2px;">★★★★★</span>
+            <span class="font-mono text-graphite" style="font-size:0.71875rem;">2,847 verified Google reviews</span>
           </div>
         </div>
 
         <div style="height:1px;background:rgba(15,27,38,.09);" aria-hidden="true"></div>
 
         <!-- Stat 2: Yelp -->
-        <div style="flex:1;display:flex;flex-direction:column;justify-content:center;padding:20px 0;">
+        <div style="flex:1;display:flex;flex-direction:column;justify-content:center;padding:1.25rem 0;">
           <div class="font-display font-semibold text-brass" style="font-size:clamp(2.75rem,4vw,4rem);line-height:0.9;">5.0</div>
-          <div style="height:12px;"></div>
-          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
-            <span class="star" style="font-size:15px;letter-spacing:2px;">★★★★★</span>
-            <span class="font-mono text-graphite" style="font-size:11.5px;">1,200+ verified Yelp reviews</span>
+          <div style="height:0.75rem;"></div>
+          <div style="display:flex;align-items:center;gap:0.5rem;flex-wrap:wrap;">
+            <span class="star" style="font-size:0.9375rem;letter-spacing:2px;">★★★★★</span>
+            <span class="font-mono text-graphite" style="font-size:0.71875rem;">1,200+ verified Yelp reviews</span>
           </div>
         </div>
 
         <div style="height:1px;background:rgba(15,27,38,.09);" aria-hidden="true"></div>
 
         <!-- Stat 3: Angi -->
-        <div style="flex:1;display:flex;flex-direction:column;justify-content:center;padding:20px 0;">
+        <div style="flex:1;display:flex;flex-direction:column;justify-content:center;padding:1.25rem 0;">
           <div class="font-display font-semibold text-brass" style="font-size:clamp(2.75rem,4vw,4rem);line-height:0.9;">4.9</div>
-          <div style="height:12px;"></div>
-          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
-            <span class="star" style="font-size:15px;letter-spacing:2px;">★★★★★</span>
-            <span class="font-mono text-graphite" style="font-size:11.5px;">800+ verified Angi reviews</span>
+          <div style="height:0.75rem;"></div>
+          <div style="display:flex;align-items:center;gap:0.5rem;flex-wrap:wrap;">
+            <span class="star" style="font-size:0.9375rem;letter-spacing:2px;">★★★★★</span>
+            <span class="font-mono text-graphite" style="font-size:0.71875rem;">800+ verified Angi reviews</span>
           </div>
         </div>
       </div>
-      <div class="md:col-span-7" style="display:flex;flex-direction:column;gap:12px;">
-        <div class="card" style="background:#F7F4ED;border-radius:16px;padding:24px;box-shadow:0 1px 3px rgba(15,27,38,.06);">
-          <span class="star" style="font-size:14px;letter-spacing:1px;">★★★★★</span>
-          <div style="height:12px;"></div>
-          <p class="font-body text-ink" style="font-style:italic;font-size:16px;line-height:1.55;font-weight:500;">&ldquo;They diagnosed a slab leak three other companies missed. Done in two days, no drama.&rdquo;</p>
-          <div style="height:16px;"></div><hr class="hr"><div style="height:12px;"></div>
+      <div class="md:col-span-7" style="display:flex;flex-direction:column;gap:0.75rem;">
+        <div class="card" style="background:#F7F4ED;border-radius:1rem;padding:1.5rem;box-shadow:0 1px 0.1875rem rgba(15,27,38,.06);">
+          <span class="star" style="font-size:0.875rem;letter-spacing:1px;">★★★★★</span>
+          <div style="height:0.75rem;"></div>
+          <p class="font-body text-ink" style="font-style:italic;font-size:1rem;line-height:1.55;font-weight:500;">&ldquo;They diagnosed a slab leak three other companies missed. Done in two days, no drama.&rdquo;</p>
+          <div style="height:1rem;"></div><hr class="hr"><div style="height:0.75rem;"></div>
           <div style="display:flex;justify-content:space-between;align-items:center;">
-            <span class="font-body" style="font-size:14px;font-weight:600;">Sarah K. <span class="text-graphite" style="font-weight:400;">&bull; Cedar Park, TX</span></span>
-            <span class="font-mono text-brass" style="font-size:12px;">MAR 2026</span>
+            <span class="font-body" style="font-size:0.875rem;font-weight:600;">Sarah K. <span class="text-graphite" style="font-weight:400;">&bull; Cedar Park, TX</span></span>
+            <span class="font-mono text-brass" style="font-size:0.75rem;">MAR 2026</span>
           </div>
         </div>
-        <div class="card" style="background:#F7F4ED;border-radius:16px;padding:24px;box-shadow:0 1px 3px rgba(15,27,38,.06);">
-          <span class="star" style="font-size:14px;letter-spacing:1px;">★★★★★</span>
-          <div style="height:12px;"></div>
-          <p class="font-body text-ink" style="font-style:italic;font-size:16px;line-height:1.55;font-weight:500;">&ldquo;Quoted us flat-rate, stuck to it, cleaned up like they were never here.&rdquo;</p>
-          <div style="height:16px;"></div><hr class="hr"><div style="height:12px;"></div>
+        <div class="card" style="background:#F7F4ED;border-radius:1rem;padding:1.5rem;box-shadow:0 1px 0.1875rem rgba(15,27,38,.06);">
+          <span class="star" style="font-size:0.875rem;letter-spacing:1px;">★★★★★</span>
+          <div style="height:0.75rem;"></div>
+          <p class="font-body text-ink" style="font-style:italic;font-size:1rem;line-height:1.55;font-weight:500;">&ldquo;Quoted us flat-rate, stuck to it, cleaned up like they were never here.&rdquo;</p>
+          <div style="height:1rem;"></div><hr class="hr"><div style="height:0.75rem;"></div>
           <div style="display:flex;justify-content:space-between;align-items:center;">
-            <span class="font-body" style="font-size:14px;font-weight:600;">Marcus R. <span class="text-graphite" style="font-weight:400;">&bull; South Austin</span></span>
-            <span class="font-mono text-brass" style="font-size:12px;">FEB 2026</span>
+            <span class="font-body" style="font-size:0.875rem;font-weight:600;">Marcus R. <span class="text-graphite" style="font-weight:400;">&bull; South Austin</span></span>
+            <span class="font-mono text-brass" style="font-size:0.75rem;">FEB 2026</span>
           </div>
         </div>
-        <div class="card" style="background:#F7F4ED;border-radius:16px;padding:24px;box-shadow:0 1px 3px rgba(15,27,38,.06);">
-          <span class="star" style="font-size:14px;letter-spacing:1px;">★★★★★</span>
-          <div style="height:12px;"></div>
-          <p class="font-body text-ink" style="font-style:italic;font-size:16px;line-height:1.55;font-weight:500;">&ldquo;Eric talked us out of a repipe we didn&rsquo;t need. Who does that? Westbrook.&rdquo;</p>
-          <div style="height:16px;"></div><hr class="hr"><div style="height:12px;"></div>
+        <div class="card" style="background:#F7F4ED;border-radius:1rem;padding:1.5rem;box-shadow:0 1px 0.1875rem rgba(15,27,38,.06);">
+          <span class="star" style="font-size:0.875rem;letter-spacing:1px;">★★★★★</span>
+          <div style="height:0.75rem;"></div>
+          <p class="font-body text-ink" style="font-style:italic;font-size:1rem;line-height:1.55;font-weight:500;">&ldquo;Eric talked us out of a repipe we didn&rsquo;t need. Who does that? Westbrook.&rdquo;</p>
+          <div style="height:1rem;"></div><hr class="hr"><div style="height:0.75rem;"></div>
           <div style="display:flex;justify-content:space-between;align-items:center;">
-            <span class="font-body" style="font-size:14px;font-weight:600;">The Patel family <span class="text-graphite" style="font-weight:400;">&bull; Round Rock</span></span>
-            <span class="font-mono text-brass" style="font-size:12px;">JAN 2026</span>
+            <span class="font-body" style="font-size:0.875rem;font-weight:600;">The Patel family <span class="text-graphite" style="font-weight:400;">&bull; Round Rock</span></span>
+            <span class="font-mono text-brass" style="font-size:0.75rem;">JAN 2026</span>
           </div>
         </div>
       </div>
@@ -1257,10 +1271,10 @@
   <div class="ba-container">
     <div style="text-align:center;">
       <span class="pill">Our Work</span>
-      <div style="height:16px;"></div>
+      <div style="height:1rem;"></div>
       <h2 id="ba-h2" class="ba-h2">What we walked <em class="ig">i</em>nto. What we left.</h2>
     </div>
-    <div style="height:64px;"></div>
+    <div style="height:4rem;"></div>
     <div class="ba-grid">
 
       <!-- Case 1: Corroded cast iron drain → PVC -->
@@ -1270,7 +1284,7 @@
           <img class="ba-img ba-after-img" src="assets/before1.jpg" alt="Before — heavily corroded cast iron drain pipe with cracks inside wall opening">
           <div class="ba-divider" aria-hidden="true">
             <div class="ba-handle">
-              <svg width="22" height="14" viewBox="0 0 22 14" fill="none" aria-hidden="true"><path d="M1 7h20M7 1L1 7l6 6M15 1l6 6-6 6" stroke="#0F1B26" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg width="22" height="14" viewBox="0 0 22 14" fill="none" aria-hidden="true" style="width:1.375rem;height:0.875rem;"><path d="M1 7h20M7 1L1 7l6 6M15 1l6 6-6 6" stroke="#0F1B26" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
           </div>
           <span class="ba-label ba-lbl-b" aria-hidden="true">Before</span>
@@ -1290,7 +1304,7 @@
           <img class="ba-img ba-after-img" src="assets/before2.jpg" alt="Before — seized rust-covered sump pump sitting in flooded pit with standing groundwater">
           <div class="ba-divider" aria-hidden="true">
             <div class="ba-handle">
-              <svg width="22" height="14" viewBox="0 0 22 14" fill="none" aria-hidden="true"><path d="M1 7h20M7 1L1 7l6 6M15 1l6 6-6 6" stroke="#0F1B26" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg width="22" height="14" viewBox="0 0 22 14" fill="none" aria-hidden="true" style="width:1.375rem;height:0.875rem;"><path d="M1 7h20M7 1L1 7l6 6M15 1l6 6-6 6" stroke="#0F1B26" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
           </div>
           <span class="ba-label ba-lbl-b" aria-hidden="true">Before</span>
@@ -1316,18 +1330,18 @@
     <div class="cf-grid">
 
       <!-- Left: info -->
-      <div style="display:flex;flex-direction:column;gap:32px;">
+      <div style="display:flex;flex-direction:column;gap:2rem;">
         <div>
           <span class="pill">Book a Visit</span>
-          <div style="height:16px;"></div>
+          <div style="height:1rem;"></div>
           <h2 id="cf-heading" class="sec-h2">Tell us what&rsquo;s <em class="ig">g</em>oing on.</h2>
-          <div style="height:16px;"></div>
+          <div style="height:1rem;"></div>
           <p class="cf-sub">Fill in the form and we&rsquo;ll call you back within the hour during business hours &mdash; or within 15&nbsp;minutes for emergencies.</p>
         </div>
         <div class="cf-detail" aria-label="Contact details">
           <div class="cf-detail-row">
             <div class="cf-detail-icon" aria-hidden="true">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 2.5h3l1.5 3.5-1.5 1.5a9 9 0 0 0 2.5 2.5L10 8.5l3.5 1.5V13a1 1 0 0 1-1 1A12 12 0 0 1 2 3.5a1 1 0 0 1 1-1z" stroke="#F7F4ED" stroke-width="1.3" stroke-linejoin="round"/></svg>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="width:1rem;height:1rem;"><path d="M3 2.5h3l1.5 3.5-1.5 1.5a9 9 0 0 0 2.5 2.5L10 8.5l3.5 1.5V13a1 1 0 0 1-1 1A12 12 0 0 1 2 3.5a1 1 0 0 1 1-1z" stroke="#F7F4ED" stroke-width="1.3" stroke-linejoin="round"/></svg>
             </div>
             <div>
               <div class="cf-detail-label">Emergency &mdash; 24/7</div>
@@ -1338,7 +1352,7 @@
           <div style="height:1px;background:rgba(184,135,59,.2);" aria-hidden="true"></div>
           <div class="cf-detail-row">
             <div class="cf-detail-icon" aria-hidden="true">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="4" width="12" height="10" rx="1.5" stroke="#F7F4ED" stroke-width="1.25"/><path d="M2 7.5h12" stroke="#F7F4ED" stroke-width="1.1"/><path d="M5.5 2v2.5M10.5 2v2.5" stroke="#F7F4ED" stroke-width="1.25" stroke-linecap="round"/></svg>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="width:1rem;height:1rem;"><rect x="2" y="4" width="12" height="10" rx="1.5" stroke="#F7F4ED" stroke-width="1.25"/><path d="M2 7.5h12" stroke="#F7F4ED" stroke-width="1.1"/><path d="M5.5 2v2.5M10.5 2v2.5" stroke="#F7F4ED" stroke-width="1.25" stroke-linecap="round"/></svg>
             </div>
             <div>
               <div class="cf-detail-label">Scheduled Visits</div>
@@ -1349,7 +1363,7 @@
           <div style="height:1px;background:rgba(184,135,59,.2);" aria-hidden="true"></div>
           <div class="cf-detail-row">
             <div class="cf-detail-icon" aria-hidden="true">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1.5A5.5 5.5 0 1 0 13.5 7H8V1.5z" stroke="#F7F4ED" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/><path d="M10.5 1.5A5.5 5.5 0 0 1 13.5 5h-3V1.5z" stroke="#F7F4ED" stroke-width="1.1" stroke-linejoin="round"/></svg>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="width:1rem;height:1rem;"><path d="M8 1.5A5.5 5.5 0 1 0 13.5 7H8V1.5z" stroke="#F7F4ED" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/><path d="M10.5 1.5A5.5 5.5 0 0 1 13.5 5h-3V1.5z" stroke="#F7F4ED" stroke-width="1.1" stroke-linejoin="round"/></svg>
             </div>
             <div>
               <div class="cf-detail-label">Same-Day Rate</div>
@@ -1421,12 +1435,12 @@
               <label class="cf-check-label" for="cf-consent">I agree to be contacted by Westbrook Plumbing Co. by phone or email about my request.</label>
             </div>
 
-            <div id="cf-error" role="alert" style="display:none;background:#FEF2F0;border:1px solid rgba(194,59,42,.3);border-radius:10px;padding:12px 16px;font-family:'Instrument Sans',sans-serif;font-size:14px;color:#C23B2A;"></div>
+            <div id="cf-error" role="alert" style="display:none;background:#FEF2F0;border:1px solid rgba(194,59,42,.3);border-radius:0.625rem;padding:0.75rem 1rem;font-family:'Instrument Sans',sans-serif;font-size:0.875rem;color:#C23B2A;"></div>
 
             <button class="cf-submit" type="submit" id="cf-btn">
               <span id="cf-btn-text">Send Request</span>
               <div class="cf-submit-arrow" aria-hidden="true">
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5L9.5 2.5m0 0H3m6.5 0V9" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="width:0.75rem;height:0.75rem;"><path d="M2.5 9.5L9.5 2.5m0 0H3m6.5 0V9" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </div>
             </button>
 
@@ -1437,7 +1451,7 @@
         <!-- Success state -->
         <div class="cf-success" id="cf-success" aria-live="polite">
           <div class="cf-success-icon" aria-hidden="true">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L19 7" stroke="#B8873B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" style="width:1.5rem;height:1.5rem;"><path d="M5 12l5 5L19 7" stroke="#B8873B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
           <div class="cf-success-title">Request received.</div>
           <p class="cf-success-sub">We&rsquo;ll call you back within the hour. For emergencies, call us directly:</p>
@@ -1453,24 +1467,24 @@
 <!-- ════════════════════════════════════════════════
      15 · FINAL CTA  (source: Westbrook Plumbing Co.html §9)
 ════════════════════════════════════════════════ -->
-<section id="contact" style="padding:96px 24px;">
-  <div class="cta-wrap relative overflow-hidden" style="border-radius:24px;">
+<section id="contact" style="padding:6rem 1.5rem;">
+  <div class="cta-wrap relative overflow-hidden" style="border-radius:1.5rem;">
     <img src="assets/water-slate.jpeg" alt="" class="absolute inset-0" style="width:100%;height:100%;object-fit:cover;">
     <div class="absolute inset-0" style="background:rgba(8,32,48,0.62);"></div>
-    <div class="absolute inset-0 flex flex-col items-center justify-center text-center" style="padding:48px 24px;">
-      <span class="pill pill-b" style="margin-bottom:16px;">Get Started</span>
+    <div class="absolute inset-0 flex flex-col items-center justify-center text-center" style="padding:3rem 1.5rem;">
+      <span class="pill pill-b" style="margin-bottom:1rem;">Get Started</span>
       <h2 class="font-display font-semibold text-bone t-cta">Ready to fix what&rsquo;s <em class="ig">l</em>eaking?</h2>
-      <div style="height:16px;"></div>
-      <p class="font-body" style="font-size:16px;color:rgba(247,244,237,.8);max-width:480px;line-height:1.55;">Call us, or book online &mdash; we&rsquo;ll be at your door same day for most Austin-area requests.</p>
-      <div style="height:32px;"></div>
+      <div style="height:1rem;"></div>
+      <p class="font-body" style="font-size:1rem;color:rgba(247,244,237,.8);max-width:30rem;line-height:1.55;">Call us, or book online &mdash; we&rsquo;ll be at your door same day for most Austin-area requests.</p>
+      <div style="height:2rem;"></div>
       <a href="#book" class="btn btn-l">
         Book a visit
         <span class="bi">
-          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 8L8 2M8 2H3M8 2V7" stroke="#F7F4ED" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true" style="width:0.625rem;height:0.625rem;"><path d="M2 8L8 2M8 2H3M8 2V7" stroke="#F7F4ED" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </span>
       </a>
-      <div style="height:16px;"></div>
-      <a href="tel:+15125558199" aria-label="Call (512) 555-8199 — open dialer" class="font-mono" style="font-size:13px;color:rgba(247,244,237,.65);text-decoration:none;">or call (512) 555-8199 &mdash; 24/7 emergency</a>
+      <div style="height:1rem;"></div>
+      <a href="tel:+15125558199" aria-label="Call (512) 555-8199 — open dialer" class="font-mono" style="font-size:0.8125rem;color:rgba(247,244,237,.65);text-decoration:none;">or call (512) 555-8199 &mdash; 24/7 emergency</a>
     </div>
   </div>
 </section>
@@ -1487,35 +1501,35 @@
     <div class="footer-top">
       <div>
         <div class="footer-wm">Westbrook Plumbing Co.</div>
-        <div style="height:16px;"></div>
+        <div style="height:1rem;"></div>
         <p class="footer-tagline">Family-owned plumbing for Austin and surrounding cities since 2000.</p>
-        <div style="height:24px;"></div>
+        <div style="height:1.5rem;"></div>
         <div class="footer-brass-rule" aria-hidden="true"></div>
-        <div style="height:24px;"></div>
+        <div style="height:1.5rem;"></div>
         <div class="footer-owner">Owned by the Reyes Family</div>
-        <div style="height:4px;"></div>
+        <div style="height:0.25rem;"></div>
         <div class="footer-owner-cap">Three generations &middot; Same neighborhood</div>
       </div>
       <div>
         <div class="footer-eyebrow">Hours</div>
-        <div style="height:12px;"></div>
+        <div style="height:0.75rem;"></div>
         <ul class="footer-hours">
           <li>Mon&ndash;Fri &nbsp;&nbsp; 7am&ndash;7pm</li>
           <li>Saturday &nbsp; 8am&ndash;4pm</li>
           <li>Sunday &nbsp;&nbsp;&nbsp; On call</li>
         </ul>
-        <div style="height:16px;"></div>
+        <div style="height:1rem;"></div>
         <div class="footer-hr-sm" aria-hidden="true"></div>
-        <div style="height:16px;"></div>
+        <div style="height:1rem;"></div>
         <div class="footer-eyebrow">Emergency</div>
-        <div style="height:8px;"></div>
+        <div style="height:0.5rem;"></div>
         <a href="tel:+15125558199" class="footer-tel" aria-label="Call (512) 555-8199">(512) 555-8199</a>
-        <div style="height:4px;"></div>
+        <div style="height:0.25rem;"></div>
         <div class="footer-mono-sm">Answered live, 24/7</div>
       </div>
       <div>
         <div class="footer-eyebrow">Services</div>
-        <div style="height:12px;"></div>
+        <div style="height:0.75rem;"></div>
         <ul class="footer-svc">
           <li><a href="#services">Emergency Repair</a></li>
           <li><a href="#services">Drain Cleaning</a></li>
@@ -1529,12 +1543,12 @@
       </div>
       <div>
         <div class="footer-eyebrow">Service Areas</div>
-        <div style="height:12px;"></div>
+        <div style="height:0.75rem;"></div>
         <div class="footer-cities">
           <div><div>Austin</div><div>Cedar Park</div><div>Round Rock</div><div>Pflugerville</div><div>Leander</div><div>Lakeway</div><div>Bee Cave</div></div>
           <div><div>Buda</div><div>Kyle</div><div>Georgetown</div><div>Hutto</div><div>West Lake Hills</div><div>Sunset Valley</div><div style="color:rgba(247,244,237,.35);">and more</div></div>
         </div>
-        <div style="height:16px;"></div>
+        <div style="height:1rem;"></div>
         <a href="#service-area" class="footer-zips-link">View all ZIP codes &rarr;</a>
       </div>
     </div>
@@ -1562,13 +1576,13 @@
 <!-- Mobile sticky bottom CTA bar -->
 <nav class="mobile-bar" aria-label="Quick contact options">
   <a href="tel:+15125558199" class="bar-call" aria-label="Call Westbrook Plumbing at (512) 555-8199 for emergency service">
-    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 3h3.5l2 4.5-2 2a11 11 0 0 0 3 3l2-2 4.5 2v3.5a1.5 1.5 0 0 1-1.5 1.5A15 15 0 0 1 2.5 4.5 1.5 1.5 0 0 1 4 3z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true" style="width:1.25rem;height:1.25rem;"><path d="M4 3h3.5l2 4.5-2 2a11 11 0 0 0 3 3l2-2 4.5 2v3.5a1.5 1.5 0 0 1-1.5 1.5A15 15 0 0 1 2.5 4.5 1.5 1.5 0 0 1 4 3z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
     Call (512) 555-8199
   </a>
   <a href="#book" class="bar-book" aria-label="Book a plumbing service online">
     Book Online
     <div class="bar-arrow" aria-hidden="true">
-      <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5L9.5 2.5m0 0H3m6.5 0V9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="width:0.75rem;height:0.75rem;"><path d="M2.5 9.5L9.5 2.5m0 0H3m6.5 0V9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </div>
   </a>
 </nav>
@@ -1663,8 +1677,8 @@
     '78628':'Georgetown','78626':'Georgetown','78634':'Hutto','78738':'Lakeway',
     '78739':'Austin','78747':'Austin','78735':'Austin'
   };
-  var svgCheck = '<svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M2 5.5l2.5 2.5L9 3" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-  var svgInfo  = '<svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M5.5 3.5v3M5.5 8v.5" stroke="#6B7280" stroke-width="1.5" stroke-linecap="round"/></svg>';
+  var svgCheck = '<svg width="11" height="11" viewBox="0 0 11 11" fill="none" style="width:0.6875rem;height:0.6875rem;"><path d="M2 5.5l2.5 2.5L9 3" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  var svgInfo  = '<svg width="11" height="11" viewBox="0 0 11 11" fill="none" style="width:0.6875rem;height:0.6875rem;"><path d="M5.5 3.5v3M5.5 8v.5" stroke="#6B7280" stroke-width="1.5" stroke-linecap="round"/></svg>';
 
   function fadeIn(el) {
     el.style.opacity = '0'; el.style.display = 'block'; el.style.transition = 'none';
@@ -1679,14 +1693,14 @@
     var result = document.getElementById('zip-result');
     var html = '';
     if (!/^\d{5}$/.test(raw)) {
-      html = '<p style="font-family:\'Instrument Sans\',sans-serif;font-size:14px;color:#6B7280;margin:0;">Please enter a valid 5-digit ZIP code.</p>';
+      html = '<p style="font-family:\'Instrument Sans\',sans-serif;font-size:0.875rem;color:#6B7280;margin:0;">Please enter a valid 5-digit ZIP code.</p>';
       result.innerHTML = html; fadeIn(result); return;
     }
     var city = servedZips[raw];
     if (city) {
-      html = '<div style="display:flex;align-items:flex-start;gap:10px;"><div style="width:22px;height:22px;background:#B8873B;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">' + svgCheck + '</div><div><p style="font-family:\'Instrument Sans\',sans-serif;font-size:15px;font-weight:500;color:#0F1B26;margin:0;">Yes \u2014 we serve <strong>' + city + '</strong>. Same-day service available.</p><a href="tel:+15125558199" style="font-family:\'JetBrains Mono\',monospace;font-size:13px;font-weight:500;color:#B8873B;text-decoration:none;display:inline-block;margin-top:6px;border-bottom:1px solid transparent;transition:border-color 150ms;" onmouseenter="this.style.borderBottomColor=\'#B8873B\'" onmouseleave="this.style.borderBottomColor=\'transparent\'">Call (512) 555-8199</a></div></div>';
+      html = '<div style="display:flex;align-items:flex-start;gap:0.625rem;"><div style="width:1.375rem;height:1.375rem;background:#B8873B;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">' + svgCheck + '</div><div><p style="font-family:\'Instrument Sans\',sans-serif;font-size:0.9375rem;font-weight:500;color:#0F1B26;margin:0;">Yes \u2014 we serve <strong>' + city + '</strong>. Same-day service available.</p><a href="tel:+15125558199" style="font-family:\'JetBrains Mono\',monospace;font-size:0.8125rem;font-weight:500;color:#B8873B;text-decoration:none;display:inline-block;margin-top:0.375rem;border-bottom:1px solid transparent;transition:border-color 150ms;" onmouseenter="this.style.borderBottomColor=\'#B8873B\'" onmouseleave="this.style.borderBottomColor=\'transparent\'">Call (512) 555-8199</a></div></div>';
     } else {
-      html = '<div style="display:flex;align-items:flex-start;gap:10px;"><div style="width:22px;height:22px;border:1.5px solid #6B7280;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">' + svgInfo + '</div><p style="font-family:\'Instrument Sans\',sans-serif;font-size:15px;font-weight:500;color:#3B4A5C;margin:0;">We don\u2019t serve that ZIP yet \u2014 but call us, we\u2019ll refer you to a vetted local plumber.</p></div>';
+      html = '<div style="display:flex;align-items:flex-start;gap:0.625rem;"><div style="width:1.375rem;height:1.375rem;border:1.5px solid #6B7280;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">' + svgInfo + '</div><p style="font-family:\'Instrument Sans\',sans-serif;font-size:0.9375rem;font-weight:500;color:#3B4A5C;margin:0;">We don\u2019t serve that ZIP yet \u2014 but call us, we\u2019ll refer you to a vetted local plumber.</p></div>';
     }
     result.innerHTML = html; fadeIn(result);
   });
